@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --color-zazo-green: #6CFF94;
+  --color-zazo-black: #000000;
+  --color-zazo-white: #FFFFFF;
+  --color-zazo-app: #F7F7F7;
+  --color-zazo-gray: #999999;
+  --color-zazo-hairline: #E5E5E5;
+  --color-legal-blue: #0000EE;
+
+  --font-inter: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --tracking-hero: -1.68px;
+  --tracking-h2: -1.20px;
+  --tracking-lead: -0.75px;
+  --tracking-body: -0.54px;
+  --tracking-nav: -0.28px;
+  --tracking-btn: -0.24px;
+}
+
+:root {
+  --zazo-green: #6CFF94;
+  --zazo-black: #000000;
+  --zazo-white: #FFFFFF;
+  --zazo-app: #F7F7F7;
+  --zazo-gray: #999999;
+  --zazo-hairline: #E5E5E5;
+  --legal-blue: #0000EE;
+}
+
+/* Reset and strict base rules */
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #6CFF94;
+  color: #000000;
+  font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  transition: background-color 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: #000000;
+  font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  transition: background-color 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none !important;
+}
+
+/* Snapping sections: scroll-margin ensures anchors and targets align right below sticky 74px navbar */
+.snap-section {
+  scroll-margin-top: 74px;
+}
+
+/* Top-level snap for Hero (aligned to top of viewport) */
+.snap-section-top {
+  scroll-margin-top: 0px;
+}
+
+/* Hard edges, no blurs or gradients anywhere */
+::selection {
+  background-color: #6CFF94;
+  color: #000000;
+}
+
+/* Strict button styles */
+.btn-pill {
+  height: 46px;
+  padding: 0 20px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 150ms ease, opacity 150ms ease;
+  user-select: none;
+  border: none;
+  outline: none;
+}
+
+.btn-pill:hover {
+  transform: scale(1.03);
+}
+
+.btn-pill:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.btn-secondary-green {
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  color: #000000;
+}
+
+.btn-cta-arrow {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  border: 1px solid #E5E5E5;
+  color: #000000;
+}
+
+/* Oversized 50px rounded cards */
+.card-oversized {
+  border-radius: 50px !important;
+}
+
+@media (max-width: 640px) {
+  .card-oversized {
+    border-radius: 32px !important;
+  }
+}
