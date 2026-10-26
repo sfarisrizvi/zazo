@@ -4,102 +4,125 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function FaqAccordion() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   const faqs = [
     {
       q: 'What is Zazo?',
-      a: 'Zazo is being developed to connect supported international receiving, currency conversion, and local payments in one experience. Availability depends on your location, account eligibility, and the features offered at launch.',
+      a: 'A wallet to receive money globally and spend locally in Pakistan.',
     },
     {
-      q: 'Who can use Zazo?',
-      a: 'Zazo is designed for freelancers, remote contractors, independent businesses, and individuals in Pakistan receiving foreign currency. Account activation requires standard digital verification with valid national identification.',
+      q: 'How do I get the 280 rate?',
+      a: 'Convert USD to PKR in the app. The rate is shown before you confirm.',
     },
     {
-      q: 'Which currencies can I receive?',
-      a: 'USD and PKR will be supported at launch. Planned future currencies include EUR, GBP, and AED. Incoming funds are routed through dedicated receiving account numbers to minimize intermediary fees.',
+      q: 'Who can open a Zazo account?',
+      a: 'Freelancers, remote workers, agencies and software houses, Amazon/eBay/Etsy sellers, families receiving remittances, local users, and merchants accepting QR payments.',
     },
     {
-      q: 'How fast does money arrive?',
-      a: 'Arrival times depend on the payment method. Standard US ACH deposits clear in 1 to 2 business days. Once received, currency conversion and local Pakistani QR or Raast transfers settle instantly.',
+      q: 'Any cost to open an account?',
+      a: 'Zero. Account opening is free',
     },
     {
-      q: 'What rate do I get when converting?',
-      a: 'You see the exact real-time quoted exchange rate, transparent fees, and expected local PKR amount together before confirming. The quote is locked so you receive exactly what you see.',
+      q: 'How does Zazo benefit me?',
+      a: 'Open a wallet in minutes, hold multiple currencies, receive from global clients, convert, then withdraw or spend by QR and earn all in one app.',
     },
     {
-      q: 'Can I spend directly from the app?',
-      a: 'Yes. Once converted, your PKR balance is immediately ready to scan-and-pay at nationwide merchant QR locations, send to friends via $zazotag, or transfer to any Pakistani bank account via Raast.',
+      q: 'How do I get discounts?',
+      a: 'Eligible QR payments earn dynamic discounts, up to 10%. The higher your PKR balance, the more you can save.',
     },
     {
-      q: 'What does Zazo cost?',
-      a: 'Account opening, maintenance, and local QR merchant payments are free. Transparent, flat pricing applies to currency conversion, displayed upfront without hidden spreads or monthly charges.',
+      q: 'What fees do I pay?',
+      a: 'Free account opening, no FX fee, no spread, no hidden fee. Your rate is shown before you confirm, and the Zazo Smart Engine aims to give you a better rate than interbank.',
+    },
+    {
+      q: 'How safe is my money?',
+      a: 'Held with a licensed financial partner, licensed local bank partner for PKR, licensed partners for other currencies. Segregated funds, encryption, and real-time fraud monitoring.',
+    },
+    {
+      q: 'Are these real bank account details?',
+      a: 'Yes. You get real account details in your own name ACH and wire details for USD, swift code and account number for GBP, and an IBAN for EUR and AED.',
+    },
+    {
+      q: 'How does cashback work?',
+      a: 'Eligible QR payments earn dynamic discounts, up to 10%. Terms and limits apply.',
+    },
+    {
+      q: 'Can I receive from Upwork or Amazon?',
+      a: 'Supported sources are listed in the app. Availability may vary by source.',
+    },
+    {
+      q: 'How do I get the app?',
+      a: 'Download from the App Store or Google Play.',
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <section id="faq" data-snap-point data-snap-id="faq" data-theme-bg="white" className="snap-section w-full bg-transparent py-[90px] text-black border-t border-black/10">
-      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
+    <section
+      id="faq"
+      data-snap-point
+      data-snap-id="faq"
+      data-theme-bg="white"
+      className="snap-section w-full bg-transparent py-20 lg:py-28 text-black border-t border-black/10"
+    >
+      <div className="mx-auto max-w-[1000px] px-5 lg:px-8">
+        
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-2xl"
+          className="text-center max-w-xl mx-auto mb-12"
         >
-          <span className="text-[14px] tracking-[-0.28px] text-[#999999] font-normal uppercase">
-            Frequently Asked
+          <span className="text-[13px] tracking-[-0.26px] text-black/50 font-normal uppercase">
+            6. FAQ
           </span>
-          <h2 className="mt-2 text-[32px] sm:text-[40px] leading-[36px] sm:leading-[44px] tracking-[-1.2px] font-normal text-black m-0">
-            Questions, answered.
+          <h2 className="mt-2 text-[36px] sm:text-[46px] leading-[1.1] tracking-[-1.3px] font-normal text-black m-0">
+            Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-[18px] leading-[25px] tracking-[-0.54px] text-[#999999] font-normal m-0">
-            Everything you need to know about receiving, converting, and spending with Zazo.
-          </p>
         </motion.div>
 
-        {/* Accordion List with Hairline Dividers */}
-        <div className="mt-12 max-w-3xl divide-y divide-[#E5E5E5] border-t border-b border-[#E5E5E5]">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
+        {/* Accordion List */}
+        <div className="flex flex-col gap-3">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+
             return (
-              <div key={index} className="py-6">
+              <div
+                key={faq.q}
+                className="rounded-[24px] border border-black/10 bg-black/[0.02] overflow-hidden transition-all duration-300 hover:border-black/25"
+              >
                 <button
                   type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer bg-transparent border-none outline-none select-none"
                   aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${index}`}
-                  onClick={() => toggle(index)}
-                  className="flex w-full items-center justify-between text-left transition-opacity hover:opacity-75 focus:outline-none"
                 >
-                  <span className="text-[18px] sm:text-[20px] leading-[26px] tracking-[-0.54px] text-black font-normal pr-6">
+                  <span className="text-[17px] sm:text-[18px] font-medium tracking-[-0.4px] text-black pr-4">
                     {faq.q}
                   </span>
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F7F7F7] border border-[#E5E5E5] text-black transition-transform duration-200">
-                    {isOpen ? (
-                      <span className="text-[18px] font-normal leading-none">−</span>
-                    ) : (
-                      <span className="text-[18px] font-normal leading-none">+</span>
-                    )}
-                  </div>
+                  <span
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white text-[18px] transition-transform duration-300 ${
+                      isOpen ? 'rotate-45' : 'rotate-0'
+                    }`}
+                  >
+                    +
+                  </span>
                 </button>
 
-                <AnimatePresence initial={false}>
+                <AnimatePresence>
                   {isOpen && (
                     <motion.div
-                      id={`faq-answer-${index}`}
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <p className="pt-4 text-[16px] leading-[24px] tracking-[-0.48px] text-[#999999] font-normal m-0">
+                      <div className="px-6 pb-6 pt-1 text-[15px] sm:text-[16px] leading-[24px] tracking-[-0.4px] text-black/75 border-t border-black/5">
                         {faq.a}
-                      </p>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -107,6 +130,7 @@ export default function FaqAccordion() {
             );
           })}
         </div>
+
       </div>
     </section>
   );

@@ -1,51 +1,68 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollBackground } from './ScrollBackgroundContext';
 import Logo from './Logo';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { currentTheme } = useScrollBackground();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide navbar on hero section; show as soon as user scrolls past hero
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isDark = currentTheme.textColor === 'white';
 
   const navLinks = [
-    { label: 'How it works', href: '#how-it-works' },
-    { label: 'Benefits', href: '#benefits' },
-    { label: 'Calculator', href: '#calculator' },
-    { label: 'Personas', href: '#personas' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Receive USD', href: '#receive-usd' },
+    { label: 'Convert', href: '#convert-clarity' },
+    { label: 'QR Pay', href: '#spend-qr' },
+    { label: 'Features', href: '#features' },
+    { label: 'Use Cases', href: '#use-cases' },
+    { label: 'Zazo Card', href: '#zazo-card' },
   ];
 
   return (
     <header
-      className="sticky top-0 z-50 w-full backdrop-blur-md transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] border-b"
+      className={`fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] border-b ${
+        isScrolled
+          ? 'translate-y-0 opacity-100 pointer-events-auto'
+          : '-translate-y-full opacity-0 pointer-events-none'
+      }`}
       style={{
         backgroundColor: currentTheme.navBg,
         borderColor: currentTheme.navBorder,
       }}
     >
       <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 lg:px-8">
-        {/* Brand Logo Lockup */}
-        <a href="#" className="flex items-center text-decoration-none group" aria-label="Zazo Home">
+        {/* Brand Logo */}
+        <a href="#hero" className="flex items-center text-decoration-none group" aria-label="Zazo Home">
           <Logo
             height={32}
-            className={`transition-colors duration-700 group-hover:opacity-85 ${
+            className={`transition-colors duration-500 group-hover:opacity-85 ${
               isDark ? 'text-white' : 'text-black'
             }`}
           />
         </a>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={`text-[14px] leading-5 tracking-[-0.28px] transition-colors duration-700 font-normal ${
+              className={`text-[13px] xl:text-[14px] leading-5 tracking-[-0.28px] transition-colors duration-300 font-normal ${
                 isDark ? 'text-white/80 hover:text-white' : 'text-black/80 hover:text-black'
               }`}
             >
@@ -54,36 +71,26 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop Action Buttons */}
-        <div className="hidden items-center gap-3 md:flex">
+        {/* Desktop Actions */}
+        <div className="hidden items-center gap-3 sm:flex">
           <a
-            href="#waitlist"
-            className={`btn-pill transition-all duration-300 ${
+            href="#footer"
+            className={`btn-pill text-[12px] font-medium transition-all duration-300 ${
               isDark
-                ? 'border border-white/20 text-white hover:bg-white/10'
-                : 'btn-secondary-green'
-            }`}
-          >
-            Sign up
-          </a>
-          <a
-            href="#waitlist"
-            className={`btn-pill transition-all duration-300 ${
-              isDark
-                ? 'bg-[#6CFF94] text-black font-semibold hover:bg-[#5CE883]'
+                ? 'bg-[#6CFF94] text-black hover:bg-[#5CE883]'
                 : 'btn-primary'
             }`}
           >
-            Join the Waitlist
+            Get Started
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger */}
         <button
           type="button"
           aria-label="Toggle navigation menu"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-black text-white transition-transform hover:scale-105 md:hidden"
+          className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-black text-white transition-transform hover:scale-105 lg:hidden"
         >
           {mobileMenuOpen ? (
             <svg
@@ -116,7 +123,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -124,7 +131,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden border-t border-black/10 bg-[#6CFF94] px-5 py-6 md:hidden"
+            className="overflow-hidden border-t border-black/10 bg-[#6CFF94] px-5 py-6 lg:hidden"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -132,25 +139,18 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-[18px] tracking-[-0.54px] text-black font-normal py-1"
+                  className="text-[17px] tracking-[-0.5px] text-black font-normal py-1"
                 >
                   {link.label}
                 </a>
               ))}
               <div className="mt-4 flex flex-col gap-3 pt-4 border-t border-black/10">
                 <a
-                  href="#waitlist"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="btn-pill btn-secondary-green w-full text-center"
-                >
-                  Sign up
-                </a>
-                <a
-                  href="#waitlist"
+                  href="#footer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="btn-pill btn-primary w-full text-center"
                 >
-                  Join the Waitlist
+                  Get Started
                 </a>
               </div>
             </div>

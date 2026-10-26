@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
-export type ThemeType = 'green' | 'black' | 'white';
+export type ThemeType = 'green' | 'black' | 'white' | 'magenta' | 'yellow' | 'blue';
 
 export interface ThemeState {
   theme: ThemeType;
@@ -38,6 +38,30 @@ export const themeConfigs: Record<ThemeType, ThemeState> = {
     navBorder: 'rgba(0, 0, 0, 0.08)',
     navText: 'black',
   },
+  magenta: {
+    theme: 'magenta',
+    bg: '#DB1584',
+    textColor: 'white',
+    navBg: 'rgba(219, 21, 132, 0.94)',
+    navBorder: 'rgba(255, 255, 255, 0.15)',
+    navText: 'white',
+  },
+  yellow: {
+    theme: 'yellow',
+    bg: '#FEDD42',
+    textColor: 'black',
+    navBg: 'rgba(254, 221, 66, 0.94)',
+    navBorder: 'rgba(0, 0, 0, 0.1)',
+    navText: 'black',
+  },
+  blue: {
+    theme: 'blue',
+    bg: '#ADE3FD',
+    textColor: 'black',
+    navBg: 'rgba(173, 227, 253, 0.94)',
+    navBorder: 'rgba(0, 0, 0, 0.1)',
+    navText: 'black',
+  },
 };
 
 const ScrollBackgroundContext = createContext<{
@@ -62,7 +86,7 @@ export default function ScrollBackgroundProvider({
   const applyTheme = useCallback((themeName: ThemeType) => {
     setCurrentTheme((prev) => {
       if (prev.theme !== themeName) {
-        const next = themeConfigs[themeName];
+        const next = themeConfigs[themeName] || themeConfigs.green;
         if (typeof document !== 'undefined') {
           document.body.style.backgroundColor = next.bg;
           document.documentElement.style.backgroundColor = next.bg;
@@ -78,41 +102,19 @@ export default function ScrollBackgroundProvider({
 
     const checkScroll = () => {
       const scrollY = window.scrollY;
-      const isDesktop = window.innerWidth >= 1024;
-      const slideHeight = window.innerHeight - 74;
-      const showcaseMaxY = slideHeight * 6.4;
 
-      // 1. On desktop, within Hero and the 6 pinned chapters (HeroAndShowcase):
-      // Calculate active slide mathematically so background matches text 100% deterministically
-      if (isDesktop && scrollY <= showcaseMaxY) {
-        const chapterThemes: ThemeType[] = [
-          'green', // Hero
-          'black', // 01 Receive USD
-          'white', // 02 Convert Clarity
-          'green', // 03 Spend QR
-          'black', // 04 Send PKR
-          'white', // 05 Activity Rewards
-          'black', // 06 Zazo Card
-        ];
-        const slideIdx = Math.max(0, Math.min(6, Math.round(scrollY / slideHeight)));
-        applyTheme(chapterThemes[slideIdx]);
+      // If at top / hero, enforce green theme
+      if (scrollY < 100) {
+        applyTheme('green');
         ticking = false;
         return;
       }
 
-      // 2. Beyond HeroAndShowcase (or on mobile): find the active section that encompasses the trigger line
-      const triggerY = window.innerHeight * 0.48;
+      const triggerY = window.innerHeight * 0.45;
       const allSections = Array.from(document.querySelectorAll<HTMLElement>('[data-theme-bg]'));
-      const activeSections = allSections.filter((el) => {
-        // Exclude desktop chapters if past showcase or on mobile
-        if (isDesktop && el.closest('#hero-and-showcase')) return false;
-        if (!isDesktop && el.closest('.lg\\:block')) return false;
-        const style = window.getComputedStyle(el);
-        return style.display !== 'none' && style.visibility !== 'hidden' && (el.offsetWidth > 0 || el.offsetHeight > 0);
-      });
-
+      
       let matchedTheme: ThemeType = 'green';
-      for (const section of activeSections) {
+      for (const section of allSections) {
         const rect = section.getBoundingClientRect();
         if (rect.top <= triggerY && rect.bottom >= triggerY) {
           const themeAttr = section.getAttribute('data-theme-bg') as ThemeType;
@@ -146,12 +148,6 @@ export default function ScrollBackgroundProvider({
 
   return (
     <ScrollBackgroundContext.Provider value={{ currentTheme, setTheme: applyTheme }}>
-      {/* 
-        The Fixed Background Canvas:
-        Stays completely stationary in the viewport at all times.
-        Smoothly shifts color (green -> black -> green -> white -> black)
-        via CSS transitions, exactly like switching dark/light mode!
-      */}
       <div
         className="fixed inset-0 pointer-events-none -z-50 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{ backgroundColor: currentTheme.bg }}
