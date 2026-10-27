@@ -736,7 +736,7 @@ export default function HeroAndShowcase() {
               </div>
 
               {/* Floating Badges (Positioned around the phone perimeter, not blocking screen UI) */}
-              <div className="absolute bottom-6 sm:bottom-8 -left-8 sm:-left-12 z-20 w-[126px] sm:w-[145px]">
+              <div className="absolute bottom-6 sm:bottom-8 -left-12 sm:-left-16 z-20 w-[118px] sm:w-[136px]">
                 <Image
                   src="/badges/badge_usd_received.png"
                   alt="USD received"
@@ -745,7 +745,7 @@ export default function HeroAndShowcase() {
                   className="h-auto w-full drop-shadow-xl"
                 />
               </div>
-              <div className="absolute top-6 sm:top-8 -right-8 sm:-right-12 z-20 w-[126px] sm:w-[145px]">
+              <div className="absolute top-5 sm:top-7 -right-12 sm:-right-16 z-20 w-[118px] sm:w-[136px]">
                 <Image
                   src="/badges/badge_discount.png"
                   alt="Discount earned"

@@ -39,6 +39,7 @@
 html {
   margin: 0;
   padding: 0;
+  color-scheme: light;
   background-color: #6CFF94;
   color: #000000;
   font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
