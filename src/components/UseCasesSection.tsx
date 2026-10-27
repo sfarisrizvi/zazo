@@ -12,6 +12,7 @@ interface UseCaseItem {
   themeAttr: 'magenta' | 'yellow' | 'blue';
   textColor: 'white' | 'black';
   image: string;
+  mobileImage: string;
   imageAlt: string;
   features: string[];
 }
@@ -21,13 +22,14 @@ const useCases: UseCaseItem[] = [
     id: 'freelancers',
     tabLabel: 'Freelancers & Creators',
     badge: 'Use Case 01 · Freelancers & Creators',
-    headline: 'Your work goes global.\nYour money should fit life at home.',
+    headline: 'Your work goes global.\nYour money should fit your everyday life.',
     description:
-      'Receive client payments via dedicated US routing and account details from Upwork, Deel, and Stripe with 0% intermediary cuts. Convert when rates are best and spend instantly via QR across Pakistan.',
+      'Receive payment for international work and understand what it means for your local spending.',
     bgColor: '#DB1584',
     themeAttr: 'magenta',
     textColor: 'white',
     image: '/freelancer.png',
+    mobileImage: '/freelancer-mobile.png',
     imageAlt: 'Zazo for Freelancers and Creators receiving global earnings in Pakistan',
     features: [
       'Dedicated US Routing & Account Details',
@@ -40,13 +42,14 @@ const useCases: UseCaseItem[] = [
     id: 'everyday-spending',
     tabLabel: 'Everyday Life & Purchases',
     badge: 'Use Case 02 · Everyday Spending & Purchases',
-    headline: 'Money from abroad,\nready for everyday life.',
+    headline: 'Money from abroad,\nready for life at home.',
     description:
-      'Keep PKR in your Zazo wallet to scan any merchant QR code, pay utility bills, or send money to friends in seconds. No bank queues, no ATM withdrawal fees.',
+      'Understand how money sent from abroad can reach you and be used locally.',
     bgColor: '#FEDD42',
     themeAttr: 'yellow',
     textColor: 'black',
     image: '/local-purchase.png',
+    mobileImage: '/local-purchase-mobile.png',
     imageAlt: 'Zazo for Everyday Spending and Local Purchases across Pakistan',
     features: [
       'Scan Any Merchant QR Code',
@@ -59,13 +62,14 @@ const useCases: UseCaseItem[] = [
     id: 'businesses',
     tabLabel: 'Businesses & Remote Teams',
     badge: 'Use Case 03 · Businesses & Agencies',
-    headline: 'Connect international revenue\nwith local business spending.',
+    headline: 'Connect international income\nwith local business spending.',
     description:
-      'Manage foreign client retainers, SaaS tools, and local Pakistani operational vendor payroll in one connected wallet. Complete transparent receipts and automated Raast batch settlements.',
+      'Connect supported international receipts with local business needs.',
     bgColor: '#ADE3FD',
     themeAttr: 'blue',
     textColor: 'black',
     image: '/business.png',
+    mobileImage: '/business-mobile.png',
     imageAlt: 'Zazo for Businesses and Agencies managing foreign revenue and local payroll',
     features: [
       'Dedicated Corporate Accounts',
@@ -77,47 +81,8 @@ const useCases: UseCaseItem[] = [
 ];
 
 export default function UseCasesSection() {
-  const jumpToUseCase = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const topY = el.getBoundingClientRect().top + window.scrollY - 74;
-      window.scrollTo({ top: Math.max(0, topY), behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="use-cases" className="relative w-full bg-transparent">
-      {/* Intro Header */}
-      <div className="w-full bg-black py-16 px-6 lg:px-12 text-center text-white border-t border-white/10 relative z-0">
-        <div className="mx-auto max-w-3xl flex flex-col items-center">
-          <span className="inline-flex h-7 items-center rounded-full bg-white/10 px-3.5 text-[12px] font-medium tracking-wide uppercase text-white/90 border border-white/15">
-            Audience Use Cases
-          </span>
-          <h2 className="mt-4 text-[36px] sm:text-[46px] lg:text-[54px] font-normal leading-tight tracking-[-1.5px] text-white m-0">
-            Different lives.
-            <br />
-            One connected money journey.
-          </h2>
-          <p className="mt-4 text-[17px] sm:text-[19px] leading-relaxed text-[#A3A3A3] font-normal m-0 max-w-xl">
-            Whether you earn across borders, run a growing agency, or spend in Pakistan, Zazo brings money home to work for you.
-          </p>
-
-          {/* Quick Jump Pill Navigation */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
-            {useCases.map((uc) => (
-              <button
-                key={uc.id}
-                type="button"
-                onClick={() => jumpToUseCase(uc.id)}
-                className="btn-pill text-[13px] tracking-[-0.26px] bg-white/10 text-white border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer"
-              >
-                {uc.tabLabel}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
+    <section id="use-cases" className="relative w-full bg-transparent -mb-16 sm:-mb-24">
       {/* 
         ========================================================================
         STACKING SECTIONS CONTAINER
@@ -198,18 +163,36 @@ export default function UseCasesSection() {
 
               {/* 
                 MAX WIDTH IMAGE CONTAINER
-                Displays image up to 1536px width, fluidly scaling so it fits on screen while pinned!
+                Mobile: 4:5 portrait aspect ratio, flush against card bottom
+                Desktop: 1672/941 widescreen banner, flush against card bottom
               */}
-              <div className="relative w-full max-w-[1480px] mx-auto aspect-[1672/941] max-h-[56vh] px-4 sm:px-6 lg:px-8 pb-4 sm:pb-8 flex items-end justify-center">
-                <div className="relative w-full h-full overflow-hidden rounded-[20px] sm:rounded-[32px]">
-                  <Image
-                    src={uc.image}
-                    alt={uc.imageAlt}
-                    fill
-                    priority={index === 0}
-                    sizes="(max-width: 1536px) 100vw, 1480px"
-                    className="object-contain object-bottom select-none"
-                  />
+              <div className="relative w-full max-w-[1480px] mx-auto aspect-[4/5] sm:aspect-[1672/941] max-h-[60vh] sm:max-h-[58vh] px-4 sm:px-6 lg:px-8 pb-0 flex items-end justify-center">
+                <div className="relative w-full h-full overflow-hidden rounded-t-[20px] sm:rounded-t-[32px] rounded-b-none">
+                  {/* Desktop Image */}
+                  <div className="hidden sm:block relative w-full h-full">
+                    <Image
+                      src={uc.image}
+                      alt={uc.imageAlt}
+                      fill
+                      unoptimized
+                      priority={index === 0}
+                      sizes="(max-width: 1536px) 100vw, 1480px"
+                      className="object-contain object-bottom select-none"
+                    />
+                  </div>
+
+                  {/* Mobile 4:5 Image */}
+                  <div className="block sm:hidden relative w-full h-full">
+                    <Image
+                      src={uc.mobileImage}
+                      alt={uc.imageAlt}
+                      fill
+                      unoptimized
+                      priority={index === 0}
+                      sizes="(max-width: 640px) 100vw, 540px"
+                      className="object-contain object-bottom select-none"
+                    />
+                  </div>
                 </div>
               </div>
 

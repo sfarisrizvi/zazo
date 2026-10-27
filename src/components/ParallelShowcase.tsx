@@ -8,6 +8,7 @@ interface ParallelFeature {
   headline: string;
   description: string;
   image: string;
+  mobileImage: string;
   imageAlt: string;
   statLabel: string;
   statValue: string;
@@ -24,7 +25,8 @@ const features: ParallelFeature[] = [
     badge: 'Local QR Pay',
     headline: 'Scan & pay locally.',
     description: 'Instant checkout at any merchant standee.',
-    image: '/local-payment.png',
+    image: '/pay-QR.png',
+    mobileImage: '/pay-QR-mobile.png',
     imageAlt: 'Zazo Scan to Pay QR standee and instant local checkout',
     statLabel: 'Settlement Speed',
     statValue: 'Instant',
@@ -40,6 +42,7 @@ const features: ParallelFeature[] = [
     headline: 'From payout to local spend.',
     description: 'Spend your earnings anywhere across Pakistan.',
     image: '/local-merchant.png',
+    mobileImage: '/local-merchant.png', // Temporary fallback until mobile version provided
     imageAlt: 'Zazo connecting global receiving to local shop spending in Pakistan',
     statLabel: 'Settlement Speed',
     statValue: 'Instant',
@@ -54,7 +57,8 @@ const features: ParallelFeature[] = [
     badge: 'Zero Cash',
     headline: 'Pay with a tap.',
     description: 'No cash or cards needed for daily checkout.',
-    image: '/pay-QR.png',
+    image: '/tap-to-pay.png',
+    mobileImage: '/tap-to-pay-mobile.png',
     imageAlt: 'Customer scanning Zazo counter QR code at local cafe in Pakistan',
     statLabel: 'Checkout Time',
     statValue: '< 2 Sec',
@@ -70,6 +74,7 @@ const features: ParallelFeature[] = [
     headline: 'Hold USD, spend PKR.',
     description: 'Virtual and physical cards with zero maintenance fees.',
     image: '/Agencies.png',
+    mobileImage: '/Agencies-mobile.png',
     imageAlt: 'Zazo Multi-currency wallet and physical debit cards',
     statLabel: 'Card Fee',
     statValue: 'Rs 0 Fee',
@@ -87,31 +92,28 @@ export default function ParallelShowcase() {
       id="features"
       data-snap-point
       data-snap-id="features"
-      className="relative w-full bg-transparent py-16 lg:py-24 overflow-hidden transition-colors duration-700"
+      className="relative w-full bg-transparent py-8 lg:py-12 overflow-hidden transition-colors duration-700"
     >
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div
           data-theme-bg="white"
-          className="mx-auto max-w-3xl text-center flex flex-col items-center pt-8 pb-16 lg:pt-12 lg:pb-24"
+          className="mx-auto max-w-3xl text-center flex flex-col items-center pt-4 pb-8 lg:pt-6 lg:pb-12"
         >
           <span className="inline-flex h-7 items-center rounded-full bg-black/5 px-3.5 text-[12px] font-medium tracking-wide uppercase text-neutral-800 border border-black/10">
-            Connected Money Features
+            Main Benefits
           </span>
           <h2 className="mt-4 text-[36px] sm:text-[46px] lg:text-[54px] font-normal leading-tight tracking-[-1.5px] text-black m-0">
-            Engineered for clarity.
-            <br />
-            Built for Pakistan.
+            Built for money that moves across borders.
           </h2>
           <p className="mt-3 text-[17px] sm:text-[19px] leading-relaxed text-neutral-600 font-normal m-0 max-w-xl">
-            Settle local payments instantly with zero hidden fees.
+            Bring international income and everyday spending together in one app.
           </p>
         </div>
 
         {/* 
           ======================================================================
-          FULL-SCREEN PARALLEL SHOWCASE ROWS
-          Each row occupies min-h-screen so ONLY ONE section fits on screen at once
+          PARALLEL SHOWCASE ROWS (Reduced spacing)
           ======================================================================
         */}
         <div className="flex flex-col">
@@ -125,9 +127,9 @@ export default function ParallelShowcase() {
                 data-snap-point
                 data-snap-id={`feat-${feat.id}`}
                 data-theme-bg={feat.theme}
-                className="relative w-full min-h-screen flex flex-col justify-center py-28 lg:py-40 my-16 lg:my-28"
+                className="relative w-full flex flex-col justify-center py-10 lg:py-20 my-4 lg:my-14"
               >
-                <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0 w-full">
+                <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0 w-full">
                   {/* 
                     TEXT CARD
                     Overlaps a portion of the big image with negative margin & high z-index
@@ -152,10 +154,10 @@ export default function ParallelShowcase() {
 
                       return (
                         <div
-                          className={`rounded-[32px] p-8 sm:p-10 backdrop-blur-2xl transition-all duration-500 ${
+                          className={`p-0 lg:p-8 xl:p-10 transition-all duration-500 rounded-none lg:rounded-[32px] border-0 lg:border shadow-none backdrop-blur-none lg:backdrop-blur-2xl ${
                             isWhiteGlass
-                              ? 'border border-white/80 bg-white/70 shadow-[0_20px_50px_rgba(0,0,0,0.08)] text-black'
-                              : 'border border-white/15 bg-black/60 shadow-[0_25px_60px_rgba(0,0,0,0.5)] text-white'
+                              ? 'lg:border-white/80 bg-transparent lg:bg-white/70 lg:shadow-[0_20px_50px_rgba(0,0,0,0.08)] text-black'
+                              : 'lg:border-white/15 bg-transparent lg:bg-black/60 lg:shadow-[0_25px_60px_rgba(0,0,0,0.5)] text-white'
                           }`}
                         >
                           {/* Badge */}
@@ -172,7 +174,7 @@ export default function ParallelShowcase() {
 
                           {/* Headline */}
                           <h3
-                            className={`mt-4 whitespace-pre-line text-[28px] sm:text-[34px] lg:text-[38px] leading-[32px] sm:leading-[38px] lg:leading-[42px] font-normal tracking-[-1.2px] m-0 ${
+                            className={`mt-4 whitespace-pre-line text-[30px] sm:text-[36px] lg:text-[38px] leading-[34px] sm:leading-[40px] lg:leading-[42px] font-normal tracking-[-1.2px] m-0 ${
                               isWhiteGlass ? 'text-black' : 'text-white'
                             }`}
                           >
@@ -181,8 +183,8 @@ export default function ParallelShowcase() {
 
                           {/* Description */}
                           <p
-                            className={`mt-3 text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed tracking-[-0.3px] font-normal m-0 ${
-                              isWhiteGlass ? 'text-neutral-600' : 'text-[#A3A3A3]'
+                            className={`mt-3 text-[16px] sm:text-[17px] leading-relaxed tracking-[-0.3px] font-normal m-0 ${
+                              isWhiteGlass ? 'text-neutral-700' : 'text-[#A3A3A3]'
                             }`}
                           >
                             {feat.description}
@@ -203,15 +205,15 @@ export default function ParallelShowcase() {
                                 {feat.statLabel}
                               </span>
                               <div
-                                className="mt-1 text-[24px] sm:text-[28px] font-normal tracking-tight"
+                                className="mt-1 text-[26px] sm:text-[28px] font-medium tracking-tight"
                                 style={{ color: accentColor }}
                               >
                                 {feat.statValue}
                               </div>
                             </div>
                             <span
-                              className={`text-[12px] text-right max-w-[160px] ${
-                                isWhiteGlass ? 'text-neutral-600' : 'text-[#A3A3A3]'
+                              className={`text-[13px] sm:text-[12px] text-right max-w-[160px] font-medium sm:font-normal ${
+                                isWhiteGlass ? 'text-neutral-700' : 'text-[#A3A3A3]'
                               }`}
                             >
                               {feat.statDetail}
@@ -223,8 +225,9 @@ export default function ParallelShowcase() {
                   </div>
 
                   {/* 
-                    BIG EXPANSIVE IMAGE
-                    Occupies ~64% width on desktop, giving it grand hero-scale presence!
+                    EXPANSIVE IMAGE CONTAINER
+                    Mobile: 4:5 portrait (aspect-[4/5]), bold & prominent
+                    Desktop: 1536/1024 landscape (~64% width), grand hero-scale presence!
                   */}
                   <div
                     className={`w-full lg:w-[64%] xl:w-[66%] z-0 ${
@@ -232,20 +235,36 @@ export default function ParallelShowcase() {
                     }`}
                   >
                     <div
-                      className="group relative w-full rounded-[32px] sm:rounded-[44px] overflow-hidden border border-black/10 bg-[#f7f7f7] shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-transform duration-500 hover:scale-[1.01]"
-                      style={{ aspectRatio: feat.aspectRatio }}
+                      className="group relative w-full rounded-[28px] sm:rounded-[44px] overflow-hidden border border-black/10 bg-[#f7f7f7] shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-transform duration-500 hover:scale-[1.01] aspect-[4/5] lg:aspect-[1536/1024]"
                     >
-                      <Image
-                        src={feat.image}
-                        alt={feat.imageAlt}
-                        fill
-                        priority
-                        sizes="(max-width: 1024px) 100vw, 980px"
-                        className="object-contain object-center select-none"
-                      />
+                      {/* Desktop Image */}
+                      <div className="hidden lg:block relative w-full h-full">
+                        <Image
+                          src={feat.image}
+                          alt={feat.imageAlt}
+                          fill
+                          priority
+                          sizes="980px"
+                          className="object-cover object-center select-none"
+                        />
+                      </div>
+
+                      {/* Mobile 4:5 Portrait Image */}
+                      <div className="block lg:hidden relative w-full h-full">
+                        <Image
+                          src={feat.mobileImage}
+                          alt={feat.imageAlt}
+                          fill
+                          unoptimized
+                          priority
+                          sizes="(max-width: 1023px) 100vw, 500px"
+                          className="object-cover object-center select-none"
+                        />
+                      </div>
+
                       {/* Ambient inner glow */}
                       <div
-                        className="absolute inset-0 pointer-events-none rounded-[32px] sm:rounded-[44px] transition-opacity duration-500 opacity-20 group-hover:opacity-40"
+                        className="absolute inset-0 pointer-events-none rounded-[28px] sm:rounded-[44px] transition-opacity duration-500 opacity-20 group-hover:opacity-40"
                         style={{
                           boxShadow: `inset 0 0 60px ${feat.accentColor}30`,
                         }}

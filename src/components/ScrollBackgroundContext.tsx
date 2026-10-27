@@ -113,8 +113,14 @@ export default function ScrollBackgroundProvider({
       const triggerY = window.innerHeight * 0.45;
       const allSections = Array.from(document.querySelectorAll<HTMLElement>('[data-theme-bg]'));
       
-      let matchedTheme: ThemeType = 'green';
+      let matchedTheme: ThemeType | null = null;
       for (const section of allSections) {
+        // Skip hidden elements (e.g. desktop elements on mobile or vice versa)
+        if (section.offsetWidth === 0 && section.offsetHeight === 0) continue;
+
+        // Let HeroAndShowcase manage its own internal journey without interference
+        if (section.closest('#hero-and-showcase')) continue;
+
         const rect = section.getBoundingClientRect();
         if (rect.top <= triggerY && rect.bottom >= triggerY) {
           const themeAttr = section.getAttribute('data-theme-bg') as ThemeType;
@@ -125,7 +131,9 @@ export default function ScrollBackgroundProvider({
         }
       }
 
-      applyTheme(matchedTheme);
+      if (matchedTheme) {
+        applyTheme(matchedTheme);
+      }
       ticking = false;
     };
 
