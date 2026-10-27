@@ -15,6 +15,7 @@ interface ParallelFeature {
   accentColor: string;
   imagePosition: 'left' | 'right';
   theme: 'white' | 'green';
+  aspectRatio: string;
 }
 
 const features: ParallelFeature[] = [
@@ -31,6 +32,7 @@ const features: ParallelFeature[] = [
     accentColor: '#6CFF94',
     imagePosition: 'right', // Row 1: Text Left | Image Right
     theme: 'white',
+    aspectRatio: '1536 / 1024',
   },
   {
     id: 'global-to-local',
@@ -45,6 +47,7 @@ const features: ParallelFeature[] = [
     accentColor: '#FFE600',
     imagePosition: 'left', // Row 2: Image Left | Text Right
     theme: 'white',
+    aspectRatio: '1536 / 1024',
   },
   {
     id: 'scan-to-pay',
@@ -59,6 +62,7 @@ const features: ParallelFeature[] = [
     accentColor: '#38BDF8',
     imagePosition: 'right', // Row 3: Text Left | Image Right
     theme: 'white',
+    aspectRatio: '1536 / 1024',
   },
   {
     id: 'multi-currency-card',
@@ -73,6 +77,7 @@ const features: ParallelFeature[] = [
     accentColor: '#6CFF94',
     imagePosition: 'left', // Row 4: Image Left | Text Right
     theme: 'green',
+    aspectRatio: '1672 / 941',
   },
 ];
 
@@ -226,14 +231,17 @@ export default function ParallelShowcase() {
                       isImageLeft ? 'lg:order-1' : 'lg:order-2'
                     }`}
                   >
-                    <div className="group relative w-full aspect-[1536/1024] sm:aspect-[1672/960] rounded-[32px] sm:rounded-[44px] overflow-hidden border border-black/10 bg-[#f7f7f7] shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-transform duration-500 hover:scale-[1.01]">
+                    <div
+                      className="group relative w-full rounded-[32px] sm:rounded-[44px] overflow-hidden border border-black/10 bg-[#f7f7f7] shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-transform duration-500 hover:scale-[1.01]"
+                      style={{ aspectRatio: feat.aspectRatio }}
+                    >
                       <Image
                         src={feat.image}
                         alt={feat.imageAlt}
                         fill
                         priority
                         sizes="(max-width: 1024px) 100vw, 980px"
-                        className="object-cover object-center select-none"
+                        className="object-contain object-center select-none"
                       />
                       {/* Ambient inner glow */}
                       <div

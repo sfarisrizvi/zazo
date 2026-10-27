@@ -54,7 +54,7 @@ export default function Footer() {
       data-snap-point
       data-snap-id="footer"
       data-theme-bg="black"
-      className="snap-section relative z-40 w-full bg-black pt-16 pb-12 text-white border-t border-white/10 rounded-t-[36px] sm:rounded-t-[48px] shadow-[0_-20px_50px_rgba(0,0,0,0.35)]"
+      className="relative z-40 w-full bg-black pt-16 pb-12 text-white border-t border-white/10 rounded-t-[36px] sm:rounded-t-[48px] shadow-[0_-20px_50px_rgba(0,0,0,0.35)]"
     >
       <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         

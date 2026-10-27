@@ -200,7 +200,7 @@ export default function UseCasesSection() {
                 MAX WIDTH IMAGE CONTAINER
                 Displays image up to 1536px width, fluidly scaling so it fits on screen while pinned!
               */}
-              <div className="relative w-full max-w-[1480px] mx-auto aspect-[1672/840] max-h-[56vh] px-4 sm:px-6 lg:px-8 pb-4 sm:pb-8 flex items-end justify-center">
+              <div className="relative w-full max-w-[1480px] mx-auto aspect-[1672/941] max-h-[56vh] px-4 sm:px-6 lg:px-8 pb-4 sm:pb-8 flex items-end justify-center">
                 <div className="relative w-full h-full overflow-hidden rounded-[20px] sm:rounded-[32px]">
                   <Image
                     src={uc.image}
