@@ -47,7 +47,7 @@ const features: ParallelFeature[] = [
     statLabel: 'Settlement Speed',
     statValue: 'Instant',
     statDetail: 'Zero bank queues',
-    accentColor: '#FFE600',
+    accentColor: '#6CFF94',
     imagePosition: 'left', // Row 2: Image Left | Text Right
     theme: 'white',
     aspectRatio: '1536 / 1024',
@@ -63,7 +63,7 @@ const features: ParallelFeature[] = [
     statLabel: 'Checkout Time',
     statValue: '< 2 Sec',
     statDetail: 'Fast counter confirmation',
-    accentColor: '#38BDF8',
+    accentColor: '#6CFF94',
     imagePosition: 'right', // Row 3: Text Left | Image Right
     theme: 'white',
     aspectRatio: '1536 / 1024',

@@ -21,7 +21,7 @@ const useCases: UseCaseItem[] = [
   {
     id: 'freelancers',
     tabLabel: 'Freelancers & Creators',
-    badge: 'Use Case 01 · Freelancers & Creators',
+    badge: 'Freelancers & Creators',
     headline: 'Your work goes global.\nYour money should fit your everyday life.',
     description:
       'Receive payment for international work and understand what it means for your local spending.',
@@ -41,7 +41,7 @@ const useCases: UseCaseItem[] = [
   {
     id: 'everyday-spending',
     tabLabel: 'Everyday Life & Purchases',
-    badge: 'Use Case 02 · Everyday Spending & Purchases',
+    badge: 'Everyday Spending & Purchases',
     headline: 'Money from abroad,\nready for life at home.',
     description:
       'Understand how money sent from abroad can reach you and be used locally.',
@@ -61,7 +61,7 @@ const useCases: UseCaseItem[] = [
   {
     id: 'businesses',
     tabLabel: 'Businesses & Remote Teams',
-    badge: 'Use Case 03 · Businesses & Agencies',
+    badge: 'Businesses & Agencies',
     headline: 'Connect international income\nwith local business spending.',
     description:
       'Connect supported international receipts with local business needs.',
