@@ -55,7 +55,7 @@ export default function Navbar() {
                 : 'btn-primary'
             }`}
           >
-            Get Started
+            Join the waitlist
           </a>
         </div>
       </div>
