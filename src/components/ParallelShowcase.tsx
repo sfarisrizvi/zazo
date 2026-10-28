@@ -103,7 +103,7 @@ export default function ParallelShowcase() {
           <span className="inline-flex h-7 items-center rounded-full bg-black/5 px-3.5 text-[12px] font-medium tracking-wide uppercase text-neutral-800 border border-black/10">
             Main Benefits
           </span>
-          <h2 className="mt-4 text-[36px] sm:text-[46px] lg:text-[54px] font-normal leading-tight tracking-[-1.5px] text-black m-0">
+          <h2 className="mt-4 text-[36px] sm:text-[46px] lg:text-[54px] font-bold leading-tight tracking-[-1.5px] text-black m-0">
             Built for money that moves across borders.
           </h2>
           <p className="mt-3 text-[17px] sm:text-[19px] leading-relaxed text-neutral-600 font-normal m-0 max-w-xl">
@@ -174,7 +174,7 @@ export default function ParallelShowcase() {
 
                           {/* Headline */}
                           <h3
-                            className={`mt-4 whitespace-pre-line text-[30px] sm:text-[36px] lg:text-[38px] leading-[34px] sm:leading-[40px] lg:leading-[42px] font-normal tracking-[-1.2px] m-0 ${
+                            className={`mt-4 whitespace-pre-line text-[30px] sm:text-[36px] lg:text-[38px] leading-[34px] sm:leading-[40px] lg:leading-[42px] font-bold tracking-[-1.2px] m-0 ${
                               isWhiteGlass ? 'text-black' : 'text-white'
                             }`}
                           >

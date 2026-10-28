@@ -213,7 +213,7 @@ export default function Footer() {
               <span className="text-[12px] uppercase tracking-wider text-[#6CFF94] font-mono">
                 {currentModal.title}
               </span>
-              <h3 className="mt-2 text-[28px] font-normal tracking-[-0.8px] text-white m-0">
+              <h3 className="mt-2 text-[28px] font-bold tracking-[-0.8px] text-white m-0">
                 {currentModal.headline}
               </h3>
 

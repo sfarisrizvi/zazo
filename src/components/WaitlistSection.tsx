@@ -34,7 +34,7 @@ export default function WaitlistSection() {
           <span className="text-[13px] tracking-[-0.26px] text-[#888888] font-normal uppercase">
             7. FINAL CTA
           </span>
-          <h2 className="mt-3 text-[42px] sm:text-[54px] xl:text-[60px] leading-[1.05] tracking-[-1.6px] font-normal text-white m-0">
+          <h2 className="mt-3 text-[42px] sm:text-[54px] xl:text-[60px] leading-[1.05] tracking-[-1.6px] font-bold text-white m-0">
             Make your money go further.
           </h2>
         </motion.div>

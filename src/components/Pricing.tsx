@@ -43,7 +43,7 @@ export default function Pricing() {
           <span className="text-[14px] tracking-[-0.28px] text-[#999999] font-normal uppercase">
             Transparent Pricing
           </span>
-          <h2 className="mt-2 text-[32px] sm:text-[40px] leading-[36px] sm:leading-[44px] tracking-[-1.2px] font-normal text-black m-0">
+          <h2 className="mt-2 text-[32px] sm:text-[40px] leading-[36px] sm:leading-[44px] tracking-[-1.2px] font-bold text-black m-0">
             Understand the cost before you move money.
           </h2>
           <p className="mt-3 text-[18px] leading-[25px] tracking-[-0.54px] text-[#999999] font-normal m-0">
@@ -67,7 +67,7 @@ export default function Pricing() {
                 <span className="text-[13px] tracking-[-0.26px] text-[#999999]">
                   {item.period}
                 </span>
-                <h3 className="mt-2 text-[20px] leading-[26px] tracking-[-0.6px] font-normal text-black m-0">
+                <h3 className="mt-2 text-[20px] leading-[26px] tracking-[-0.6px] font-medium text-black m-0">
                   {item.action}
                 </h3>
                 <div className="mt-6 text-[36px] leading-tight tracking-[-1.08px] font-normal text-black">

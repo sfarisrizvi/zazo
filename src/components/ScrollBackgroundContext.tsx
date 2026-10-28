@@ -110,23 +110,52 @@ export default function ScrollBackgroundProvider({
         return;
       }
 
-      const triggerY = window.innerHeight * 0.45;
-      const allSections = Array.from(document.querySelectorAll<HTMLElement>('[data-theme-bg]'));
-      
+      // Check if #hero-and-showcase is still present in viewport (Slide 0 through 6)
+      const heroContainer = document.getElementById('hero-and-showcase');
+      const heroRect = heroContainer ? heroContainer.getBoundingClientRect() : null;
+      if (heroRect && heroRect.bottom > 85) {
+        // Hero & Showcase is still on screen (Slide 0 to 6).
+        // HeroAndShowcase handles its own active slide theme (and keeps black on Slide 6 until it exits).
+        ticking = false;
+        return;
+      }
+
+      // Check sticky stacking cards in #use-cases first (in reverse order, highest z-index / latest card first)
+      const useCaseCards = Array.from(document.querySelectorAll<HTMLElement>('#use-cases [data-theme-bg]'));
       let matchedTheme: ThemeType | null = null;
-      for (const section of allSections) {
-        // Skip hidden elements (e.g. desktop elements on mobile or vice versa)
-        if (section.offsetWidth === 0 && section.offsetHeight === 0) continue;
 
-        // Let HeroAndShowcase manage its own internal journey without interference
-        if (section.closest('#hero-and-showcase')) continue;
-
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= triggerY && rect.bottom >= triggerY) {
-          const themeAttr = section.getAttribute('data-theme-bg') as ThemeType;
+      for (let i = useCaseCards.length - 1; i >= 0; i--) {
+        const card = useCaseCards[i];
+        if (card.offsetWidth === 0 && card.offsetHeight === 0) continue;
+        const rect = card.getBoundingClientRect();
+        // A card is active when it has reached the sticky navbar position (top <= 85)
+        // and its bottom hasn't scrolled off (bottom > 85)
+        if (rect.top <= 85 && rect.bottom > 85) {
+          const themeAttr = card.getAttribute('data-theme-bg') as ThemeType;
           if (themeAttr && themeConfigs[themeAttr]) {
             matchedTheme = themeAttr;
             break;
+          }
+        }
+      }
+
+      // If no use-case card is currently active (e.g. scrolled past #use-cases into ParallelShowcase or Footer)
+      if (!matchedTheme) {
+        const triggerY = window.innerHeight * 0.45;
+        const allSections = Array.from(document.querySelectorAll<HTMLElement>('[data-theme-bg]'));
+
+        for (const section of allSections) {
+          if (section.offsetWidth === 0 && section.offsetHeight === 0) continue;
+          if (section.closest('#hero-and-showcase')) continue;
+          if (section.closest('#use-cases')) continue; // Already evaluated sticky cards above
+
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= triggerY && rect.bottom >= triggerY) {
+            const themeAttr = section.getAttribute('data-theme-bg') as ThemeType;
+            if (themeAttr && themeConfigs[themeAttr]) {
+              matchedTheme = themeAttr;
+              break;
+            }
           }
         }
       }

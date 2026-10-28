@@ -37,7 +37,7 @@ export default function SeeTheDifference() {
           <span className="text-[13px] tracking-[-0.26px] text-[#888888] font-normal uppercase">
             3. SEE THE DIFFERENCE
           </span>
-          <h2 className="mt-2 text-[36px] sm:text-[46px] leading-[1.1] tracking-[-1.3px] font-normal text-white m-0">
+          <h2 className="mt-2 text-[36px] sm:text-[46px] leading-[1.1] tracking-[-1.3px] font-bold text-white m-0">
             The only one that spends where you live.
           </h2>
         </motion.div>
@@ -106,7 +106,7 @@ export default function SeeTheDifference() {
         >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/10">
             <div>
-              <h3 className="text-[24px] sm:text-[28px] font-normal tracking-[-0.8px] text-white m-0">
+              <h3 className="text-[24px] sm:text-[28px] font-medium tracking-[-0.8px] text-white m-0">
                 Compare your payout (Calculator)
               </h3>
               <p className="mt-1 text-[14px] text-[#A3A3A3] tracking-[-0.3px] m-0">

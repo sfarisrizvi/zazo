@@ -143,7 +143,7 @@ export default function Comparison() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto max-w-3xl text-center flex flex-col items-center gap-4"
         >
-          <h2 className="text-[38px] sm:text-[52px] lg:text-[64px] leading-[1.05] tracking-[-2px] font-normal text-white m-0">
+          <h2 className="text-[38px] sm:text-[52px] lg:text-[64px] leading-[1.05] tracking-[-2px] font-bold text-white m-0">
             One app
             <br />
             instead of three.

@@ -129,7 +129,7 @@ export default function ThreeSteps() {
               <span>Simple, Connected Onboarding</span>
             </div>
 
-            <h2 className="text-[38px] sm:text-[48px] xl:text-[54px] leading-[42px] sm:leading-[52px] xl:leading-[58px] tracking-[-1.6px] font-normal text-black m-0">
+            <h2 className="text-[38px] sm:text-[48px] xl:text-[54px] leading-[42px] sm:leading-[52px] xl:leading-[58px] tracking-[-1.6px] font-bold text-black m-0">
               Sign up. Get paid. Spend instantly.
             </h2>
 
@@ -161,7 +161,7 @@ export default function ThreeSteps() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="mt-5 text-[24px] sm:text-[26px] leading-[30px] sm:leading-[32px] tracking-[-0.8px] font-normal text-black m-0">
+                  <h3 className="mt-5 text-[24px] sm:text-[26px] leading-[30px] sm:leading-[32px] tracking-[-0.8px] font-medium text-black m-0">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-[15px] leading-[22px] tracking-[-0.45px] text-black/70 font-normal m-0">

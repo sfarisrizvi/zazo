@@ -13,7 +13,7 @@ export default function Hero() {
       className="snap-section-top relative flex min-h-screen w-full items-center justify-center bg-[#6CFF94] text-black px-5 lg:px-8 pt-12 pb-16 overflow-hidden"
     >
       <div className="mx-auto grid max-w-[1440px] w-full grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-8">
-        
+
         {/* Left Column: Copy from Document Section 1 */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -22,7 +22,7 @@ export default function Hero() {
           className="lg:col-span-6 flex flex-col justify-center gap-6"
         >
           {/* Main Headline */}
-          <h1 className="text-[46px] sm:text-[60px] xl:text-[68px] leading-[1.05] tracking-[-1.8px] font-normal text-black m-0">
+          <h1 className="text-[55px] sm:text-[72px] xl:text-[82px] leading-[1.05] tracking-[-2.2px] font-bold text-black m-0">
             Global pay.
             <br />
             Local spend.

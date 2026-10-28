@@ -18,11 +18,11 @@ export default function Home() {
           {/* 1. Hero & Pinned Phone Showcase Journey */}
           <HeroAndShowcase />
 
-          {/* 2. Parallel Feature Sections with Overlapping Text */}
-          <ParallelShowcase />
-
-          {/* 3. Full-Width Stacking Use Cases Section */}
+          {/* 2. Full-Width Stacking Use Cases Section */}
           <UseCasesSection />
+
+          {/* 3. Parallel Feature Sections with Overlapping Text */}
+          <ParallelShowcase />
         </main>
 
         {/* FOOTER & Product Pages Modals */}

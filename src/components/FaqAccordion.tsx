@@ -78,7 +78,7 @@ export default function FaqAccordion() {
           <span className="text-[13px] tracking-[-0.26px] text-black/50 font-normal uppercase">
             6. FAQ
           </span>
-          <h2 className="mt-2 text-[36px] sm:text-[46px] leading-[1.1] tracking-[-1.3px] font-normal text-black m-0">
+          <h2 className="mt-2 text-[36px] sm:text-[46px] leading-[1.1] tracking-[-1.3px] font-bold text-black m-0">
             Frequently Asked Questions
           </h2>
         </motion.div>

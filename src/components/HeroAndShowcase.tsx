@@ -179,13 +179,17 @@ export default function HeroAndShowcase() {
 
     const handleScroll = () => {
       const isDesktop = window.innerWidth >= 1024;
+      const triggerY = 85;
+      const container = document.getElementById('hero-and-showcase');
+      const containerRect = container ? container.getBoundingClientRect() : null;
 
       if (isDesktop) {
         const slideHeight = window.innerHeight - 74;
         const currentY = window.scrollY;
+        const isPastHero = containerRect ? containerRect.bottom <= triggerY : currentY > slideHeight * 7;
 
         // Total scroll range for 7 slides (Hero + 6 Chapters)
-        if (currentY <= slideHeight * 6.5) {
+        if (!isPastHero) {
           const slideIdx = Math.max(0, Math.min(6, Math.round(currentY / slideHeight)));
           setActiveIndex(slideIdx);
           setShowTracker(slideIdx >= 1 && currentY <= slideHeight * 6.2);
@@ -196,10 +200,6 @@ export default function HeroAndShowcase() {
         }
       } else {
         // Mobile scroll tracking for stacking cards: switch theme as card arrives at the 74px navbar
-        const triggerY = 85;
-        const container = document.getElementById('hero-and-showcase');
-        const containerRect = container ? container.getBoundingClientRect() : null;
-
         // If scrolled past the hero & showcase section, hand off theme control completely
         if (containerRect && containerRect.bottom <= triggerY) {
           return;
@@ -282,16 +282,16 @@ export default function HeroAndShowcase() {
         ========================================================================
       */}
       <div className="hidden lg:block relative w-full">
-        
+
         {/* Sticky Pinned Phone Layer */}
         <div className="sticky top-[74px] h-[calc(100vh-74px)] w-full pointer-events-none flex items-center justify-between z-20 overflow-hidden px-6 lg:px-10 xl:px-16 2xl:px-24">
-          
+
           {/* Left Zone Spacer (Mirrors the exact left zone width) */}
           <div className="flex-1 flex justify-center items-center pointer-events-none" />
 
           {/* Center Zone: Dead Center Dynamic Phone & Symmetrically Centered Top Logo / Bottom Button */}
           <div className="w-[320px] lg:w-[360px] xl:w-[410px] 2xl:w-[450px] shrink-0 h-full flex flex-col items-center justify-between relative py-0">
-            
+
             {/* TOP SPACE: Centered precisely in the space between section top edge and phone top */}
             <div className="flex-1 w-full flex items-center justify-center z-30">
               <AnimatePresence>
@@ -311,7 +311,7 @@ export default function HeroAndShowcase() {
 
             {/* CENTER PHONE FRAME + BACKGROUND LOGO (Dynamic & Proportional) */}
             <div className="relative shrink-0 flex items-center justify-center my-auto">
-              
+
               {/* 
                 VIBRANT MULTI-COLORED ZAZO.SVG LOGO ON THE BACK OF THE PHONE!
                 Dynamically scaled in exact lockstep (0.72 ratio) with the phone chassis.
@@ -327,8 +327,8 @@ export default function HeroAndShowcase() {
                       currentTheme === 'green'
                         ? 'none'
                         : currentTheme === 'black'
-                        ? `drop-shadow(0 0 50px ${currentLogoColor}45)`
-                        : `drop-shadow(0 0 40px ${currentLogoColor}30)`,
+                          ? `drop-shadow(0 0 50px ${currentLogoColor}45)`
+                          : `drop-shadow(0 0 40px ${currentLogoColor}30)`,
                   }}
                 >
                   <ZazoLogoMark
@@ -461,9 +461,9 @@ export default function HeroAndShowcase() {
           ======================================================================
         */}
         <div className="relative -mt-[calc(100vh-74px)] z-10">
-          
+
           {/* 
-            SLIDE 0: HERO SECTION (Screen in center + 2 cards around it, ZERO text)
+            SLIDE 0: HERO SECTION (Heading on the left of phone, aligned with showcase content)
           */}
           <div
             ref={heroRef}
@@ -471,9 +471,56 @@ export default function HeroAndShowcase() {
             data-snap-point
             data-snap-id="hero"
             data-theme-bg="green"
-            className="snap-section-top relative flex h-[calc(100vh-74px)] items-center justify-center bg-transparent text-black px-8"
+            className="snap-section-top relative flex h-[calc(100vh-74px)] items-center px-6 lg:px-10 xl:px-16 2xl:px-24 bg-transparent text-black"
           >
-            {/* Pure visual presentation: phone & badges handled by pinned center layer */}
+            <div className="w-full flex items-center justify-between">
+
+              {/* LEFT ZONE: Exactly centered in the space between left screen edge and phone, matching chapter content alignment */}
+              <div className="flex-1 flex items-center justify-center">
+                <div className="w-full max-w-[440px] xl:max-w-[480px] text-left">
+                  <div
+                    className={`flex flex-col gap-4 transition-all duration-500 ${isIntro ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
+                      }`}
+                  >
+                    <h1 className="whitespace-pre-line text-[48px] xl:text-[58px] 2xl:text-[65px] leading-[53px] xl:leading-[62px] 2xl:leading-[70px] tracking-[-1.7px] xl:tracking-[-2.2px] font-bold text-black m-0">
+                      Global pay.
+                      <br />
+                      Local spend.
+                    </h1>
+
+                    {/* Currency Accounts Supported */}
+                    <p className="text-[17px] sm:text-[19px] xl:text-[21px] leading-snug tracking-[-0.6px] font-normal text-black/90 m-0">
+                      Get USD, PKR, EUR, GBP and AED accounts.    🇺🇸 🇵🇰 🇪🇺 🇬🇧 🇦🇪
+                    </p>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                      <button
+                        type="button"
+                        className="btn-pill btn-primary inline-flex items-center justify-center text-[13px] font-medium px-6 h-[46px] shadow-lg cursor-pointer"
+                      >
+                        Join Waitlist
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-pill btn-secondary-green inline-flex items-center justify-center text-[13px] font-medium px-6 h-[46px] border border-black/25 text-black hover:border-black/50 cursor-pointer"
+                      >
+                        Check Live Rate
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CENTER ZONE SPACER: Exact matching width of center phone */}
+              <div className="w-[320px] lg:w-[360px] xl:w-[410px] 2xl:w-[450px] shrink-0 h-full pointer-events-none" />
+
+              {/* RIGHT ZONE SPACER: Matches right zone to maintain perfect center balance */}
+              <div className="flex-1 flex items-center justify-center pointer-events-none">
+                <div className="w-full max-w-[360px]" />
+              </div>
+
+            </div>
           </div>
 
           {/* 
@@ -500,32 +547,29 @@ export default function HeroAndShowcase() {
                   className="snap-section relative flex h-[calc(100vh-74px)] items-center px-6 lg:px-10 xl:px-16 2xl:px-24"
                 >
                   <div className="w-full flex items-center justify-between">
-                    
+
                     {/* LEFT ZONE: Exactly centered in the space between left screen edge and phone */}
                     <div className="flex-1 flex items-center justify-center">
                       <div className="w-full max-w-[440px] text-left">
                         <div
-                          className={`flex flex-col gap-4 transition-all duration-500 ${
-                            isCurrent ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
-                          }`}
+                          className={`flex flex-col gap-4 transition-all duration-500 ${isCurrent ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
+                            }`}
                         >
                           {/* Step indicator & Badge */}
                           <div className="flex items-center gap-3">
                             <span
-                              className={`text-[13px] tracking-[-0.26px] font-normal uppercase ${
-                                isDark
-                                  ? 'text-[#888888]'
-                                  : isGreen
+                              className={`text-[13px] tracking-[-0.26px] font-normal uppercase ${isDark
+                                ? 'text-[#888888]'
+                                : isGreen
                                   ? 'text-black/60'
                                   : 'text-[#666666]'
-                              }`}
+                                }`}
                             >
                               Step {chapter.stepNumber} of 06
                             </span>
                             <span
-                              className={`h-1.5 w-1.5 rounded-full ${
-                                isDark ? 'bg-white/20' : 'bg-black/20'
-                              }`}
+                              className={`h-1.5 w-1.5 rounded-full ${isDark ? 'bg-white/20' : 'bg-black/20'
+                                }`}
                             />
                             <span
                               className="inline-flex h-7 items-center rounded-full px-3 text-[12px] tracking-[-0.24px] font-normal border transition-colors duration-500"
@@ -545,22 +589,20 @@ export default function HeroAndShowcase() {
 
                           {/* Main Heading */}
                           <h2
-                            className={`whitespace-pre-line text-[38px] xl:text-[44px] leading-[42px] xl:leading-[48px] tracking-[-1.3px] font-normal m-0 ${
-                              isDark ? 'text-white' : 'text-black'
-                            }`}
+                            className={`whitespace-pre-line text-[38px] xl:text-[44px] leading-[42px] xl:leading-[48px] tracking-[-1.3px] font-bold m-0 ${isDark ? 'text-white' : 'text-black'
+                              }`}
                           >
                             {chapter.headline}
                           </h2>
 
                           {/* 1-Liner Description */}
                           <p
-                            className={`text-[16px] xl:text-[18px] leading-[26px] tracking-[-0.51px] font-normal m-0 ${
-                              isDark
-                                ? 'text-[#A3A3A3]'
-                                : isGreen
+                            className={`text-[16px] xl:text-[18px] leading-[26px] tracking-[-0.51px] font-normal m-0 ${isDark
+                              ? 'text-[#A3A3A3]'
+                              : isGreen
                                 ? 'text-black/85'
                                 : 'text-[#555555]'
-                            }`}
+                              }`}
                           >
                             {chapter.description}
                           </p>
@@ -575,39 +617,35 @@ export default function HeroAndShowcase() {
                     <div className="flex-1 flex items-center justify-center">
                       <div className="w-full max-w-[360px]">
                         <div
-                          className={`flex flex-col gap-6 transition-all duration-500 ${
-                            isCurrent
-                              ? 'opacity-100 translate-x-0'
-                              : 'opacity-20 translate-x-3'
-                          }`}
+                          className={`flex flex-col gap-6 transition-all duration-500 ${isCurrent
+                            ? 'opacity-100 translate-x-0'
+                            : 'opacity-20 translate-x-3'
+                            }`}
                         >
                           <div
-                            className={`rounded-[36px] p-8 max-w-sm backdrop-blur-md border transition-all duration-500 ${
-                              isDark
-                                ? 'border-white/10 bg-white/[0.04]'
-                                : isGreen
+                            className={`rounded-[36px] p-8 max-w-sm backdrop-blur-md border transition-all duration-500 ${isDark
+                              ? 'border-white/10 bg-white/[0.04]'
+                              : isGreen
                                 ? 'border-black/15 bg-black/5'
                                 : 'border-black/10 bg-black/[0.03] shadow-sm'
-                            }`}
+                              }`}
                             style={{
                               boxShadow: isCurrent && isDark ? `0 0 30px ${chapter.logoColor}15` : undefined,
                             }}
                           >
                             <span
-                              className={`text-[12px] uppercase tracking-[-0.24px] font-normal block ${
-                                isDark
-                                  ? 'text-[#888888]'
-                                  : isGreen
+                              className={`text-[12px] uppercase tracking-[-0.24px] font-normal block ${isDark
+                                ? 'text-[#888888]'
+                                : isGreen
                                   ? 'text-black/60'
                                   : 'text-[#666666]'
-                              }`}
+                                }`}
                             >
                               {chapter.metricLabel}
                             </span>
                             <div
-                              className={`mt-3 text-[38px] xl:text-[44px] leading-none tracking-[-1.32px] font-normal transition-colors duration-500 ${
-                                isGreen ? 'text-black' : ''
-                              }`}
+                              className={`mt-3 text-[38px] xl:text-[44px] leading-none tracking-[-1.32px] font-normal transition-colors duration-500 ${isGreen ? 'text-black' : ''
+                                }`}
                               style={{
                                 color: isGreen ? undefined : chapter.logoColor,
                               }}
@@ -615,13 +653,12 @@ export default function HeroAndShowcase() {
                               {chapter.metricValue}
                             </div>
                             <div
-                              className={`mt-3 pt-3 border-t text-[13px] tracking-[-0.26px] font-normal ${
-                                isDark
-                                  ? 'border-white/10 text-[#A3A3A3]'
-                                  : isGreen
+                              className={`mt-3 pt-3 border-t text-[13px] tracking-[-0.26px] font-normal ${isDark
+                                ? 'border-white/10 text-[#A3A3A3]'
+                                : isGreen
                                   ? 'border-black/15 text-black/75'
                                   : 'border-black/10 text-[#555555]'
-                              }`}
+                                }`}
                             >
                               {chapter.metricDetail}
                             </div>
@@ -646,25 +683,22 @@ export default function HeroAndShowcase() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
-              className={`fixed bottom-7 left-1/2 -translate-x-1/2 z-40 flex items-center gap-1.5 rounded-full px-4 py-2 shadow-2xl backdrop-blur-md border transition-colors duration-500 ${
-                currentTheme === 'black'
-                  ? 'border-white/15 bg-black/85 text-white'
-                  : 'border-black/10 bg-white/95 text-black'
-              }`}
+              className={`fixed bottom-7 left-1/2 -translate-x-1/2 z-40 flex items-center gap-1.5 rounded-full px-4 py-2 shadow-2xl backdrop-blur-md border transition-colors duration-500 ${currentTheme === 'black'
+                ? 'border-white/15 bg-black/85 text-white'
+                : 'border-black/10 bg-white/95 text-black'
+                }`}
             >
               <button
                 type="button"
                 onClick={jumpToHero}
-                className={`flex h-6 items-center px-2 text-[11px] font-medium tracking-tight transition-colors ${
-                  currentTheme === 'black' ? 'text-white/60 hover:text-white' : 'text-black/60 hover:text-black'
-                }`}
+                className={`flex h-6 items-center px-2 text-[11px] font-medium tracking-tight transition-colors ${currentTheme === 'black' ? 'text-white/60 hover:text-white' : 'text-black/60 hover:text-black'
+                  }`}
               >
                 Top
               </button>
               <div
-                className={`h-3 w-px ${
-                  currentTheme === 'black' ? 'bg-white/15' : 'bg-black/15'
-                }`}
+                className={`h-3 w-px ${currentTheme === 'black' ? 'bg-white/15' : 'bg-black/15'
+                  }`}
               />
               {chapters.map((ch, idx) => {
                 const isSelected = activeIndex === idx + 1;
@@ -681,8 +715,8 @@ export default function HeroAndShowcase() {
                           ? '#000000'
                           : ch.logoColor
                         : currentTheme === 'black'
-                        ? 'rgba(255, 255, 255, 0.3)'
-                        : 'rgba(0, 0, 0, 0.25)',
+                          ? 'rgba(255, 255, 255, 0.3)'
+                          : 'rgba(0, 0, 0, 0.25)',
                     }}
                     aria-label={`Jump to ${ch.shortName}`}
                   />
@@ -757,13 +791,19 @@ export default function HeroAndShowcase() {
             </div>
 
             {/* Bottom Button: Balanced margin & ample clearance from bottom edge */}
-            <div className="shrink-0 flex items-center justify-center z-20">
-              <a
-                href="#waitlist"
-                className="inline-flex h-[48px] sm:h-[50px] items-center justify-center rounded-full bg-black px-8 text-[15px] font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 tracking-[-0.2px]"
+            <div className="shrink-0 flex items-center justify-center gap-2.5 z-20 flex-wrap px-4">
+              <button
+                type="button"
+                className="inline-flex h-[48px] sm:h-[50px] items-center justify-center rounded-full bg-black px-6 text-[14px] sm:text-[15px] font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 tracking-[-0.2px] cursor-pointer"
               >
                 Join Waitlist
-              </a>
+              </button>
+              <button
+                type="button"
+                className="inline-flex h-[48px] sm:h-[50px] items-center justify-center rounded-full bg-transparent border border-black/30 px-6 text-[14px] sm:text-[15px] font-medium text-black shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 tracking-[-0.2px] cursor-pointer"
+              >
+                Check Live Rate
+              </button>
             </div>
           </div>
         </div>
@@ -785,13 +825,12 @@ export default function HeroAndShowcase() {
               data-snap-point
               data-snap-id={`mobile-${chapter.id}`}
               data-theme-bg={chapter.theme}
-              className={`snap-section sticky top-[74px] min-h-[calc(100dvh-74px)] w-full overflow-hidden flex flex-col justify-between px-5 pt-8 pb-6 transition-colors duration-500 rounded-none shadow-[0_-16px_40px_rgba(0,0,0,0.22)] border-t ${
-                isDark
-                  ? 'border-white/10 bg-black text-white'
-                  : isGreen
+              className={`snap-section sticky top-[74px] min-h-[calc(100dvh-74px)] w-full overflow-hidden flex flex-col justify-between px-5 pt-8 pb-6 transition-colors duration-500 rounded-none shadow-[0_-16px_40px_rgba(0,0,0,0.22)] border-t ${isDark
+                ? 'border-white/10 bg-black text-white'
+                : isGreen
                   ? 'border-black/10 bg-[#6CFF94] text-black'
                   : 'border-black/10 bg-white text-black'
-              }`}
+                }`}
               style={{
                 zIndex,
               }}
@@ -805,14 +844,13 @@ export default function HeroAndShowcase() {
                   Step {chapter.stepNumber} of 06 · {chapter.badge}
                 </span>
 
-                <h2 className="text-[28px] sm:text-[34px] leading-[32px] sm:leading-[38px] font-normal tracking-[-1.2px] m-0">
+                <h2 className="text-[28px] sm:text-[34px] leading-[32px] sm:leading-[38px] font-bold tracking-[-1.2px] m-0">
                   {chapter.headline}
                 </h2>
 
                 <p
-                  className={`text-[15px] sm:text-[16px] leading-[22px] tracking-[-0.2px] m-0 line-clamp-2 sm:line-clamp-none ${
-                    isDark ? 'text-[#D4D4D4]' : isGreen ? 'text-black/85' : 'text-[#444444]'
-                  }`}
+                  className={`text-[15px] sm:text-[16px] leading-[22px] tracking-[-0.2px] m-0 line-clamp-2 sm:line-clamp-none ${isDark ? 'text-[#D4D4D4]' : isGreen ? 'text-black/85' : 'text-[#444444]'
+                    }`}
                 >
                   {chapter.description}
                 </p>
@@ -840,20 +878,18 @@ export default function HeroAndShowcase() {
 
               {/* Minimal Metric Card (Compact Horizontal Bar for Mobile) */}
               <div
-                className={`rounded-[20px] p-4 border shrink-0 ${
-                  isDark
-                    ? 'border-white/15 bg-white/[0.06]'
-                    : isGreen
+                className={`rounded-[20px] p-4 border shrink-0 ${isDark
+                  ? 'border-white/15 bg-white/[0.06]'
+                  : isGreen
                     ? 'border-black/20 bg-black/5'
                     : 'border-black/10 bg-black/[0.03] shadow-sm'
-                }`}
+                  }`}
               >
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <span
-                      className={`text-[11px] uppercase tracking-wider block ${
-                        isDark ? 'text-[#A3A3A3]' : isGreen ? 'text-black/70' : 'text-[#555555]'
-                      }`}
+                      className={`text-[11px] uppercase tracking-wider block ${isDark ? 'text-[#A3A3A3]' : isGreen ? 'text-black/70' : 'text-[#555555]'
+                        }`}
                     >
                       {chapter.metricLabel}
                     </span>
@@ -865,9 +901,8 @@ export default function HeroAndShowcase() {
                     </div>
                   </div>
                   <div
-                    className={`text-[12px] text-right max-w-[170px] ${
-                      isDark ? 'text-[#D4D4D4]' : isGreen ? 'text-black/80' : 'text-[#444444]'
-                    }`}
+                    className={`text-[12px] text-right max-w-[170px] ${isDark ? 'text-[#D4D4D4]' : isGreen ? 'text-black/80' : 'text-[#444444]'
+                      }`}
                   >
                     {chapter.metricDetail}
                   </div>

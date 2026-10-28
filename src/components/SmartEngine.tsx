@@ -45,7 +45,7 @@ export default function SmartEngine() {
           <span className="text-[13px] tracking-[-0.26px] text-black/50 font-normal uppercase">
             4. THE ZAZO SMART ENGINE
           </span>
-          <h2 className="mt-2 text-[36px] sm:text-[46px] leading-[1.1] tracking-[-1.3px] font-normal text-black m-0">
+          <h2 className="mt-2 text-[36px] sm:text-[46px] leading-[1.1] tracking-[-1.3px] font-bold text-black m-0">
             Smarter rates. Smarter rewards.
           </h2>
         </motion.div>
@@ -70,7 +70,7 @@ export default function SmartEngine() {
                       {item.badge}
                     </span>
                   )}
-                  <h3 className="text-[22px] font-normal tracking-[-0.6px] text-black m-0 mb-2">
+                  <h3 className="text-[22px] font-medium tracking-[-0.6px] text-black m-0 mb-2">
                     {item.title}
                   </h3>
                   <p className="text-[15px] sm:text-[16px] leading-[23px] tracking-[-0.45px] text-black/75 m-0">

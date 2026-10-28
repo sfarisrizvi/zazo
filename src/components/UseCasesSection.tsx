@@ -5,7 +5,6 @@ import Image from 'next/image';
 interface UseCaseItem {
   id: string;
   tabLabel: string;
-  badge: string;
   headline: string;
   description: string;
   bgColor: string;
@@ -14,69 +13,44 @@ interface UseCaseItem {
   image: string;
   mobileImage: string;
   imageAlt: string;
-  features: string[];
 }
 
 const useCases: UseCaseItem[] = [
   {
     id: 'freelancers',
-    tabLabel: 'Freelancers & Creators',
-    badge: 'Freelancers & Creators',
-    headline: 'Your work goes global.\nYour money should fit your everyday life.',
-    description:
-      'Receive payment for international work and understand what it means for your local spending.',
+    tabLabel: 'Freelancers',
+    headline: 'Freelancers',
+    description: 'Get paid globally. Spend locally.',
     bgColor: '#DB1584',
     themeAttr: 'magenta',
     textColor: 'white',
     image: '/freelancer.png',
     mobileImage: '/freelancer-mobile.png',
-    imageAlt: 'Zazo for Freelancers and Creators receiving global earnings in Pakistan',
-    features: [
-      'Dedicated US Routing & Account Details',
-      'Zero Intermediary Wire Deductions',
-      'Real-Time Live Rate Lock',
-      'Instant Raast Domestic Transfers',
-    ],
+    imageAlt: 'Zazo for Freelancers getting paid globally and spending locally',
   },
   {
-    id: 'everyday-spending',
-    tabLabel: 'Everyday Life & Purchases',
-    badge: 'Everyday Spending & Purchases',
-    headline: 'Money from abroad,\nready for life at home.',
-    description:
-      'Understand how money sent from abroad can reach you and be used locally.',
+    id: 'families',
+    tabLabel: 'Families',
+    headline: 'Families',
+    description: 'Receive remittances. Spend at home.',
     bgColor: '#FEDD42',
     themeAttr: 'yellow',
     textColor: 'black',
     image: '/local-purchase.png',
     mobileImage: '/local-purchase-mobile.png',
-    imageAlt: 'Zazo for Everyday Spending and Local Purchases across Pakistan',
-    features: [
-      'Scan Any Merchant QR Code',
-      'Up to 7% Daily Spending Cashback',
-      'Zero Hidden Card Fees',
-      'Direct Utility Bill Settlement',
-    ],
+    imageAlt: 'Zazo for Families receiving remittances and spending at home',
   },
   {
-    id: 'businesses',
-    tabLabel: 'Businesses & Remote Teams',
-    badge: 'Businesses & Agencies',
-    headline: 'Connect international income\nwith local business spending.',
-    description:
-      'Connect supported international receipts with local business needs.',
+    id: 'agencies',
+    tabLabel: 'Agencies & software houses',
+    headline: 'Agencies & software houses',
+    description: 'Receive client payments. Pay locally.',
     bgColor: '#ADE3FD',
     themeAttr: 'blue',
     textColor: 'black',
     image: '/business.png',
     mobileImage: '/business-mobile.png',
-    imageAlt: 'Zazo for Businesses and Agencies managing foreign revenue and local payroll',
-    features: [
-      'Dedicated Corporate Accounts',
-      'Automated Vendor Payroll',
-      'Real-Time Inward Reconciliation',
-      'Full Transaction Transparency',
-    ],
+    imageAlt: 'Zazo for Agencies and software houses receiving client payments and paying locally',
   },
 ];
 
@@ -111,53 +85,22 @@ export default function UseCasesSection() {
             >
               {/* Content Header inside Panel */}
               <div className="mx-auto max-w-[1440px] w-full px-6 lg:px-12 pt-12 sm:pt-16 pb-4">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
-                  
-                  {/* Left Column: Badge, Headline, 1-liner Description */}
-                  <div className="lg:col-span-8 flex flex-col">
-                    <span
-                      className={`inline-flex h-7 items-center self-start rounded-full px-3.5 text-[12px] font-medium tracking-wide uppercase border ${
-                        isWhiteText
-                          ? 'bg-white/15 border-white/30 text-white'
-                          : 'bg-black/10 border-black/20 text-black'
-                      }`}
-                    >
-                      {uc.badge}
-                    </span>
+                <div className="flex flex-col max-w-4xl">
+                  <h3
+                    className={`whitespace-pre-line text-[48px] sm:text-[64px] lg:text-[76px] xl:text-[88px] leading-[1.05] font-bold tracking-[-2px] sm:tracking-[-3px] m-0 ${
+                      isWhiteText ? 'text-white' : 'text-black'
+                    }`}
+                  >
+                    {uc.headline}
+                  </h3>
 
-                    <h3
-                      className={`mt-3 sm:mt-4 whitespace-pre-line text-[32px] sm:text-[42px] lg:text-[48px] leading-[36px] sm:leading-[46px] lg:leading-[52px] font-normal tracking-[-1.5px] m-0 ${
-                        isWhiteText ? 'text-white' : 'text-black'
-                      }`}
-                    >
-                      {uc.headline}
-                    </h3>
-
-                    <p
-                      className={`mt-3 text-[15px] sm:text-[17px] lg:text-[18px] leading-relaxed tracking-[-0.4px] font-normal m-0 max-w-2xl ${
-                        isWhiteText ? 'text-white/90' : 'text-black/85'
-                      }`}
-                    >
-                      {uc.description}
-                    </p>
-                  </div>
-
-                  {/* Right Column: Feature Badges */}
-                  <div className="lg:col-span-4 flex flex-wrap lg:flex-col gap-2 lg:items-end justify-start lg:justify-end">
-                    {uc.features.map((feat) => (
-                      <span
-                        key={feat}
-                        className={`inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] sm:text-[12px] font-medium tracking-tight border backdrop-blur-sm transition-transform hover:scale-[1.02] ${
-                          isWhiteText
-                            ? 'bg-white/15 border-white/25 text-white'
-                            : 'bg-black/10 border-black/15 text-black'
-                        }`}
-                      >
-                        {feat}
-                      </span>
-                    ))}
-                  </div>
-
+                  <p
+                    className={`mt-4 sm:mt-5 text-[20px] sm:text-[24px] lg:text-[28px] leading-snug tracking-[-0.6px] font-normal m-0 max-w-2xl ${
+                      isWhiteText ? 'text-white/90' : 'text-black/85'
+                    }`}
+                  >
+                    {uc.description}
+                  </p>
                 </div>
               </div>
 
