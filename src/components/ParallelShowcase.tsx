@@ -42,7 +42,7 @@ const features: ParallelFeature[] = [
     headline: 'From payout to local spend.',
     description: 'Spend your earnings anywhere across Pakistan.',
     image: '/local-merchant.png',
-    mobileImage: '/local-merchant.png', // Temporary fallback until mobile version provided
+    mobileImage: '/local-merchant-mobile.png',
     imageAlt: 'Zazo connecting global receiving to local shop spending in Pakistan',
     statLabel: 'Settlement Speed',
     statValue: 'Instant',
@@ -53,35 +53,19 @@ const features: ParallelFeature[] = [
     aspectRatio: '1536 / 1024',
   },
   {
-    id: 'scan-to-pay',
-    badge: 'Zero Cash',
-    headline: 'Pay with a tap.',
-    description: 'No cash or cards needed for daily checkout.',
-    image: '/tap-to-pay.png',
-    mobileImage: '/tap-to-pay-mobile.png',
-    imageAlt: 'Customer scanning Zazo counter QR code at local cafe in Pakistan',
-    statLabel: 'Checkout Time',
-    statValue: '< 2 Sec',
-    statDetail: 'Fast counter confirmation',
-    accentColor: '#6CFF94',
-    imagePosition: 'right', // Row 3: Text Left | Image Right
-    theme: 'white',
-    aspectRatio: '1536 / 1024',
-  },
-  {
     id: 'multi-currency-card',
     badge: 'Multi-Currency',
     headline: 'Hold USD, spend PKR.',
     description: 'Virtual and physical cards with zero maintenance fees.',
-    image: '/Agencies.png',
-    mobileImage: '/Agencies-mobile.png',
+    image: '/multi-currency.png',
+    mobileImage: '/multi-currency-mobile.png',
     imageAlt: 'Zazo Multi-currency wallet and physical debit cards',
     statLabel: 'Card Fee',
     statValue: 'Rs 0 Fee',
     statDetail: 'Zero annual charges',
     accentColor: '#6CFF94',
-    imagePosition: 'left', // Row 4: Image Left | Text Right
-    theme: 'green',
+    imagePosition: 'right', // Row 3: Text Left | Image Right
+    theme: 'white',
     aspectRatio: '1672 / 941',
   },
 ];
@@ -92,7 +76,8 @@ export default function ParallelShowcase() {
       id="features"
       data-snap-point
       data-snap-id="features"
-      className="relative w-full bg-transparent py-8 lg:py-12 overflow-hidden transition-colors duration-700"
+      data-theme-bg="white"
+      className="relative z-20 w-full bg-white text-black py-12 lg:py-20 overflow-hidden"
     >
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* Section Header */}
@@ -243,6 +228,7 @@ export default function ParallelShowcase() {
                           src={feat.image}
                           alt={feat.imageAlt}
                           fill
+                          unoptimized
                           priority
                           sizes="980px"
                           className="object-cover object-center select-none"

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useScrollBackground, ThemeType } from '@/components/ScrollBackgroundContext';
 import Logo from './Logo';
 
@@ -169,6 +169,11 @@ export default function HeroAndShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [showTracker, setShowTracker] = useState(false);
   const { setTheme } = useScrollBackground();
+
+  // Scroll-driven rotation for the right-side circular stamp
+  const { scrollY } = useScroll();
+  const rawRotate = useTransform(scrollY, [0, 3000], [0, 1080]);
+  const smoothRotate = useSpring(rawRotate, { stiffness: 90, damping: 20 });
 
   const heroRef = useRef<HTMLDivElement>(null);
   const chapterRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -515,9 +520,83 @@ export default function HeroAndShowcase() {
               {/* CENTER ZONE SPACER: Exact matching width of center phone */}
               <div className="w-[320px] lg:w-[360px] xl:w-[410px] 2xl:w-[450px] shrink-0 h-full pointer-events-none" />
 
-              {/* RIGHT ZONE SPACER: Matches right zone to maintain perfect center balance */}
-              <div className="flex-1 flex items-center justify-center pointer-events-none">
-                <div className="w-full max-w-[360px]" />
+              {/* RIGHT ZONE: Rotating Circular Badge */}
+              <div className="flex-1 flex items-center justify-center">
+                <div
+                  className={`w-full max-w-[360px] flex items-center justify-center transition-all duration-500 ${
+                    isIntro ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+                  }`}
+                >
+                  <a
+                    href="#how-it-works"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      jumpToChapter(0);
+                    }}
+                    aria-label="Explore how Zazo works"
+                    className="group relative flex items-center justify-center cursor-pointer select-none"
+                  >
+                    {/* Rotating Circular Text & Orbit Rings */}
+                    <motion.div
+                      style={{ rotate: smoothRotate }}
+                      className="flex items-center justify-center pointer-events-none"
+                    >
+                      <svg
+                        viewBox="0 0 240 240"
+                        className="w-[200px] h-[200px] xl:w-[230px] xl:h-[230px] 2xl:w-[250px] 2xl:h-[250px]"
+                      >
+                        <defs>
+                          <path
+                            id="heroCircleTextPath"
+                            d="M 120, 32 a 88,88 0 1,1 0,176 a 88,88 0 1,1 0,-176"
+                          />
+                        </defs>
+
+                        {/* Outer subtle dotted orbit */}
+                        <circle
+                          cx="120"
+                          cy="120"
+                          r="114"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1"
+                          strokeDasharray="3 4"
+                          className="text-black/20"
+                        />
+
+                        {/* Inner delicate guide ring */}
+                        <circle
+                          cx="120"
+                          cy="120"
+                          r="64"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1"
+                          className="text-black/15"
+                        />
+
+                        {/* Circular Typography that loops around 360 degrees */}
+                        <text className="text-[10px] xl:text-[10.5px] font-bold uppercase tracking-[0.16em] fill-black">
+                          <textPath
+                            href="#heroCircleTextPath"
+                            startOffset="0%"
+                            textLength="553"
+                            lengthAdjust="spacing"
+                          >
+                            Receive in any currency → convert to PKR → Hold or spend by QR →
+                          </textPath>
+                        </text>
+                      </svg>
+                    </motion.div>
+
+                    {/* Central Stationary Black Badge with Green Zazo Mark */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                      <div className="w-16 h-16 xl:w-20 xl:h-20 rounded-full bg-black flex items-center justify-center shadow-xl border border-black/10 group-hover:scale-105 transition-transform duration-300">
+                        <ZazoLogoMark color="#6CFF94" className="w-8 h-8 xl:w-10 xl:h-10" />
+                      </div>
+                    </div>
+                  </a>
+                </div>
               </div>
 
             </div>

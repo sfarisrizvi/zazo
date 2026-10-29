@@ -8,7 +8,7 @@ interface UseCaseItem {
   headline: string;
   description: string;
   bgColor: string;
-  themeAttr: 'magenta' | 'yellow' | 'blue';
+  themeAttr: 'magenta' | 'yellow' | 'blue' | 'indigo' | 'purple';
   textColor: 'white' | 'black';
   image: string;
   mobileImage: string;
@@ -42,8 +42,8 @@ const useCases: UseCaseItem[] = [
   },
   {
     id: 'agencies',
-    tabLabel: 'Agencies & software houses',
-    headline: 'Agencies & software houses',
+    tabLabel: 'Agencies & Software Houses',
+    headline: 'Agencies & Software Houses',
     description: 'Receive client payments. Pay locally.',
     bgColor: '#ADE3FD',
     themeAttr: 'blue',
@@ -52,11 +52,35 @@ const useCases: UseCaseItem[] = [
     mobileImage: '/business-mobile.png',
     imageAlt: 'Zazo for Agencies and software houses receiving client payments and paying locally',
   },
+  {
+    id: 'amazon-ebay-etsy',
+    tabLabel: 'Amazon, eBay & Etsy Sellers',
+    headline: 'Amazon, eBay & Etsy Sellers',
+    description: 'Receive marketplace payouts. Spend locally.',
+    bgColor: '#4929dd',
+    themeAttr: 'indigo',
+    textColor: 'white',
+    image: '/amazon-etsy.png',
+    mobileImage: '/amazon-etsy-mobile.png',
+    imageAlt: 'Zazo for Amazon, eBay & Etsy Sellers receiving marketplace payouts and spending locally',
+  },
+  {
+    id: 'merchants',
+    tabLabel: 'Merchants',
+    headline: 'Merchants',
+    description: 'Ditch the card machine. Accept QR payments, no MDR on eligible payments.',
+    bgColor: '#6b25b3',
+    themeAttr: 'purple',
+    textColor: 'white',
+    image: '/merchange-usercase.png',
+    mobileImage: '/merchange-usercase-mobile.png',
+    imageAlt: 'Zazo for Merchants accepting QR payments with zero MDR',
+  },
 ];
 
 export default function UseCasesSection() {
   return (
-    <section id="use-cases" className="relative w-full bg-transparent -mb-16 sm:-mb-24">
+    <section id="use-cases" className="relative w-full bg-transparent">
       {/* 
         ========================================================================
         STACKING SECTIONS CONTAINER
@@ -84,20 +108,18 @@ export default function UseCasesSection() {
               }}
             >
               {/* Content Header inside Panel */}
-              <div className="mx-auto max-w-[1440px] w-full px-6 lg:px-12 pt-12 sm:pt-16 pb-4">
+              <div className="mx-auto max-w-[1440px] w-full px-6 lg:px-12 pt-8 sm:pt-10 lg:pt-12 pb-2 sm:pb-3">
                 <div className="flex flex-col max-w-4xl">
                   <h3
-                    className={`whitespace-pre-line text-[48px] sm:text-[64px] lg:text-[76px] xl:text-[88px] leading-[1.05] font-bold tracking-[-2px] sm:tracking-[-3px] m-0 ${
-                      isWhiteText ? 'text-white' : 'text-black'
-                    }`}
+                    className={`whitespace-pre-line text-[48px] sm:text-[64px] lg:text-[76px] xl:text-[88px] leading-[1.05] font-bold tracking-[-2px] sm:tracking-[-3px] m-0 ${isWhiteText ? 'text-white' : 'text-black'
+                      }`}
                   >
                     {uc.headline}
                   </h3>
 
                   <p
-                    className={`mt-4 sm:mt-5 text-[20px] sm:text-[24px] lg:text-[28px] leading-snug tracking-[-0.6px] font-normal m-0 max-w-2xl ${
-                      isWhiteText ? 'text-white/90' : 'text-black/85'
-                    }`}
+                    className={`mt-3 sm:mt-4 text-[20px] sm:text-[24px] lg:text-[28px] leading-snug tracking-[-0.6px] font-normal m-0 max-w-2xl ${isWhiteText ? 'text-white/90' : 'text-black/85'
+                      }`}
                   >
                     {uc.description}
                   </p>
@@ -107,9 +129,9 @@ export default function UseCasesSection() {
               {/* 
                 MAX WIDTH IMAGE CONTAINER
                 Mobile: 4:5 portrait aspect ratio, flush against card bottom
-                Desktop: 1672/941 widescreen banner, flush against card bottom
+                Desktop: 1672/941 widescreen banner, scaled larger for grand presence
               */}
-              <div className="relative w-full max-w-[1480px] mx-auto aspect-[4/5] sm:aspect-[1672/941] max-h-[60vh] sm:max-h-[58vh] px-4 sm:px-6 lg:px-8 pb-0 flex items-end justify-center">
+              <div className="relative w-full max-w-[1680px] mx-auto aspect-[4/5] sm:aspect-[1672/941] max-h-[66vh] sm:max-h-[68vh] lg:max-h-[74vh] px-2 sm:px-4 lg:px-6 pb-0 flex items-end justify-center flex-1">
                 <div className="relative w-full h-full overflow-hidden rounded-t-[20px] sm:rounded-t-[32px] rounded-b-none">
                   {/* Desktop Image */}
                   <div className="hidden sm:block relative w-full h-full">
@@ -119,7 +141,7 @@ export default function UseCasesSection() {
                       fill
                       unoptimized
                       priority={index === 0}
-                      sizes="(max-width: 1536px) 100vw, 1480px"
+                      sizes="(max-width: 1720px) 100vw, 1680px"
                       className="object-contain object-bottom select-none"
                     />
                   </div>

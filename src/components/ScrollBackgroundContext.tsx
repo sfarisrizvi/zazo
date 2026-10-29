@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
-export type ThemeType = 'green' | 'black' | 'white' | 'magenta' | 'yellow' | 'blue';
+export type ThemeType = 'green' | 'black' | 'white' | 'magenta' | 'yellow' | 'blue' | 'indigo' | 'purple';
 
 export interface ThemeState {
   theme: ThemeType;
@@ -61,6 +61,22 @@ export const themeConfigs: Record<ThemeType, ThemeState> = {
     navBg: 'rgba(173, 227, 253, 0.94)',
     navBorder: 'rgba(0, 0, 0, 0.1)',
     navText: 'black',
+  },
+  indigo: {
+    theme: 'indigo',
+    bg: '#4929dd',
+    textColor: 'white',
+    navBg: 'rgba(73, 41, 221, 0.94)',
+    navBorder: 'rgba(255, 255, 255, 0.15)',
+    navText: 'white',
+  },
+  purple: {
+    theme: 'purple',
+    bg: '#6b25b3',
+    textColor: 'white',
+    navBg: 'rgba(107, 37, 179, 0.94)',
+    navBorder: 'rgba(255, 255, 255, 0.15)',
+    navText: 'white',
   },
 };
 
