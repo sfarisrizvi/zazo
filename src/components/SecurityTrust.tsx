@@ -7,38 +7,38 @@ import { Landmark, ShieldCheck, Lock, Activity, UserCheck } from 'lucide-react';
 const trustPoints = [
   {
     id: 'segregated-funds',
-    title: 'Segregated funds',
-    description: "Your PKR sits in your own name at a licensed Pakistan bank — separate from Zazo's operating funds.",
+    title: 'Segregated funds.',
+    description: 'Held in your name at a licensed bank.',
     icon: Landmark,
-    positionClass: 'top-3 sm:top-6 left-2 lg:left-6 xl:left-10 max-w-[350px]',
+    positionClass: 'top-3 sm:top-6 left-2 lg:left-6 xl:left-10 max-w-[340px]',
   },
   {
     id: 'licensed-rails',
-    title: 'Licensed rails',
-    description: 'Built on regulated banking and payment rails in Pakistan.',
+    title: 'Licensed rails.',
+    description: 'Regulated Pakistani banking.',
     icon: ShieldCheck,
     positionClass: 'top-3 sm:top-6 right-2 lg:right-6 xl:right-10 max-w-[340px]',
   },
   {
     id: 'encrypted',
-    title: 'Encrypted',
-    description: 'AES-256 encryption on your data and transactions.',
+    title: 'Encrypted.',
+    description: 'AES-256 security.',
     icon: Lock,
-    positionClass: 'top-[48%] -translate-y-1/2 left-0 lg:left-2 xl:left-6 max-w-[330px]',
+    positionClass: 'top-[48%] -translate-y-1/2 left-0 lg:left-2 xl:left-6 max-w-[320px]',
   },
   {
     id: 'fraud-protection',
-    title: 'Fraud protection',
-    description: 'Real-time monitoring on every transaction.',
+    title: 'Fraud protection.',
+    description: 'Real-time monitoring.',
     icon: Activity,
-    positionClass: 'top-[48%] -translate-y-1/2 right-0 lg:right-2 xl:right-6 max-w-[330px]',
+    positionClass: 'top-[48%] -translate-y-1/2 right-0 lg:right-2 xl:right-6 max-w-[320px]',
   },
   {
     id: 'data-privacy',
-    title: 'Your data stays yours',
-    description: "We don't sell your data.",
+    title: 'Your data.',
+    description: 'Never sold.',
     icon: UserCheck,
-    positionClass: 'bottom-3 left-1/2 -translate-x-1/2 max-w-[340px]',
+    positionClass: 'bottom-3 left-1/2 -translate-x-1/2 max-w-[320px]',
   },
 ];
 
@@ -187,8 +187,8 @@ export default function SecurityTrust() {
 
         {/* Regulatory Partner Footnote */}
         <div className="mt-14 sm:mt-20 pt-8 border-t border-black/10 text-center max-w-2xl mx-auto">
-          <p className="text-[13px] sm:text-[14px] leading-relaxed text-neutral-500 font-normal m-0">
-            Zazo is a technology company, not a bank. Wallet services are provided through licensed partners.
+          <p className="text-[13px] sm:text-[14px] leading-relaxed text-neutral-500 font-medium m-0">
+            Zazo is a tech company, not a bank.
           </p>
         </div>
       </div>

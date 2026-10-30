@@ -7,55 +7,40 @@ import { Plus, Minus, ArrowRight } from 'lucide-react';
 
 export default function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleWaitlistSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubmitted(true);
+    }
+  };
 
   const faqs = [
     {
-      q: 'How fast does money arrive in Zazo?',
-      a: 'Once your client or platform sends USD, it appears in your Zazo account and can be converted to PKR the same day.',
+      q: 'Which currencies?',
+      a: 'USD today. EUR, GBP, AED soon.',
     },
     {
-      q: 'What rate do I get when converting?',
-      a: 'Convert USD to PKR in the app with locked transparent rates shown before you confirm. The Zazo Smart Engine aims to give you a rate better than interbank with zero hidden spreads.',
+      q: 'How fast?',
+      a: 'Convert same-day. Raast transfers are instant.',
+    },
+    {
+      q: 'How do I get 10%?',
+      a: 'Scan merchant QR. Higher balance = higher discount.*',
+    },
+    {
+      q: 'What fees?',
+      a: 'No hidden fees. Rate shown before confirm.',
     },
     {
       q: 'Is my money safe?',
-      a: 'Held with licensed financial partners — a licensed local bank partner for PKR, and licensed partners for other currencies. Segregated funds, AES-256 encryption, and real-time fraud monitoring.',
+      a: 'Licensed bank, segregated funds, encrypted.',
     },
     {
-      q: 'Can I spend directly from the app?',
-      a: 'Yes. Spend locally using instant QR payments or debit cards directly from your PKR balance, with dynamic discounts up to 10% on eligible purchases.',
-    },
-    {
-      q: 'What does Zazo cost?',
-      a: 'Zero. Account opening is free, no FX fee, no spread, and no hidden charges.',
-    },
-    {
-      q: 'Which currencies can I receive?',
-      a: 'USD today — EUR, GBP and AED are coming soon.',
-    },
-    {
-      q: 'When is Zazo launching?',
-      a: 'Zazo is rolling out to early waitlist members. Join the waitlist today for priority early access.',
-    },
-    {
-      q: 'Who can open a Zazo account?',
-      a: 'Freelancers, remote workers, agencies and software houses, Amazon/eBay/Etsy sellers, families receiving remittances, local users, and merchants accepting QR payments.',
-    },
-    {
-      q: 'How do I get discounts?',
-      a: 'Eligible QR payments earn dynamic discounts, up to 10%. The higher your PKR balance, the more you can save.',
-    },
-    {
-      q: 'Are these real bank account details?',
-      a: 'Yes. You get real account details in your own name — ACH and wire details for USD, swift code and account number for GBP, and an IBAN for EUR and AED.',
-    },
-    {
-      q: 'Can I receive from Upwork or Amazon?',
-      a: 'Supported sources are listed in the app including Upwork, Deel, Amazon, eBay, and Etsy. Availability may vary by source.',
-    },
-    {
-      q: 'How do I get the app?',
-      a: 'Download from the App Store or Google Play once your waitlist invitation arrives.',
+      q: 'Real bank details?',
+      a: 'Yes. USD ACH details in your name.',
     },
   ];
 
@@ -194,6 +179,99 @@ export default function FaqAccordion() {
             })}
           </div>
 
+        </div>
+
+        {/* 
+          ====================================================================
+          UNDER FAQS: Waitlist Email Capture & App Download Buttons
+          Directly matches Document 122.pdf:
+          "Under FAQS Show Downlaod buttons or join waitlist sction 
+          where user enter email field and join waitlist , CTA"
+          ====================================================================
+        */}
+        <div id="waitlist" className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-black/10">
+          <div className="rounded-[28px] sm:rounded-[36px] bg-black text-white p-7 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+            {/* Background Glow */}
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#6CFF94]/15 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#6CFF94]/10 rounded-full blur-[90px] pointer-events-none" />
+
+            <div className="relative z-10 max-w-2xl mx-auto text-center">
+              <span className="inline-flex h-6 sm:h-7 items-center rounded-full bg-white/10 px-3 sm:px-3.5 text-[11px] sm:text-[12px] font-medium tracking-wide uppercase text-[#6CFF94] border border-white/10 mb-3 sm:mb-4">
+                Early Access
+              </span>
+
+              <h3 className="text-[30px] sm:text-[42px] lg:text-[50px] font-bold tracking-[-1.5px] sm:tracking-[-2px] leading-[1.1] text-white m-0">
+                Be first in line when Zazo launches.
+              </h3>
+
+              <p className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] text-neutral-300 font-normal leading-relaxed max-w-lg mx-auto">
+                Join the waitlist to receive priority access to real USD & PKR accounts and up to 10% cash back on QR payments.
+              </p>
+
+              {/* Email Waitlist Input Form */}
+              <form
+                onSubmit={handleWaitlistSubmit}
+                className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  required
+                  className="w-full h-[52px] px-5 rounded-full bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-[15px] outline-none focus:border-[#6CFF94] focus:ring-2 focus:ring-[#6CFF94]/20 transition-all"
+                />
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto shrink-0 h-[52px] px-7 rounded-full bg-[#6CFF94] hover:bg-[#5be682] text-black font-bold text-[15px] transition-all duration-200 cursor-pointer shadow-md hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                >
+                  <span>Join Waitlist</span>
+                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                </button>
+              </form>
+
+              {submitted && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-3 text-[#6CFF94] text-[13px] font-medium"
+                >
+                  ✓ You're on the priority waitlist! We'll notify you soon.
+                </motion.div>
+              )}
+
+              {/* App Download Buttons */}
+              <div className="mt-10 sm:mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
+                <span className="text-[13px] text-neutral-400 font-medium">
+                  Available soon on:
+                </span>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  {/* App Store Button */}
+                  <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 border border-white/15 hover:bg-white/15 transition-all text-left select-none">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.63 1.35-.56.65-1.06 1.71-.93 2.73 1 .08 2.02-.48 2.64-1.23z" />
+                    </svg>
+                    <div className="leading-tight">
+                      <div className="text-[9px] text-neutral-400 uppercase font-medium tracking-wide">Download on the</div>
+                      <div className="text-[13px] font-bold text-white tracking-tight">App Store</div>
+                    </div>
+                  </div>
+
+                  {/* Google Play Button */}
+                  <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 border border-white/15 hover:bg-white/15 transition-all text-left select-none">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
+                      <path d="M3.609 1.814L13.793 12 3.61 22.186a1.99 1.99 0 0 1-.61-.926V2.74c.14-.383.359-.705.609-.926zm11.246 11.248l2.09-2.091-11.83-6.83 9.74 8.921zm2.936-2.937l3.655 2.11a1.2 1.2 0 0 1 0 2.08l-3.655 2.11-2.227-2.227 2.227-2.073zm-2.936 2.937l-9.74 8.922 11.83-6.83-2.09-2.092z" />
+                    </svg>
+                    <div className="leading-tight">
+                      <div className="text-[9px] text-neutral-400 uppercase font-medium tracking-wide">GET IT ON</div>
+                      <div className="text-[13px] font-bold text-white tracking-tight">Google Play</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </section>

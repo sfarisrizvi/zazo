@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, ArrowDown, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowDown, ShieldCheck, Sparkles, QrCode, Percent, ShoppingBag, Check, X, AlertCircle } from 'lucide-react';
 
 interface Competitor {
   id: string;
@@ -88,19 +88,15 @@ export default function RateCalculator() {
     >
       <div className="mx-auto max-w-[1200px] px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
           <span className="inline-flex h-6 sm:h-7 items-center rounded-full bg-black/5 px-3 sm:px-3.5 text-[11px] sm:text-[12px] font-medium tracking-wide uppercase text-neutral-800 border border-black/10">
             Live Rates
           </span>
-          <h2 className="mt-3 sm:mt-4 text-[30px] sm:text-[44px] lg:text-[56px] font-bold leading-[1.1] sm:leading-tight tracking-[-1.4px] sm:tracking-[-2px] text-black m-0">
-            Live Rate Calculator
+          <h2 className="mt-3 sm:mt-4 text-[32px] sm:text-[46px] lg:text-[58px] font-bold leading-[1.1] sm:leading-tight tracking-[-1.4px] sm:tracking-[-2px] text-black m-0">
+            Only Zazo pays you back.
           </h2>
-          <p className="mt-2.5 sm:mt-3 text-[15px] sm:text-[18px] lg:text-[19px] leading-relaxed text-neutral-600 font-normal m-0 max-w-xl mx-auto px-1">
-            With Zazo you walk with at least{' '}
-            <span className="text-[#047857] font-semibold">
-              {formatPKR(diffExtra)} PKR
-            </span>{' '}
-            more than any alternative
+          <p className="mt-2.5 sm:mt-3 text-[15px] sm:text-[18px] lg:text-[19px] leading-relaxed text-neutral-600 font-normal m-0 max-w-2xl mx-auto px-1">
+            The only wallet in Pakistan built for global receiving and everyday local spend with rewards.
           </p>
         </div>
 
@@ -199,275 +195,263 @@ export default function RateCalculator() {
                 />
                 <span className="text-[11px] font-semibold text-neutral-400 shrink-0">$5,000</span>
               </div>
+
+              {/* Dynamic PKR Advantage Callout */}
+              <div className="pt-2 text-center text-[13px] sm:text-[14px] text-neutral-600">
+                With Zazo you walk away with at least{' '}
+                <span className="text-[#047857] font-bold">
+                  {formatPKR(diffExtra)} PKR
+                </span>{' '}
+                more than any alternative
+              </div>
             </div>
           </div>
         </div>
 
         {/* 
           ======================================================================
-          COMPARISON TABLE / LIST
-          Responsive dual layout:
-          - Desktop (sm and up): Clean 4-column spacious table
-          - Mobile (< sm): High-density comparison cards with zero horizontal scroll
+          "Only Zazo pays you back." - COMPARISON TABLE
+          Table layout with competitor logos & brand names in the header:
+          • Features | Zazo (Featured) | nSave | Elevate | Payoneer
+          • QR Payments in Pakistan: ✅ Zazo | ❌ nSave | ❌ Elevate | ❌ Payoneer
+          • QR Discounts (Up to 10%): ✅ Zazo | ❌ nSave | ❌ Elevate | ❌ Payoneer
+          • Seller Payouts: ✅ Zazo | ⚠️ Limited (nSave) | ⚠️ Limited (Elevate) | ✅ Payoneer
           ======================================================================
         */}
-        <div className="max-w-4xl mx-auto mt-7 sm:mt-10">
-          <div className="rounded-[20px] sm:rounded-[24px] border border-black/10 bg-white overflow-hidden shadow-sm">
+        <div className="max-w-4xl mx-auto mt-10 sm:mt-14">
+          {/* Table Container with responsive scroll */}
+          <div className="rounded-[22px] sm:rounded-[26px] border border-black/10 bg-white shadow-sm overflow-hidden">
+            <div className="overflow-x-auto scrollbar-thin">
+              <table className="w-full min-w-[640px] text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-black/10 bg-neutral-50/80">
+                    {/* Criteria Header */}
+                    <th scope="col" className="py-4 sm:py-5 px-4 sm:px-6 w-[34%] text-[12px] sm:text-[13px] font-bold text-neutral-500 uppercase tracking-wider align-bottom">
+                      Features
+                    </th>
 
-            {/* 
-              ------------------------------------------------------------------
-              MOBILE VIEW (< sm / < 640px): 
-              No horizontal scrollbar, 100% visible, native mobile feel
-              ------------------------------------------------------------------
-            */}
-            <div className="block sm:hidden divide-y divide-black/5">
-              {/* Mobile Table Header */}
-              <div className="px-3.5 py-2.5 bg-[#fafafa] flex items-center justify-between text-[11px] font-semibold text-neutral-500 uppercase tracking-wider border-b border-black/5">
-                <span>Provider & Rate</span>
-                <span className="text-right">You Receive</span>
-              </div>
-
-              {/* 1. Zazo Row (Mobile) */}
-              <div className="p-3.5 bg-[#6CFF94]/15">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-8 h-8 rounded-xl bg-[#6CFF94] flex items-center justify-center p-1 shadow-sm shrink-0">
-                      <Image
-                        src="/favicon.svg"
-                        alt="Zazo"
-                        width={20}
-                        height={20}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="text-[15px] font-bold text-black">Zazo</span>
-                        <span className="inline-flex items-center rounded-full bg-[#6CFF94] px-1.5 py-0.2 text-[9px] font-bold tracking-wide uppercase text-neutral-900 border border-black/10">
-                          Best Rate
+                    {/* Zazo Header (Featured) */}
+                    <th scope="col" className="py-4 sm:py-5 px-3 sm:px-4 w-[20%] text-center bg-[#6CFF94]/15 border-x border-emerald-500/20 relative align-bottom">
+                      <div className="inline-block mb-2">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#047857] text-white">
+                          Best Value
                         </span>
                       </div>
-                      <div className="text-[11px] text-neutral-600 mt-0.5">
-                        Rate: <span className="font-semibold text-neutral-900">280.00</span> · Fee: <span className="font-semibold text-neutral-900">$0</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-[15px] font-bold text-[#047857]">
-                      {formatPKR(zazoPayout)} PKR
-                    </div>
-                    <span className="inline-block mt-0.5 text-[9px] font-semibold text-emerald-800 bg-emerald-100/80 px-1.5 py-0.5 rounded">
-                      Guaranteed
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* 2. nSave Row (Mobile) */}
-              <div className="p-3.5 bg-white">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-[#E52320] flex items-center justify-center text-white font-bold text-[13px] shadow-sm shrink-0 select-none">
-                      n
-                    </div>
-                    <div className="min-w-0">
-                      <span className="text-[14px] font-semibold text-neutral-900">nSave</span>
-                      <div className="text-[11px] text-neutral-500 mt-0.5">
-                        Rate: <span className="font-medium text-neutral-700">275.29</span> · Fee: <span className="font-medium text-neutral-700">$0</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-[14px] font-semibold text-neutral-900">
-                      {formatPKR(nsavePayout)} PKR
-                    </div>
-                    <span className="inline-block mt-0.5 text-[10px] font-medium text-red-600">
-                      -{formatPKR(zazoPayout - nsavePayout)} PKR
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* 3. Elevate Pay Row (Mobile) */}
-              <div className="p-3.5 bg-white">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-[#1844EB] flex items-center justify-center shadow-sm shrink-0">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-white">
-                        <path d="M12 5.5l5.5 12h-3.2l-2.3-5.3-2.3 5.3H6.5L12 5.5z" />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <span className="text-[14px] font-semibold text-neutral-900">Elevate Pay</span>
-                      <div className="text-[11px] text-neutral-500 mt-0.5">
-                        Rate: <span className="font-medium text-neutral-700">273.95</span> · Fee: <span className="font-medium text-neutral-700">$0</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-[14px] font-semibold text-neutral-900">
-                      {formatPKR(elevatePayout)} PKR
-                    </div>
-                    <span className="inline-block mt-0.5 text-[10px] font-medium text-red-600">
-                      -{formatPKR(zazoPayout - elevatePayout)} PKR
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* 4. Payoneer Row (Mobile) */}
-              <div className="p-3.5 bg-white">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-[#121212] flex items-center justify-center shadow-sm relative overflow-hidden shrink-0">
-                      <div className="w-3.5 h-3.5 rounded-full border-2 border-transparent bg-gradient-to-tr from-[#FF4800] via-[#FF8000] to-[#0070F3] p-[2px]">
-                        <div className="w-full h-full rounded-full bg-[#121212]" />
-                      </div>
-                    </div>
-                    <div className="min-w-0">
-                      <span className="text-[14px] font-semibold text-neutral-900">Payoneer</span>
-                      <div className="text-[11px] text-neutral-500 mt-0.5">
-                        Rate: <span className="font-medium text-neutral-700">274.44</span> · Fee: <span className="font-medium text-neutral-700">$15</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-[14px] font-semibold text-neutral-900">
-                      {formatPKR(payoneerPayout)} PKR
-                    </div>
-                    <span className="inline-block mt-0.5 text-[10px] font-medium text-red-600">
-                      -{formatPKR(zazoPayout - payoneerPayout)} PKR
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 
-              ------------------------------------------------------------------
-              DESKTOP VIEW (sm and up: >= 640px): 
-              Full 4-column spacious table matching reference layout
-              ------------------------------------------------------------------
-            */}
-            <div className="hidden sm:block overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-black/10 bg-[#fafafa]">
-                    <th className="py-4 px-6 text-[11px] sm:text-[12px] font-semibold text-neutral-500 uppercase tracking-wider">
-                      Provider
-                    </th>
-                    <th className="py-4 px-6 text-[11px] sm:text-[12px] font-semibold text-neutral-500 uppercase tracking-wider text-right">
-                      Fee
-                    </th>
-                    <th className="py-4 px-6 text-[11px] sm:text-[12px] font-semibold text-neutral-500 uppercase tracking-wider text-right">
-                      Rate
-                    </th>
-                    <th className="py-4 px-6 text-[11px] sm:text-[12px] font-semibold text-neutral-500 uppercase tracking-wider text-right">
-                      You Receive
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-black/5">
-                  {/* 1. ZAZO ROW (HIGHLIGHTED) */}
-                  <tr className="bg-[#6CFF94]/12 transition-colors">
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-[#6CFF94] flex items-center justify-center p-1.5 shadow-sm">
+                      <div className="flex flex-col items-center justify-center gap-1.5">
+                        <div className="w-9 h-9 rounded-full bg-white border border-[#047857]/30 flex items-center justify-center p-1.5 shadow-sm">
                           <Image
-                            src="/favicon.svg"
-                            alt="Zazo"
+                            src="/zazo.svg"
+                            alt="Zazo Logo"
                             width={22}
                             height={22}
-                            className="w-full h-full object-contain"
+                            className="w-5 h-5 object-contain"
                           />
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[16px] font-bold text-black">Zazo</span>
-                          <span className="inline-flex items-center rounded-full bg-[#6CFF94] px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase text-neutral-900 border border-black/10">
-                            Best Rate
-                          </span>
-                        </div>
+                        <span className="text-[15px] sm:text-[16px] font-bold text-black tracking-tight">
+                          Zazo
+                        </span>
                       </div>
-                    </td>
-                    <td className="py-4 px-6 text-right font-medium text-neutral-800">$0</td>
-                    <td className="py-4 px-6 text-right font-semibold text-neutral-900">280.00</td>
-                    <td className="py-4 px-6 text-right">
-                      <span className="text-[16px] sm:text-[17px] font-bold text-[#047857]">
-                        {formatPKR(zazoPayout)} PKR
-                      </span>
-                    </td>
-                  </tr>
+                    </th>
 
-                  {/* 2. nSave ROW */}
-                  <tr className="hover:bg-neutral-50/80 transition-colors">
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[#E52320] flex items-center justify-center text-white font-bold text-[14px] shadow-sm select-none">
+                    {/* nSave Header */}
+                    <th scope="col" className="py-4 sm:py-5 px-3 sm:px-4 w-[15%] text-center align-bottom">
+                      <div className="flex flex-col items-center justify-center gap-1.5 pb-1">
+                        <div className="w-9 h-9 rounded-full bg-[#E52320] flex items-center justify-center text-white font-bold text-[15px] shadow-sm select-none">
                           n
                         </div>
-                        <span className="text-[15px] font-medium text-neutral-900">nSave</span>
+                        <span className="text-[14px] sm:text-[15px] font-semibold text-neutral-800">
+                          nSave
+                        </span>
                       </div>
-                    </td>
-                    <td className="py-4 px-6 text-right font-normal text-neutral-600">$0</td>
-                    <td className="py-4 px-6 text-right font-medium text-neutral-700">275.29</td>
-                    <td className="py-4 px-6 text-right font-semibold text-neutral-900">
-                      {formatPKR(nsavePayout)} PKR
-                    </td>
-                  </tr>
+                    </th>
 
-                  {/* 3. Elevate Pay ROW */}
-                  <tr className="hover:bg-neutral-50/80 transition-colors">
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[#1844EB] flex items-center justify-center shadow-sm">
-                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white">
+                    {/* Elevate Header */}
+                    <th scope="col" className="py-4 sm:py-5 px-3 sm:px-4 w-[15%] text-center align-bottom">
+                      <div className="flex flex-col items-center justify-center gap-1.5 pb-1">
+                        <div className="w-9 h-9 rounded-full bg-[#1844EB] flex items-center justify-center shadow-sm text-white">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                             <path d="M12 5.5l5.5 12h-3.2l-2.3-5.3-2.3 5.3H6.5L12 5.5z" />
                           </svg>
                         </div>
-                        <span className="text-[15px] font-medium text-neutral-900">Elevate Pay</span>
+                        <span className="text-[14px] sm:text-[15px] font-semibold text-neutral-800">
+                          Elevate
+                        </span>
                       </div>
-                    </td>
-                    <td className="py-4 px-6 text-right font-normal text-neutral-600">$0</td>
-                    <td className="py-4 px-6 text-right font-medium text-neutral-700">273.95</td>
-                    <td className="py-4 px-6 text-right font-semibold text-neutral-900">
-                      {formatPKR(elevatePayout)} PKR
-                    </td>
-                  </tr>
+                    </th>
 
-                  {/* 4. Payoneer ROW */}
-                  <tr className="hover:bg-neutral-50/80 transition-colors">
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[#121212] flex items-center justify-center shadow-sm relative overflow-hidden">
+                    {/* Payoneer Header */}
+                    <th scope="col" className="py-4 sm:py-5 px-3 sm:px-4 w-[16%] text-center align-bottom">
+                      <div className="flex flex-col items-center justify-center gap-1.5 pb-1">
+                        <div className="w-9 h-9 rounded-full bg-[#121212] flex items-center justify-center shadow-sm relative overflow-hidden">
                           <div className="w-4 h-4 rounded-full border-2 border-transparent bg-gradient-to-tr from-[#FF4800] via-[#FF8000] to-[#0070F3] p-[2px]">
                             <div className="w-full h-full rounded-full bg-[#121212]" />
                           </div>
                         </div>
-                        <span className="text-[15px] font-medium text-neutral-900">Payoneer</span>
+                        <span className="text-[14px] sm:text-[15px] font-semibold text-neutral-800">
+                          Payoneer
+                        </span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody className="divide-y divide-black/5 text-[14px]">
+                  {/* Row 1: QR Payments in Pakistan */}
+                  <tr className="hover:bg-neutral-50/50 transition-colors">
+                    <td className="py-4 sm:py-5 px-4 sm:px-6">
+                      <div className="flex items-start sm:items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-black/5 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                          <QrCode className="w-4 h-4 text-neutral-800" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-black text-[14px] sm:text-[15px]">
+                            QR Payments in Pakistan
+                          </div>
+                          <div className="text-[12px] text-neutral-500 font-normal">
+                            Scan to pay at retail counters and merchant standees
+                          </div>
+                        </div>
                       </div>
                     </td>
-                    <td className="py-4 px-6 text-right font-normal text-neutral-600">$15</td>
-                    <td className="py-4 px-6 text-right font-medium text-neutral-700">274.44</td>
-                    <td className="py-4 px-6 text-right font-semibold text-neutral-900">
-                      {formatPKR(payoneerPayout)} PKR
+
+                    {/* Zazo */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center bg-[#6CFF94]/15 border-x border-emerald-500/20">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-bold text-[13px] shadow-2xs">
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
+                        <span>Supported</span>
+                      </div>
+                    </td>
+
+                    {/* nSave */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-50 border border-rose-200/70 text-rose-500">
+                        <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </div>
+                    </td>
+
+                    {/* Elevate */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-50 border border-rose-200/70 text-rose-500">
+                        <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </div>
+                    </td>
+
+                    {/* Payoneer */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-50 border border-rose-200/70 text-rose-500">
+                        <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </div>
+                    </td>
+                  </tr>
+
+                  {/* Row 2: QR Discounts (Up to 10%) */}
+                  <tr className="hover:bg-neutral-50/50 transition-colors">
+                    <td className="py-4 sm:py-5 px-4 sm:px-6">
+                      <div className="flex items-start sm:items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-black/5 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                          <Percent className="w-4 h-4 text-neutral-800" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-black text-[14px] sm:text-[15px]">
+                            QR Discounts (Up to 10%)
+                          </div>
+                          <div className="text-[12px] text-neutral-500 font-normal">
+                            Dynamic discounts automatically applied on eligible local scans
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    {/* Zazo */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center bg-[#6CFF94]/15 border-x border-emerald-500/20">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-bold text-[13px] shadow-2xs">
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
+                        <span>Up to 10%</span>
+                      </div>
+                    </td>
+
+                    {/* nSave */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-50 border border-rose-200/70 text-rose-500">
+                        <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </div>
+                    </td>
+
+                    {/* Elevate */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-50 border border-rose-200/70 text-rose-500">
+                        <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </div>
+                    </td>
+
+                    {/* Payoneer */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-50 border border-rose-200/70 text-rose-500">
+                        <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </div>
+                    </td>
+                  </tr>
+
+                  {/* Row 3: Seller Payouts */}
+                  <tr className="hover:bg-neutral-50/50 transition-colors">
+                    <td className="py-4 sm:py-5 px-4 sm:px-6">
+                      <div className="flex items-start sm:items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-black/5 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                          <ShoppingBag className="w-4 h-4 text-neutral-800" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-black text-[14px] sm:text-[15px]">
+                            Seller Payouts
+                          </div>
+                          <div className="text-[12px] text-neutral-500 font-normal">
+                            Receive payouts from Amazon, eBay, Etsy & international clients
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    {/* Zazo */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center bg-[#6CFF94]/15 border-x border-emerald-500/20">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-bold text-[13px] shadow-2xs">
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
+                        <span>Supported</span>
+                      </div>
+                    </td>
+
+                    {/* nSave */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-medium">
+                        <AlertCircle className="w-3 h-3 text-amber-700" />
+                        <span>Limited</span>
+                      </div>
+                    </td>
+
+                    {/* Elevate */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-medium">
+                        <AlertCircle className="w-3 h-3 text-amber-700" />
+                        <span>Limited</span>
+                      </div>
+                    </td>
+
+                    {/* Payoneer */}
+                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
+                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800">
+                        <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            {/* Table Footer Disclaimer */}
-            <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-[#fafafa] border-t border-black/5 flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] sm:text-[12px] text-neutral-500 gap-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                <span className="leading-tight">Rates compared against publicly available provider quotes. No hidden spreads with Zazo.</span>
-              </div>
-              <div className="flex items-center gap-1.5 font-medium text-neutral-600 shrink-0">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Guaranteed rate locked before you confirm</span>
-              </div>
+            {/* Table Footer */}
+            <div className="px-4 sm:px-6 py-3.5 bg-neutral-50/90 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-[12px] text-neutral-500 gap-2 text-center sm:text-left">
+              <span>Features compared across supported Pakistani consumer and merchant offerings.</span>
+              <span className="font-semibold text-neutral-700 flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Guaranteed rate locked before you confirm
+              </span>
             </div>
-
           </div>
         </div>
       </div>

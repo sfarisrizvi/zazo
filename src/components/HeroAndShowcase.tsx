@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollBackground, ThemeType } from '@/components/ScrollBackgroundContext';
 import Logo from './Logo';
 
@@ -170,11 +170,6 @@ export default function HeroAndShowcase() {
   const [showTracker, setShowTracker] = useState(false);
   const { setTheme } = useScrollBackground();
 
-  // Scroll-driven rotation for the right-side circular stamp
-  const { scrollY } = useScroll();
-  const rawRotate = useTransform(scrollY, [0, 3000], [0, 1080]);
-  const smoothRotate = useSpring(rawRotate, { stiffness: 90, damping: 20 });
-
   const heroRef = useRef<HTMLDivElement>(null);
   const chapterRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -297,22 +292,8 @@ export default function HeroAndShowcase() {
           {/* Center Zone: Dead Center Dynamic Phone & Symmetrically Centered Top Logo / Bottom Button */}
           <div className="w-[320px] lg:w-[360px] xl:w-[410px] 2xl:w-[450px] shrink-0 h-full flex flex-col items-center justify-between relative py-0">
 
-            {/* TOP SPACE: Centered precisely in the space between section top edge and phone top */}
-            <div className="flex-1 w-full flex items-center justify-center z-30">
-              <AnimatePresence>
-                {isIntro && (
-                  <motion.div
-                    key="hero-top-logo"
-                    initial={{ opacity: 0, y: -12, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -12, scale: 0.95, transition: { duration: 0.25 } }}
-                    className="flex items-center justify-center pointer-events-auto"
-                  >
-                    <Logo height={42} className="text-black" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            {/* TOP SPACE: Balances space between section top edge and phone top */}
+            <div className="flex-1 w-full pointer-events-none" />
 
             {/* CENTER PHONE FRAME + BACKGROUND LOGO (Dynamic & Proportional) */}
             <div className="relative shrink-0 flex items-center justify-center my-auto">
@@ -478,11 +459,18 @@ export default function HeroAndShowcase() {
             data-theme-bg="green"
             className="snap-section-top relative flex h-[calc(100vh-74px)] items-center px-6 lg:px-10 xl:px-16 2xl:px-24 bg-transparent text-black"
           >
+            {/* Top-Left Logo on Desktop Hero */}
+            <div className="absolute top-6 left-6 lg:top-8 lg:left-10 xl:left-16 2xl:left-24 z-30 flex items-center">
+              <a href="#hero" aria-label="Zazo Home" className="flex items-center group">
+                <Logo height={34} className="text-black transition-opacity group-hover:opacity-80" />
+              </a>
+            </div>
+
             <div className="w-full flex items-center justify-between">
 
               {/* LEFT ZONE: Exactly centered in the space between left screen edge and phone, matching chapter content alignment */}
               <div className="flex-1 flex items-center justify-center">
-                <div className="w-full max-w-[440px] xl:max-w-[480px] text-left">
+                <div className="w-full max-w-[460px] xl:max-w-[500px] text-left">
                   <div
                     className={`flex flex-col gap-4 transition-all duration-500 ${isIntro ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
                       }`}
@@ -493,25 +481,40 @@ export default function HeroAndShowcase() {
                       Local spend.
                     </h1>
 
-                    {/* Currency Accounts Supported */}
+                    {/* Currency Accounts Supported - US & PK flags only */}
                     <p className="text-[17px] sm:text-[19px] xl:text-[21px] leading-snug tracking-[-0.6px] font-normal text-black/90 m-0">
-                      Get USD, PKR, EUR, GBP and AED accounts.    🇺🇸 🇵🇰 🇪🇺 🇬🇧 🇦🇪
+                      Get USD and PKR accounts. 🇺🇸 🇵🇰
                     </p>
+
+                    {/* The Flow Graphic: Horizontal 3-step visual row */}
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 py-1 select-none">
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
+                        Receive in any currency
+                      </span>
+                      <span className="text-black/50 text-[12px] font-bold">➔</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
+                        Convert to PKR
+                      </span>
+                      <span className="text-black/50 text-[12px] font-bold">➔</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
+                        Hold or Spend by QR
+                      </span>
+                    </div>
 
                     {/* Action Buttons */}
                     <div className="flex flex-wrap items-center gap-3 pt-2">
-                      <button
-                        type="button"
+                      <a
+                        href="#waitlist"
                         className="btn-pill btn-primary inline-flex items-center justify-center text-[13px] font-medium px-6 h-[46px] shadow-lg cursor-pointer"
                       >
                         Join Waitlist
-                      </button>
-                      <button
-                        type="button"
+                      </a>
+                      <a
+                        href="#rates"
                         className="btn-pill btn-secondary-green inline-flex items-center justify-center text-[13px] font-medium px-6 h-[46px] border border-black/25 text-black hover:border-black/50 cursor-pointer"
                       >
                         Check Live Rate
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -520,83 +523,9 @@ export default function HeroAndShowcase() {
               {/* CENTER ZONE SPACER: Exact matching width of center phone */}
               <div className="w-[320px] lg:w-[360px] xl:w-[410px] 2xl:w-[450px] shrink-0 h-full pointer-events-none" />
 
-              {/* RIGHT ZONE: Rotating Circular Badge */}
-              <div className="flex-1 flex items-center justify-center">
-                <div
-                  className={`w-full max-w-[360px] flex items-center justify-center transition-all duration-500 ${
-                    isIntro ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-                  }`}
-                >
-                  <a
-                    href="#how-it-works"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      jumpToChapter(0);
-                    }}
-                    aria-label="Explore how Zazo works"
-                    className="group relative flex items-center justify-center cursor-pointer select-none"
-                  >
-                    {/* Rotating Circular Text & Orbit Rings */}
-                    <motion.div
-                      style={{ rotate: smoothRotate }}
-                      className="flex items-center justify-center pointer-events-none"
-                    >
-                      <svg
-                        viewBox="0 0 240 240"
-                        className="w-[200px] h-[200px] xl:w-[230px] xl:h-[230px] 2xl:w-[250px] 2xl:h-[250px]"
-                      >
-                        <defs>
-                          <path
-                            id="heroCircleTextPath"
-                            d="M 120, 32 a 88,88 0 1,1 0,176 a 88,88 0 1,1 0,-176"
-                          />
-                        </defs>
-
-                        {/* Outer subtle dotted orbit */}
-                        <circle
-                          cx="120"
-                          cy="120"
-                          r="114"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          strokeDasharray="3 4"
-                          className="text-black/20"
-                        />
-
-                        {/* Inner delicate guide ring */}
-                        <circle
-                          cx="120"
-                          cy="120"
-                          r="64"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          className="text-black/15"
-                        />
-
-                        {/* Circular Typography that loops around 360 degrees */}
-                        <text className="text-[10px] xl:text-[10.5px] font-bold uppercase tracking-[0.16em] fill-black">
-                          <textPath
-                            href="#heroCircleTextPath"
-                            startOffset="0%"
-                            textLength="553"
-                            lengthAdjust="spacing"
-                          >
-                            Receive in any currency → convert to PKR → Hold or spend by QR →
-                          </textPath>
-                        </text>
-                      </svg>
-                    </motion.div>
-
-                    {/* Central Stationary Black Badge with Green Zazo Mark */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                      <div className="w-16 h-16 xl:w-20 xl:h-20 rounded-full bg-black flex items-center justify-center shadow-xl border border-black/10 group-hover:scale-105 transition-transform duration-300">
-                        <ZazoLogoMark color="#6CFF94" className="w-8 h-8 xl:w-10 xl:h-10" />
-                      </div>
-                    </div>
-                  </a>
-                </div>
+              {/* RIGHT ZONE SPACER: Matches right zone to maintain perfect center balance */}
+              <div className="flex-1 flex items-center justify-center pointer-events-none">
+                <div className="w-full max-w-[360px]" />
               </div>
 
             </div>
@@ -634,22 +563,8 @@ export default function HeroAndShowcase() {
                           className={`flex flex-col gap-4 transition-all duration-500 ${isCurrent ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
                             }`}
                         >
-                          {/* Step indicator & Badge */}
-                          <div className="flex items-center gap-3">
-                            <span
-                              className={`text-[13px] tracking-[-0.26px] font-normal uppercase ${isDark
-                                ? 'text-[#888888]'
-                                : isGreen
-                                  ? 'text-black/60'
-                                  : 'text-[#666666]'
-                                }`}
-                            >
-                              Step {chapter.stepNumber} of 06
-                            </span>
-                            <span
-                              className={`h-1.5 w-1.5 rounded-full ${isDark ? 'bg-white/20' : 'bg-black/20'
-                                }`}
-                            />
+                          {/* Chapter Badge */}
+                          <div className="flex items-center">
                             <span
                               className="inline-flex h-7 items-center rounded-full px-3 text-[12px] tracking-[-0.24px] font-normal border transition-colors duration-500"
                               style={{
@@ -820,24 +735,50 @@ export default function HeroAndShowcase() {
           data-snap-point
           data-snap-id="mobile-hero"
           data-theme-bg="green"
-          className="snap-section-top relative z-10 flex min-h-[100dvh] w-full flex-col items-center justify-center bg-[#6CFF94] px-5 py-6 overflow-hidden"
+          className="snap-section-top relative z-10 flex min-h-[100dvh] w-full flex-col justify-between bg-[#6CFF94] px-5 py-6 overflow-hidden"
         >
-          {/* Centered Content Stack: Top Logo, Center Phone + Badges, Bottom Waitlist Button */}
+          {/* Top-Left Logo on Mobile */}
+          <div className="w-full flex items-center justify-start z-20">
+            <a href="#hero" aria-label="Zazo Home" className="flex items-center">
+              <Logo height={32} className="text-black" />
+            </a>
+          </div>
+
+          {/* Centered Content Stack: Hero Copy + The Flow Graphic + Center Phone + Badges */}
           <div className="flex flex-col items-center justify-center w-full my-auto gap-3 sm:gap-4">
-            {/* Top Logo */}
-            <div className="shrink-0 flex items-center justify-center z-20">
-              <Logo height={38} className="text-black" />
+            {/* Mobile Hero Copy & Flow Graphic */}
+            <div className="flex flex-col items-center text-center gap-1.5 z-20 px-1 pt-1">
+              <h1 className="text-[32px] sm:text-[38px] font-bold leading-tight tracking-[-1.3px] text-black m-0">
+                Global pay. Local spend.
+              </h1>
+              <p className="text-[14px] sm:text-[15px] text-black/90 font-normal m-0">
+                Get USD and PKR accounts. 🇺🇸 🇵🇰
+              </p>
+              {/* Flow Graphic: 3-step visual row */}
+              <div className="flex flex-wrap items-center justify-center gap-1.5 py-1 text-[11px] font-semibold text-black select-none">
+                <span className="px-2.5 py-1 rounded-full bg-black/[0.08] border border-black/10 shadow-xs">
+                  Receive in any currency
+                </span>
+                <span className="text-black/40 text-[11px]">➔</span>
+                <span className="px-2.5 py-1 rounded-full bg-black/[0.08] border border-black/10 shadow-xs">
+                  Convert to PKR
+                </span>
+                <span className="text-black/40 text-[11px]">➔</span>
+                <span className="px-2.5 py-1 rounded-full bg-black/[0.08] border border-black/10 shadow-xs">
+                  Hold or Spend by QR
+                </span>
+              </div>
             </div>
 
             {/* Center Phone Mockup & Background Logo */}
-            <div className="relative shrink-0 flex items-center justify-center my-1 sm:my-2">
+            <div className="relative shrink-0 flex items-center justify-center my-1">
               {/* Logo on the back of phone */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none select-none opacity-20">
-                <ZazoLogoMark color="#000000" className="w-[clamp(280px,44vh,420px)] h-[clamp(280px,44vh,420px)]" />
+                <ZazoLogoMark color="#000000" className="w-[clamp(240px,36vh,360px)] h-[clamp(240px,36vh,360px)]" />
               </div>
 
               {/* Phone Frame - Prominent, readable dynamic sizing */}
-              <div className="relative h-[clamp(360px,56vh,540px)] w-auto aspect-[430/932] rounded-[38px] border-[8px] border-black bg-black overflow-hidden shadow-2xl">
+              <div className="relative h-[clamp(300px,46vh,460px)] w-auto aspect-[430/932] rounded-[34px] border-[7px] border-black bg-black overflow-hidden shadow-2xl">
                 <Image
                   src="/screens/home.png"
                   alt="Zazo App Screen"
@@ -848,8 +789,8 @@ export default function HeroAndShowcase() {
                 />
               </div>
 
-              {/* Floating Badges (Positioned around the phone perimeter, not blocking screen UI) */}
-              <div className="absolute bottom-6 sm:bottom-8 -left-12 sm:-left-16 z-20 w-[118px] sm:w-[136px]">
+              {/* Floating Badges */}
+              <div className="absolute bottom-4 sm:bottom-6 -left-10 sm:-left-14 z-20 w-[108px] sm:w-[126px]">
                 <Image
                   src="/badges/badge_usd_received.png"
                   alt="USD received"
@@ -858,7 +799,7 @@ export default function HeroAndShowcase() {
                   className="h-auto w-full drop-shadow-xl"
                 />
               </div>
-              <div className="absolute top-5 sm:top-7 -right-12 sm:-right-16 z-20 w-[118px] sm:w-[136px]">
+              <div className="absolute top-4 sm:top-6 -right-10 sm:-right-14 z-20 w-[108px] sm:w-[126px]">
                 <Image
                   src="/badges/badge_discount.png"
                   alt="Discount earned"
@@ -869,20 +810,20 @@ export default function HeroAndShowcase() {
               </div>
             </div>
 
-            {/* Bottom Button: Balanced margin & ample clearance from bottom edge */}
+            {/* Action Buttons */}
             <div className="shrink-0 flex items-center justify-center gap-2.5 z-20 flex-wrap px-4">
-              <button
-                type="button"
-                className="inline-flex h-[48px] sm:h-[50px] items-center justify-center rounded-full bg-black px-6 text-[14px] sm:text-[15px] font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 tracking-[-0.2px] cursor-pointer"
+              <a
+                href="#waitlist"
+                className="inline-flex h-[46px] items-center justify-center rounded-full bg-black px-6 text-[14px] font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 tracking-[-0.2px] cursor-pointer"
               >
                 Join Waitlist
-              </button>
-              <button
-                type="button"
-                className="inline-flex h-[48px] sm:h-[50px] items-center justify-center rounded-full bg-transparent border border-black/30 px-6 text-[14px] sm:text-[15px] font-medium text-black shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 tracking-[-0.2px] cursor-pointer"
+              </a>
+              <a
+                href="#rates"
+                className="inline-flex h-[46px] items-center justify-center rounded-full bg-transparent border border-black/30 px-6 text-[14px] font-medium text-black shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 tracking-[-0.2px] cursor-pointer"
               >
                 Check Live Rate
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -920,7 +861,7 @@ export default function HeroAndShowcase() {
                   className="text-[12px] font-semibold uppercase tracking-wider block"
                   style={{ color: isGreen ? '#000000' : chapter.logoColor }}
                 >
-                  Step {chapter.stepNumber} of 06 · {chapter.badge}
+                  {chapter.badge}
                 </span>
 
                 <h2 className="text-[28px] sm:text-[34px] leading-[32px] sm:leading-[38px] font-bold tracking-[-1.2px] m-0">

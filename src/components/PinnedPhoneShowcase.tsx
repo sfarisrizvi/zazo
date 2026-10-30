@@ -350,12 +350,8 @@ export default function PinnedPhoneShowcase() {
                         isCurrent ? 'opacity-100' : 'opacity-30'
                       }`}
                     >
-                      {/* Step indicator & Badge */}
-                      <div className="flex items-center gap-3">
-                        <span className="text-[13px] tracking-[-0.26px] font-normal uppercase text-[#999999]">
-                          Step {step.stepNumber} of 06
-                        </span>
-                        <span className="h-1.5 w-1.5 rounded-full bg-black/20" />
+                      {/* Badge */}
+                      <div className="flex items-center">
                         <span className="inline-flex h-7 items-center rounded-full bg-[#6CFF94]/15 px-3 text-[12px] tracking-[-0.24px] text-black font-normal">
                           {step.badge}
                         </span>
@@ -580,11 +576,7 @@ export default function PinnedPhoneShowcase() {
 
           {/* Mobile Narrative & Feature Content */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-[12px] uppercase text-[#999999] tracking-[-0.24px]">
-                Step {current.stepNumber} of 06
-              </span>
-              <span className="h-1 w-1 rounded-full bg-black/20" />
+            <div className="flex items-center">
               <span className="inline-flex h-6 items-center rounded-full bg-[#6CFF94]/15 px-2.5 text-[11px] text-black">
                 {current.badge}
               </span>
