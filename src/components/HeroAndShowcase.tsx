@@ -38,6 +38,8 @@ interface StoryChapter {
   badge: string;
   headline: string;
   description: string;
+  featureBadge?: string;
+  featureHighlight?: string;
   screenSrc: string;
   screenAlt: string;
   logoColor: string;
@@ -54,26 +56,23 @@ interface StoryChapter {
 // Slide 3 (Step 03): White
 // Slide 4 (Step 04): Green
 // Slide 5 (Step 05): White
-// Slide 6 (Step 06): Black (already)
 export const allThemes: ThemeType[] = [
   'green', // 0: Hero
-  'white', // 1: Receive USD
-  'black', // 2: Convert Clarity
-  'white', // 3: QR Pay
-  'green', // 4: Send PKR
-  'white', // 5: Rewards
-  'black', // 6: Zazo Card
+  'white', // 1: Global Receiving
+  'black', // 2: Conversion Clarity
+  'white', // 3: Spend Like a Local
+  'green', // 4: Instant Transfers
+  'white', // 5: Activity Rewards
 ];
 
 const chapters: StoryChapter[] = [
   {
     id: 'receive-usd',
     stepNumber: '01',
-    shortName: 'Receive USD',
-    badge: 'Global Receiving',
-    headline: 'Get paid beyond borders.',
-    description:
-      'Whether you work with international clients or receive money from abroad, Zazo aims to connect supported incoming payments with the way you use money locally.',
+    shortName: 'Global Receiving',
+    badge: '01 · Global Receiving',
+    headline: 'Global Receiving',
+    description: 'Get paid in USD. Zero wire fees.',
     screenSrc: '/screens/receive_usd.png',
     screenAlt: 'Zazo USD Receiving Account Details Screen',
     logoColor: '#0066FF', // Vibrant Royal Blue on White BG
@@ -85,43 +84,42 @@ const chapters: StoryChapter[] = [
   {
     id: 'convert-clarity',
     stepNumber: '02',
-    shortName: 'Convert',
-    badge: 'Conversion Clarity',
-    headline: 'Know your conversion\nbefore you confirm.',
-    description:
-      'Review the quoted rate, applicable fees, and expected local-currency amount before confirming.',
+    shortName: 'Conversion Clarity',
+    badge: '02 · Conversion Clarity',
+    headline: 'Conversion Clarity',
+    description: 'Know your exact rate before you confirm.',
+    featureBadge: 'NO FX FEE • NO SPREAD • NO HIDDEN FEES',
     screenSrc: '/screens/convert.png',
     screenAlt: 'Zazo Currency Conversion Review Screen',
     logoColor: '#FFE600', // Vibrant Neon Yellow on Black BG
     theme: 'black',
     metricLabel: 'Guaranteed Quote',
-    metricValue: '278.40',
-    metricDetail: 'PKR per USD • 0% Hidden Spread',
+    metricValue: '280.00',
+    metricDetail: 'Locked Transparent Rate',
   },
   {
     id: 'spend-qr',
     stepNumber: '03',
-    shortName: 'QR Pay',
-    badge: 'Local Spending',
-    headline: 'Put your money\nto work locally.',
-    description:
-      'Use your PKR balance for supported local payments, merchant QR checkouts, and transfers.',
+    shortName: 'Spend Like a Local',
+    badge: '03 · Spend Like a Local',
+    headline: 'Spend Like a Local',
+    description: 'Scan any merchant QR to pay from your PKR wallet.',
+    featureHighlight: 'Earn up to 10% back on every eligible scan',
     screenSrc: '/screens/scan_qr.png',
     screenAlt: 'Zazo Scan to Pay QR Code Detected Screen',
     logoColor: '#FF1493', // Deep Hot Magenta on White BG
     theme: 'white',
-    metricLabel: 'Checkout Time',
-    metricValue: '< 2 sec',
-    metricDetail: 'Instant Counter QR Settlement',
+    metricLabel: 'Merchant QR Settlement',
+    metricValue: 'Up to 10%',
+    metricDetail: 'Instant Cash Back On Every Scan',
   },
   {
     id: 'send-locally',
     stepNumber: '04',
-    shortName: 'Send PKR',
-    badge: 'Instant Transfers',
-    headline: 'Move money to friends,\nfamily, or any bank.',
-    description:
-      'Send funds in seconds using a phone number, $zazotag, or domestic IBAN via Raast.',
+    shortName: 'Instant Transfers',
+    badge: '04 · Instant Transfers',
+    headline: 'Instant Transfers',
+    description: 'Send PKR to any bank via Raast. 24/7.',
     screenSrc: '/screens/send_pkr.png',
     screenAlt: 'Zazo Send PKR Saved Beneficiaries Screen',
     logoColor: '#000000', // Sleek Bold Black on Signature Green BG
@@ -133,34 +131,17 @@ const chapters: StoryChapter[] = [
   {
     id: 'discounts-rewards',
     stepNumber: '05',
-    shortName: 'Rewards',
-    badge: 'Activity Rewards',
-    headline: 'More value from eligible\neveryday activity.',
-    description:
-      'Explore how Zazo rewards may apply to eligible balances, payments, or activity, with the conditions explained clearly.',
+    shortName: 'Activity Rewards',
+    badge: '05 · Activity Rewards',
+    headline: 'Activity Rewards',
+    description: 'Higher PKR balance = bigger discounts.',
     screenSrc: '/screens/discounts.png',
     screenAlt: 'Zazo Activity Discounts and Rewards Tier Screen',
     logoColor: '#7C3AED', // Electric Violet on White BG
     theme: 'white',
-    metricLabel: 'Daily Cashback',
-    metricValue: 'Up to 7%',
-    metricDetail: 'Level 3 Reward Tier Active',
-  },
-  {
-    id: 'zazo-card',
-    stepNumber: '06',
-    shortName: 'Debit Card',
-    badge: 'Zazo Card',
-    headline: 'Zazo Card is the debit card\nthat works for you.',
-    description:
-      'Bring international earnings into the physical world with zero hidden fees and customizable card designs.',
-    screenSrc: '/screens/home.png',
-    screenAlt: 'Zazo Debit Card Stack',
-    logoColor: '#6CFF94', // Accent Green on Black BG
-    theme: 'black',
-    metricLabel: 'Debit Card',
-    metricValue: 'Rs 0 Fee',
-    metricDetail: 'Physical + virtual debit card',
+    metricLabel: 'Dynamic Discounts',
+    metricValue: 'Tiered',
+    metricDetail: 'Higher PKR balance = bigger discounts',
   },
 ];
 
@@ -186,31 +167,31 @@ export default function HeroAndShowcase() {
       if (isDesktop) {
         const slideHeight = window.innerHeight - 74;
         const currentY = window.scrollY;
-        const isPastHero = containerRect ? containerRect.bottom <= triggerY : currentY > slideHeight * 7;
+        const isPastHero = containerRect ? containerRect.bottom <= triggerY : currentY > slideHeight * 6;
 
-        // Total scroll range for 7 slides (Hero + 6 Chapters)
+        // Total scroll range for 6 slides (Hero + 5 Chapters)
         if (!isPastHero) {
-          const slideIdx = Math.max(0, Math.min(6, Math.round(currentY / slideHeight)));
+          const slideIdx = Math.max(0, Math.min(5, Math.round(currentY / slideHeight)));
           setActiveIndex(slideIdx);
-          setShowTracker(slideIdx >= 1 && currentY <= slideHeight * 6.2);
+          setShowTracker(slideIdx >= 1 && currentY <= slideHeight * 5.2);
           setTheme(allThemes[slideIdx] || 'black');
         } else {
           setShowTracker(false);
           // Scrolled past Hero & Showcase journey; let subsequent sections manage theme
         }
       } else {
-        // Mobile scroll tracking for stacking cards: switch theme as card arrives at the 74px navbar
+        // Mobile scroll tracking: switch theme as chapter occupies the viewport under the navbar
         // If scrolled past the hero & showcase section, hand off theme control completely
         if (containerRect && containerRect.bottom <= triggerY) {
           return;
         }
 
         let activeIdx = -1;
-        for (let i = chapters.length - 1; i >= 0; i--) {
+        for (let i = 0; i < chapters.length; i++) {
           const el = document.getElementById(`mobile-${chapters[i].id}`);
           if (el) {
             const rect = el.getBoundingClientRect();
-            if (rect.top <= triggerY) {
+            if (rect.top <= 120 && rect.bottom > 120) {
               activeIdx = i;
               break;
             }
@@ -327,7 +308,7 @@ export default function HeroAndShowcase() {
               {/* Authentic Phone Chassis in Center (Dynamic based on screen height) */}
               <div className="relative h-[clamp(360px,67vh,720px)] w-auto aspect-[430/932] rounded-[38px] xl:rounded-[44px] border-[8px] xl:border-[10px] border-black bg-black overflow-hidden shadow-2xl z-10 select-none">
                 {/* Cross-fading screen inside the phone (Dynamic Island removed) */}
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" initial={false}>
                   <motion.div
                     key={isIntro ? 'hero-screen' : currentChapter?.screenSrc || 'screen'}
                     initial={{ opacity: 0, scale: 0.98 }}
@@ -341,6 +322,7 @@ export default function HeroAndShowcase() {
                       alt={isIntro ? 'Zazo App Home Screen' : currentChapter?.screenAlt || 'Zazo Screen'}
                       fill
                       priority
+                      unoptimized
                       sizes="345px"
                       className="object-cover object-top"
                     />
@@ -349,7 +331,7 @@ export default function HeroAndShowcase() {
               </div>
 
               {/* Floating 2 Badge Cards (Visible ONLY on Hero; Fades out upon scrolling to chapters) */}
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {isIntro && (
                   <>
                     {/* Bottom-Left Card: USD Received */}
@@ -372,6 +354,7 @@ export default function HeroAndShowcase() {
                         width={420}
                         height={160}
                         priority
+                        unoptimized
                         className="h-auto w-full drop-shadow-2xl"
                       />
                     </motion.div>
@@ -396,6 +379,7 @@ export default function HeroAndShowcase() {
                         width={420}
                         height={160}
                         priority
+                        unoptimized
                         className="h-auto w-full drop-shadow-2xl"
                       />
                     </motion.div>
@@ -407,7 +391,7 @@ export default function HeroAndShowcase() {
 
             {/* BOTTOM SPACE: Centered precisely in the space between phone bottom and section bottom */}
             <div className="flex-1 w-full flex items-center justify-center z-30">
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {isIntro && (
                   <motion.div
                     key="hero-bottom-waitlist"
@@ -516,6 +500,8 @@ export default function HeroAndShowcase() {
                         Check Live Rate
                       </a>
                     </div>
+
+
                   </div>
                 </div>
               </div>
@@ -563,10 +549,19 @@ export default function HeroAndShowcase() {
                           className={`flex flex-col gap-4 transition-all duration-500 ${isCurrent ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
                             }`}
                         >
+                          {/* Section Title Eyebrow from Document 122 */}
+                          <span
+                            className={`text-[12px] font-bold uppercase tracking-wider block -mb-1 ${
+                              isDark ? 'text-neutral-400' : isGreen ? 'text-black/60' : 'text-neutral-500'
+                            }`}
+                          >
+                            From global client to local checkout
+                          </span>
+
                           {/* Chapter Badge */}
                           <div className="flex items-center">
                             <span
-                              className="inline-flex h-7 items-center rounded-full px-3 text-[12px] tracking-[-0.24px] font-normal border transition-colors duration-500"
+                              className="inline-flex h-7 items-center rounded-full px-3 text-[12px] tracking-[-0.24px] font-semibold border transition-colors duration-500"
                               style={{
                                 backgroundColor: isGreen
                                   ? 'rgba(0, 0, 0, 0.08)'
@@ -600,6 +595,30 @@ export default function HeroAndShowcase() {
                           >
                             {chapter.description}
                           </p>
+
+                          {/* Step 02 Visual Badge (NO FX FEE • NO SPREAD • NO HIDDEN FEES) */}
+                          {chapter.featureBadge && (
+                            <div className="pt-2">
+                              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFE600]/15 border border-[#FFE600]/40 text-[#FFE600] font-bold text-[12px] xl:text-[13px] tracking-wide uppercase shadow-sm">
+                                <span className="w-2 h-2 rounded-full bg-[#FFE600] animate-pulse" />
+                                <span>{chapter.featureBadge}</span>
+                              </span>
+                            </div>
+                          )}
+
+                          {/* Step 03 Visual Highlight (Earn up to 10% back on every eligible scan) */}
+                          {chapter.featureHighlight && (
+                            <div className="pt-2">
+                              <div className="rounded-[22px] bg-gradient-to-r from-[#6CFF94]/25 via-[#6CFF94]/35 to-[#6CFF94]/15 border-2 border-[#047857]/40 p-4 sm:p-5 shadow-sm">
+                                <div className="text-[11px] font-bold uppercase tracking-widest text-[#047857] mb-1">
+                                  Cashback Highlight
+                                </div>
+                                <div className="text-[20px] sm:text-[23px] font-extrabold text-black leading-tight tracking-tight">
+                                  Earn up to <span className="text-[#047857] underline decoration-wavy decoration-[#6CFF94]">10% back</span> on every eligible scan
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -784,6 +803,7 @@ export default function HeroAndShowcase() {
                   alt="Zazo App Screen"
                   fill
                   priority
+                  unoptimized
                   sizes="320px"
                   className="object-cover object-top"
                 />
@@ -796,6 +816,7 @@ export default function HeroAndShowcase() {
                   alt="USD received"
                   width={420}
                   height={160}
+                  unoptimized
                   className="h-auto w-full drop-shadow-xl"
                 />
               </div>
@@ -805,6 +826,7 @@ export default function HeroAndShowcase() {
                   alt="Discount earned"
                   width={420}
                   height={160}
+                  unoptimized
                   className="h-auto w-full drop-shadow-xl"
                 />
               </div>
@@ -825,18 +847,17 @@ export default function HeroAndShowcase() {
                 Check Live Rate
               </a>
             </div>
+
+
           </div>
         </div>
 
         {/* 
-          Mobile Chapters 1 to 6: Tactile Stacking Cards on Scroll
-          Each card sticks at top-[74px] as you scroll, with the next card sliding
-          up directly OVER the previous one with clean flat top edge and shadow!
+          Mobile Chapters 1 to 5: Normal vertical flow on scroll
         */}
-        {chapters.map((chapter, index) => {
+        {chapters.map((chapter) => {
           const isDark = chapter.theme === 'black';
           const isGreen = chapter.theme === 'green';
-          const zIndex = 20 + index * 5; // 20, 25, 30, 35, 40, 45
 
           return (
             <div
@@ -845,18 +866,19 @@ export default function HeroAndShowcase() {
               data-snap-point
               data-snap-id={`mobile-${chapter.id}`}
               data-theme-bg={chapter.theme}
-              className={`snap-section sticky top-[74px] min-h-[calc(100dvh-74px)] w-full overflow-hidden flex flex-col justify-between px-5 pt-8 pb-6 transition-colors duration-500 rounded-none shadow-[0_-16px_40px_rgba(0,0,0,0.22)] border-t ${isDark
+              className={`snap-section relative min-h-[calc(100dvh-74px)] w-full overflow-hidden flex flex-col justify-between px-5 pt-8 pb-6 transition-colors duration-500 border-t ${isDark
                 ? 'border-white/10 bg-black text-white'
                 : isGreen
                   ? 'border-black/10 bg-[#6CFF94] text-black'
                   : 'border-black/10 bg-white text-black'
                 }`}
-              style={{
-                zIndex,
-              }}
             >
               {/* Header Text */}
               <div className="flex flex-col gap-2 shrink-0">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 block">
+                  From global client to local checkout
+                </span>
+
                 <span
                   className="text-[12px] font-semibold uppercase tracking-wider block"
                   style={{ color: isGreen ? '#000000' : chapter.logoColor }}
@@ -869,11 +891,32 @@ export default function HeroAndShowcase() {
                 </h2>
 
                 <p
-                  className={`text-[15px] sm:text-[16px] leading-[22px] tracking-[-0.2px] m-0 line-clamp-2 sm:line-clamp-none ${isDark ? 'text-[#D4D4D4]' : isGreen ? 'text-black/85' : 'text-[#444444]'
+                  className={`text-[15px] sm:text-[16px] leading-[22px] tracking-[-0.2px] m-0 ${isDark ? 'text-[#D4D4D4]' : isGreen ? 'text-black/85' : 'text-[#444444]'
                     }`}
                 >
                   {chapter.description}
                 </p>
+
+                {/* Step 02 Visual Badge */}
+                {chapter.featureBadge && (
+                  <div className="pt-1">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE600]/15 border border-[#FFE600]/40 text-[#FFE600] font-bold text-[11px] tracking-wide uppercase">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFE600] animate-pulse" />
+                      <span>{chapter.featureBadge}</span>
+                    </span>
+                  </div>
+                )}
+
+                {/* Step 03 Visual Highlight */}
+                {chapter.featureHighlight && (
+                  <div className="pt-1">
+                    <div className="rounded-[18px] bg-gradient-to-r from-[#6CFF94]/25 via-[#6CFF94]/35 to-[#6CFF94]/15 border border-[#047857]/40 p-3.5 shadow-sm">
+                      <div className="text-[15px] sm:text-[17px] font-extrabold text-black leading-tight tracking-tight">
+                        Earn up to <span className="text-[#047857]">10% back</span> on every eligible scan
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Mobile Phone Mockup with colored logo mark behind it! */}
@@ -890,6 +933,7 @@ export default function HeroAndShowcase() {
                     src={chapter.screenSrc}
                     alt={chapter.screenAlt}
                     fill
+                    unoptimized
                     sizes="240px"
                     className="object-cover object-top"
                   />

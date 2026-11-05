@@ -136,17 +136,16 @@ export default function ScrollBackgroundProvider({
         return;
       }
 
-      // Check sticky stacking cards in #use-cases first (in reverse order, highest z-index / latest card first)
+      // Check sections in #use-cases
       const useCaseCards = Array.from(document.querySelectorAll<HTMLElement>('#use-cases [data-theme-bg]'));
       let matchedTheme: ThemeType | null = null;
 
-      for (let i = useCaseCards.length - 1; i >= 0; i--) {
+      for (let i = 0; i < useCaseCards.length; i++) {
         const card = useCaseCards[i];
         if (card.offsetWidth === 0 && card.offsetHeight === 0) continue;
         const rect = card.getBoundingClientRect();
-        // A card is active when it has reached the sticky navbar position (top <= 85)
-        // and its bottom hasn't scrolled off (bottom > 85)
-        if (rect.top <= 85 && rect.bottom > 85) {
+        // A section is active when it occupies the viewport under the navbar
+        if (rect.top <= 120 && rect.bottom > 120) {
           const themeAttr = card.getAttribute('data-theme-bg') as ThemeType;
           if (themeAttr && themeConfigs[themeAttr]) {
             matchedTheme = themeAttr;

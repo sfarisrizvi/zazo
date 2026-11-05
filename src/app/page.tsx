@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import HeroAndShowcase from "@/components/HeroAndShowcase";
 import UseCasesSection from "@/components/UseCasesSection";
 import RateCalculator from "@/components/RateCalculator";
-import ParallelShowcase from "@/components/ParallelShowcase";
 import SecurityTrust from "@/components/SecurityTrust";
 import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
@@ -26,9 +25,6 @@ export default function Home() {
 
           {/* 2.5 Live Rate Calculator Section */}
           <RateCalculator />
-
-          {/* 3. Parallel Feature Sections with Overlapping Text */}
-          <ParallelShowcase />
 
           {/* 4. Trust & Security Orbit Constellation */}
           <SecurityTrust />
