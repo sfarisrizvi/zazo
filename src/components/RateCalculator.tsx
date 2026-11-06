@@ -89,7 +89,7 @@ export default function RateCalculator() {
       <div className="mx-auto max-w-[1200px] px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <span className="inline-flex h-6 sm:h-7 items-center rounded-full bg-black/5 px-3 sm:px-3.5 text-[11px] sm:text-[12px] font-medium tracking-wide uppercase text-neutral-800 border border-black/10">
+          <span className="inline-flex h-6 sm:h-7 items-center rounded-full bg-black/5 px-3 sm:px-3.5 text-[11px] sm:text-[12px] font-semibold tracking-wide uppercase text-neutral-800 border border-black/10">
             Live Rates
           </span>
           <h2 className="mt-3 sm:mt-4 text-[32px] sm:text-[46px] lg:text-[58px] font-bold leading-[1.1] sm:leading-tight tracking-[-1.4px] sm:tracking-[-2px] text-black m-0">
@@ -316,7 +316,7 @@ export default function RateCalculator() {
 
                     {/* Zazo */}
                     <td className="py-4 sm:py-5 px-3 sm:px-4 text-center bg-[#6CFF94]/15 border-x border-emerald-500/20">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-bold text-[13px] shadow-2xs">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-semibold text-[13px] shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                         <span>Supported</span>
                       </div>
@@ -364,7 +364,7 @@ export default function RateCalculator() {
 
                     {/* Zazo */}
                     <td className="py-4 sm:py-5 px-3 sm:px-4 text-center bg-[#6CFF94]/15 border-x border-emerald-500/20">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-bold text-[13px] shadow-2xs">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-semibold text-[13px] shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                         <span>Up to 10%</span>
                       </div>
@@ -412,7 +412,7 @@ export default function RateCalculator() {
 
                     {/* Zazo */}
                     <td className="py-4 sm:py-5 px-3 sm:px-4 text-center bg-[#6CFF94]/15 border-x border-emerald-500/20">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-bold text-[13px] shadow-2xs">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-semibold text-[13px] shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                         <span>Supported</span>
                       </div>
@@ -420,7 +420,7 @@ export default function RateCalculator() {
 
                     {/* nSave */}
                     <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
-                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-medium">
+                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-semibold">
                         <AlertCircle className="w-3 h-3 text-amber-700" />
                         <span>Limited</span>
                       </div>
@@ -428,7 +428,7 @@ export default function RateCalculator() {
 
                     {/* Elevate */}
                     <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
-                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-medium">
+                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-semibold">
                         <AlertCircle className="w-3 h-3 text-amber-700" />
                         <span>Limited</span>
                       </div>

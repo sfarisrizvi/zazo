@@ -103,160 +103,142 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Footer Navigation Columns matching user specification */}
+        {/* Footer Navigation Columns matching Document 124 specification */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 py-12 text-[14px]">
           
-          {/* 1. Products — Global Receiving · Local Wallet · QR Payments · Send Money */}
+          {/* 1. Accounts — Freelancers · Remittances · Business · Local · Merchants */}
           <div>
             <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
-              Products
-            </span>
-            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
-              {['Global Receiving', 'Local Wallet', 'QR Payments', 'Send Money'].map((item) => (
-                <li key={item}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveModal(item)}
-                    className="text-neutral-300 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left font-normal"
-                  >
-                    {item}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 2. Pricing — Live Rates · Fees · Rewards Terms */}
-          <div>
-            <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
-              Pricing
+              Accounts
             </span>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <a href="#rates" className="text-neutral-300 hover:text-white transition-colors">
-                  Live Rates
+                <a href="/freelancers" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Freelancers
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-neutral-300 hover:text-white transition-colors">
-                  Fees
+                <a href="/remittances" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Remittances
                 </a>
               </li>
               <li>
-                <a href="#use-cases" className="text-neutral-300 hover:text-white transition-colors">
-                  Rewards Terms
+                <a href="/business" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Business
+                </a>
+              </li>
+              <li>
+                <a href="/local" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Local
+                </a>
+              </li>
+              <li>
+                <a href="/merchants" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Merchants
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* 3. Support — Help Centre · FAQs · Contact Us */}
-          <div>
-            <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
-              Support
-            </span>
-            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
-              <li>
-                <a href="#faq" className="text-neutral-300 hover:text-white transition-colors">
-                  Help Centre
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="text-neutral-300 hover:text-white transition-colors">
-                  FAQs
-                </a>
-              </li>
-              <li>
-                <a href="#hero" className="text-neutral-300 hover:text-white transition-colors">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* 4. Legal — Terms · Privacy · Security · Regulatory Disclosures */}
-          <div>
-            <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
-              Legal
-            </span>
-            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
-              <li>
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('Terms')}
-                  className="text-neutral-300 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left font-normal"
-                >
-                  Terms
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('Privacy')}
-                  className="text-neutral-300 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left font-normal"
-                >
-                  Privacy
-                </button>
-              </li>
-              <li>
-                <a href="#security" className="text-neutral-300 hover:text-white transition-colors">
-                  Security
-                </a>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('Regulatory Disclosures')}
-                  className="text-neutral-300 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left font-normal"
-                >
-                  Regulatory Disclosures
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* 5. For Business — Zazo Connect · Developer API · Contact Sales */}
+          {/* 2. For Business — Zazo Connect API */}
           <div>
             <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
               For Business
             </span>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('Zazo Connect')}
-                  className="text-neutral-300 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left font-normal"
-                >
-                  Zazo Connect
-                </button>
+                <a href="/connect" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Zazo Connect API
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('Developer API')}
-                  className="text-neutral-300 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left font-normal"
-                >
-                  Developer API
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('Zazo Connect')}
-                  className="text-neutral-300 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left font-normal"
-                >
+                <a href="/connect#contact" className="text-neutral-300 hover:text-white transition-colors font-normal">
                   Contact Sales
-                </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* 3. Company — Pricing · Live Rates */}
+          <div>
+            <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
+              Company
+            </span>
+            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
+              <li>
+                <a href="/pricing" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a href="/#rates" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Live Rates
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* 4. Support — FAQs · Contact */}
+          <div>
+            <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
+              Support
+            </span>
+            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
+              <li>
+                <a href="/#faq" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* 5. Legal — Terms · Privacy · Rewards · Security · Disclosures */}
+          <div>
+            <span className="text-[12px] font-bold tracking-wider uppercase text-neutral-400 block mb-4">
+              Legal
+            </span>
+            <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
+              <li>
+                <a href="/terms" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Terms
+                </a>
+              </li>
+              <li>
+                <a href="/privacy" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Privacy
+                </a>
+              </li>
+              <li>
+                <a href="/rewards-terms" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Rewards
+                </a>
+              </li>
+              <li>
+                <a href="/security" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Security
+                </a>
+              </li>
+              <li>
+                <a href="/disclosures" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                  Disclosures
+                </a>
               </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Copyright */}
+        {/* Global Disclaimer from Document 124 */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-neutral-400">
-          <p className="m-0">© Zazo. All rights reserved.</p>
-          <p className="m-0 text-[12px] text-neutral-500">
+          <p className="m-0 max-w-xl text-[12px] sm:text-[13px] text-neutral-400 font-normal text-center sm:text-left">
+            Zazo is a technology company, not a bank. Wallet services are provided through licensed partners. © Zazo. All rights reserved.
+          </p>
+          <p className="m-0 text-[12px] text-neutral-500 font-normal shrink-0">
             Global pay. Local spend.
           </p>
         </div>

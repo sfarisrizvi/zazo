@@ -475,11 +475,11 @@ export default function HeroAndShowcase() {
                       <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
                         Receive in any currency
                       </span>
-                      <span className="text-black/50 text-[12px] font-bold">➔</span>
+                      <span className="text-black/50 text-[12px] font-medium">➔</span>
                       <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
                         Convert to PKR
                       </span>
-                      <span className="text-black/50 text-[12px] font-bold">➔</span>
+                      <span className="text-black/50 text-[12px] font-medium">➔</span>
                       <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
                         Hold or Spend by QR
                       </span>
@@ -551,7 +551,7 @@ export default function HeroAndShowcase() {
                         >
                           {/* Section Title Eyebrow from Document 122 */}
                           <span
-                            className={`text-[12px] font-bold uppercase tracking-wider block -mb-1 ${
+                            className={`text-[12px] font-semibold uppercase tracking-wider block -mb-1 ${
                               isDark ? 'text-neutral-400' : isGreen ? 'text-black/60' : 'text-neutral-500'
                             }`}
                           >
@@ -599,7 +599,7 @@ export default function HeroAndShowcase() {
                           {/* Step 02 Visual Badge (NO FX FEE • NO SPREAD • NO HIDDEN FEES) */}
                           {chapter.featureBadge && (
                             <div className="pt-2">
-                              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFE600]/15 border border-[#FFE600]/40 text-[#FFE600] font-bold text-[12px] xl:text-[13px] tracking-wide uppercase shadow-sm">
+                              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFE600]/15 border border-[#FFE600]/40 text-[#FFE600] font-semibold text-[12px] xl:text-[13px] tracking-wide uppercase shadow-sm">
                                 <span className="w-2 h-2 rounded-full bg-[#FFE600] animate-pulse" />
                                 <span>{chapter.featureBadge}</span>
                               </span>
@@ -610,10 +610,10 @@ export default function HeroAndShowcase() {
                           {chapter.featureHighlight && (
                             <div className="pt-2">
                               <div className="rounded-[22px] bg-gradient-to-r from-[#6CFF94]/25 via-[#6CFF94]/35 to-[#6CFF94]/15 border-2 border-[#047857]/40 p-4 sm:p-5 shadow-sm">
-                                <div className="text-[11px] font-bold uppercase tracking-widest text-[#047857] mb-1">
+                                <div className="text-[11px] font-semibold uppercase tracking-widest text-[#047857] mb-1">
                                   Cashback Highlight
                                 </div>
-                                <div className="text-[20px] sm:text-[23px] font-extrabold text-black leading-tight tracking-tight">
+                                <div className="text-[20px] sm:text-[23px] font-bold text-black leading-tight tracking-tight">
                                   Earn up to <span className="text-[#047857] underline decoration-wavy decoration-[#6CFF94]">10% back</span> on every eligible scan
                                 </div>
                               </div>
@@ -657,7 +657,7 @@ export default function HeroAndShowcase() {
                               {chapter.metricLabel}
                             </span>
                             <div
-                              className={`mt-3 text-[38px] xl:text-[44px] leading-none tracking-[-1.32px] font-normal transition-colors duration-500 ${isGreen ? 'text-black' : ''
+                              className={`mt-3 text-[38px] xl:text-[44px] leading-none tracking-[-1.32px] font-bold transition-colors duration-500 ${isGreen ? 'text-black' : ''
                                 }`}
                               style={{
                                 color: isGreen ? undefined : chapter.logoColor,
@@ -875,7 +875,7 @@ export default function HeroAndShowcase() {
             >
               {/* Header Text */}
               <div className="flex flex-col gap-2 shrink-0">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 block">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-400 block">
                   From global client to local checkout
                 </span>
 
@@ -900,7 +900,7 @@ export default function HeroAndShowcase() {
                 {/* Step 02 Visual Badge */}
                 {chapter.featureBadge && (
                   <div className="pt-1">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE600]/15 border border-[#FFE600]/40 text-[#FFE600] font-bold text-[11px] tracking-wide uppercase">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE600]/15 border border-[#FFE600]/40 text-[#FFE600] font-semibold text-[11px] tracking-wide uppercase">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FFE600] animate-pulse" />
                       <span>{chapter.featureBadge}</span>
                     </span>
@@ -911,7 +911,7 @@ export default function HeroAndShowcase() {
                 {chapter.featureHighlight && (
                   <div className="pt-1">
                     <div className="rounded-[18px] bg-gradient-to-r from-[#6CFF94]/25 via-[#6CFF94]/35 to-[#6CFF94]/15 border border-[#047857]/40 p-3.5 shadow-sm">
-                      <div className="text-[15px] sm:text-[17px] font-extrabold text-black leading-tight tracking-tight">
+                      <div className="text-[15px] sm:text-[17px] font-bold text-black leading-tight tracking-tight">
                         Earn up to <span className="text-[#047857]">10% back</span> on every eligible scan
                       </div>
                     </div>
@@ -958,7 +958,7 @@ export default function HeroAndShowcase() {
                       {chapter.metricLabel}
                     </span>
                     <div
-                      className="text-[24px] sm:text-[28px] font-normal leading-tight tracking-tight"
+                      className="text-[24px] sm:text-[28px] font-bold leading-tight tracking-tight"
                       style={{ color: isGreen ? '#000000' : chapter.logoColor }}
                     >
                       {chapter.metricValue}

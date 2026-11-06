@@ -196,7 +196,7 @@ export default function FaqAccordion() {
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#6CFF94]/10 rounded-full blur-[90px] pointer-events-none" />
 
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <span className="inline-flex h-6 sm:h-7 items-center rounded-full bg-white/10 px-3 sm:px-3.5 text-[11px] sm:text-[12px] font-medium tracking-wide uppercase text-[#6CFF94] border border-white/10 mb-3 sm:mb-4">
+              <span className="inline-flex h-6 sm:h-7 items-center rounded-full bg-white/10 px-3 sm:px-3.5 text-[11px] sm:text-[12px] font-semibold tracking-wide uppercase text-[#6CFF94] border border-white/10 mb-3 sm:mb-4">
                 Early Access
               </span>
 
@@ -223,7 +223,7 @@ export default function FaqAccordion() {
                 />
                 <button
                   type="submit"
-                  className="w-full sm:w-auto shrink-0 h-[52px] px-7 rounded-full bg-[#6CFF94] hover:bg-[#5be682] text-black font-bold text-[15px] transition-all duration-200 cursor-pointer shadow-md hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto shrink-0 h-[52px] px-7 rounded-full bg-[#6CFF94] hover:bg-[#5be682] text-black font-medium text-[15px] transition-all duration-200 cursor-pointer shadow-md hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
                 >
                   <span>Join Waitlist</span>
                   <ArrowRight className="w-4 h-4 stroke-[2.5]" />

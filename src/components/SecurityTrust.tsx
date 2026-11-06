@@ -187,7 +187,7 @@ export default function SecurityTrust() {
 
         {/* Regulatory Partner Footnote */}
         <div className="mt-14 sm:mt-20 pt-8 border-t border-black/10 text-center max-w-2xl mx-auto">
-          <p className="text-[13px] sm:text-[14px] leading-relaxed text-neutral-500 font-medium m-0">
+          <p className="text-[13px] sm:text-[14px] leading-relaxed text-neutral-500 font-normal m-0">
             Zazo is a tech company, not a bank.
           </p>
         </div>

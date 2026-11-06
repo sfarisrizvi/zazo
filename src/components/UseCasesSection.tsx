@@ -103,10 +103,10 @@ export default function UseCasesSection() {
         ========================================================================
       */}
       <div className="mx-auto max-w-[1440px] px-6 lg:px-12 py-12 sm:py-16 text-center">
-        <span className="inline-flex h-7 items-center rounded-full bg-black/5 px-3.5 text-[11px] sm:text-[12px] font-bold tracking-widest uppercase text-neutral-800 border border-black/10">
+        <span className="inline-flex h-7 items-center rounded-full bg-black/5 px-3.5 text-[11px] sm:text-[12px] font-semibold tracking-widest uppercase text-neutral-800 border border-black/10">
           2. Made For Everyday Pakistan
         </span>
-        <h2 className="mt-3 text-[36px] sm:text-[50px] lg:text-[64px] font-extrabold tracking-[-1.8px] sm:tracking-[-2.6px] leading-[1.08] text-black m-0">
+        <h2 className="mt-3 text-[36px] sm:text-[50px] lg:text-[64px] font-bold tracking-[-1.8px] sm:tracking-[-2.6px] leading-[1.08] text-black m-0">
           Your money. Your life.
         </h2>
         <p className="mt-2.5 text-[16px] sm:text-[19px] text-neutral-600 font-normal max-w-xl mx-auto">
@@ -144,7 +144,7 @@ export default function UseCasesSection() {
                     <div>
                       {/* Eyebrow matching Section Heading */}
                       <span
-                        className={`text-[12px] sm:text-[14px] font-bold tracking-widest uppercase mb-1.5 sm:mb-2 block ${
+                        className={`text-[12px] sm:text-[14px] font-semibold tracking-widest uppercase mb-1.5 sm:mb-2 block ${
                           isWhiteText ? 'text-white/70' : 'text-black/60'
                         }`}
                       >
@@ -165,7 +165,7 @@ export default function UseCasesSection() {
                       <div className="shrink-0 pb-1 sm:pb-2">
                         <a
                           href="#footer"
-                          className="btn-pill bg-[#6CFF94] text-black font-bold text-[14px] sm:text-[15px] px-6 sm:px-7 py-3 sm:py-3.5 hover:bg-[#5ce883] hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg inline-flex items-center gap-2"
+                          className="btn-pill bg-[#6CFF94] text-black font-medium text-[14px] sm:text-[15px] px-6 sm:px-7 py-3 sm:py-3.5 hover:bg-[#5ce883] hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg inline-flex items-center gap-2"
                         >
                           <span>Sign Up as a Merchant → Talk to Sales</span>
                         </a>
@@ -178,7 +178,7 @@ export default function UseCasesSection() {
                         <div className="inline-flex items-center gap-2 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 px-4 sm:px-5 py-2.5 sm:py-3 text-[13px] sm:text-[15px] text-white shadow-sm leading-snug">
                           <span>
                             Open a PKR account in minutes with your CNIC. Send, receive, and get up to{' '}
-                            <strong className="inline-block bg-[#6CFF94] text-black font-extrabold px-2 py-0.5 rounded-md shadow-xs mx-0.5">
+                            <strong className="inline-block bg-[#6CFF94] text-black font-bold px-2 py-0.5 rounded-md shadow-xs mx-0.5">
                               10% discount
                             </strong>{' '}
                             every time you scan to pay.
