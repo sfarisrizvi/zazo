@@ -24,36 +24,36 @@ export default function FreelancersPage() {
       <main className="flex-1 pt-[74px]">
         {/* 
           ======================================================================
-          HERO SECTION (2-Column Side-by-Side: Text Left, Visual Right)
+          HERO SECTION (2-Column Side-by-Side: Text Left, Large Visual Right)
           - Background: #DB1584
           - Text: White
           - Visual: /freelancer.png & /freelancer-mobile.png
           ======================================================================
         */}
-        <section className="relative w-full overflow-hidden bg-[#DB1584] text-white pt-8 sm:pt-12 lg:pt-16 pb-0">
-          <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-end">
+        <section className="relative w-full overflow-hidden bg-[#DB1584] text-white pt-6 sm:pt-10 lg:pt-12 pb-0">
+          <div className="mx-auto max-w-[1560px] px-5 sm:px-8 lg:px-10 xl:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-end">
               
               {/* Left Column: Text & Flow */}
-              <div className="lg:col-span-7 xl:col-span-6 flex flex-col items-start text-left justify-center pb-8 sm:pb-12 lg:pb-16 pt-2 sm:pt-4">
+              <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center pb-8 sm:pb-12 lg:pb-16 pt-2 sm:pt-4 z-10">
                 {/* Category Pill Tag */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
                   <span>Accounts · Freelancers</span>
                 </div>
 
                 {/* Headline */}
-                <h1 className="whitespace-pre-line text-[42px] sm:text-[56px] lg:text-[62px] xl:text-[72px] leading-[1.04] font-bold tracking-[-2px] sm:tracking-[-3px] text-white m-0">
+                <h1 className="whitespace-pre-line text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-2px] sm:tracking-[-3px] text-white m-0">
                   Get paid globally.{'\n'}Spend locally.
                 </h1>
 
                 {/* Subheadline */}
-                <p className="mt-4 sm:mt-5 text-[17px] sm:text-[20px] lg:text-[22px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-xl">
+                <p className="mt-4 sm:mt-5 text-[17px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-xl">
                   Receive USD, convert to PKR, and spend by QR. Zero wire fees.
                 </p>
 
                 {/* The Flow */}
                 <div className="mt-8 sm:mt-10 w-full max-w-xl">
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[12px] sm:text-[13.5px] font-semibold text-white">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[12px] sm:text-[13px] font-semibold text-white">
                     <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
                       Client sends USD
                     </span>
@@ -78,9 +78,9 @@ export default function FreelancersPage() {
                 </p>
               </div>
 
-              {/* Right Column: Visual Graphic Flush to Bottom */}
-              <div className="lg:col-span-5 xl:col-span-6 relative w-full flex items-end justify-center lg:justify-end self-end">
-                <div className="relative w-full max-w-[560px] lg:max-w-none aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/11] xl:aspect-[16/10] flex items-end">
+              {/* Right Column: Visual Graphic - Large prominent display */}
+              <div className="lg:col-span-7 xl:col-span-7 relative w-full flex items-end justify-center lg:justify-end self-end">
+                <div className="relative w-full h-[360px] sm:h-[480px] lg:h-[560px] xl:h-[640px] 2xl:h-[700px] flex items-end justify-center lg:justify-end">
                   {/* Desktop Image */}
                   <div className="hidden sm:block relative w-full h-full">
                     <Image
@@ -89,8 +89,8 @@ export default function FreelancersPage() {
                       fill
                       unoptimized
                       priority
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-contain object-bottom select-none"
+                      sizes="(max-width: 1024px) 100vw, 65vw"
+                      className="object-contain object-bottom lg:object-right-bottom select-none"
                     />
                   </div>
 
