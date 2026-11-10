@@ -127,50 +127,135 @@ export default function MerchantsPage() {
 
         {/* 
           ======================================================================
-          DOCUMENT 124:
-          Why Zazo:
-          • Zero MDR: On eligible payments.*
-          • Sticky Customers: They earn cashback when they pay you.
-          • Instant Setup: No hardware, no queues.
+          WHY ZAZO SECTION (Tabby-style Alternating 2-Column Showcase)
+          • Row 1: Zero MDR (Card Left, Text Right) — Lifestyle Photo (/lifestyle-merchant.png)
+          • Row 2: Sticky Customers (Text Left, Card Right) — Exact Screen (/screens/discounts.png)
+          • Row 3: Instant Setup (Card Left, Text Right) — Exact Screen (/screens/scan_qr.png)
           ======================================================================
         */}
-        <section className="relative w-full bg-[#f8f9fa] py-20 lg:py-28 overflow-hidden">
-          <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <section id="why-zazo" className="relative w-full bg-white py-14 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-[1360px] px-5 sm:px-8 lg:px-12 flex flex-col gap-14 sm:gap-24 lg:gap-36">
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-              {/* Card 1 */}
-              <div className="rounded-[32px] bg-white border border-black/[0.08] p-8 sm:p-10 shadow-sm flex flex-col justify-between">
-                <div>
-                  <h2 className="text-[26px] sm:text-[30px] font-bold text-black tracking-[-1px] leading-tight m-0">
-                    Zero MDR
-                  </h2>
-                  <p className="mt-3 text-[17px] text-neutral-600 font-normal leading-relaxed m-0">
-                    On eligible payments.*
-                  </p>
+            {/* ROW 1: Zero MDR (Card Left, Text Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
+              {/* Left Column: Realistic Lifestyle Photo Card from API */}
+              <div className="lg:col-span-6 w-full">
+                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] overflow-hidden shadow-sm bg-neutral-100">
+                  <Image
+                    src="/lifestyle-merchant.png"
+                    alt="Pakistani cafe shopkeeper at checkout counter with Zazo Chai Khana QR standee"
+                    fill
+                    unoptimized
+                    sizes="(max-width: 1024px) 100vw, 680px"
+                    className="object-cover object-center select-none"
+                  />
                 </div>
               </div>
 
-              {/* Card 2 */}
-              <div className="rounded-[32px] bg-white border border-black/[0.08] p-8 sm:p-10 shadow-sm flex flex-col justify-between">
-                <div>
-                  <h2 className="text-[26px] sm:text-[30px] font-bold text-black tracking-[-1px] leading-tight m-0">
-                    Sticky Customers
-                  </h2>
-                  <p className="mt-3 text-[17px] text-neutral-600 font-normal leading-relaxed m-0">
-                    They earn cashback when they pay you.
-                  </p>
+              {/* Right Column: Text & CTA */}
+              <div className="lg:col-span-6 flex flex-col items-start justify-center">
+                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
+                  PRICING & COMMISSIONS
+                </span>
+                <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
+                  Zero MDR
+                </h2>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  On eligible payments.*
+                </p>
+                <div className="mt-7 sm:mt-8">
+                  <a
+                    href="#contact-sales"
+                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
+                  >
+                    Talk to sales
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* ROW 2: Sticky Customers (Text Left, Card Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
+              {/* Left Column on Desktop: Text & CTA */}
+              <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
+                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
+                  CUSTOMER LOYALTY
+                </span>
+                <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
+                  Sticky Customers
+                </h2>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  They earn cashback when they pay you.
+                </p>
+                <div className="mt-7 sm:mt-8">
+                  <a
+                    href="#contact-sales"
+                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
+                  >
+                    Boost repeat sales
+                  </a>
                 </div>
               </div>
 
-              {/* Card 3 */}
-              <div className="rounded-[32px] bg-white border border-black/[0.08] p-8 sm:p-10 shadow-sm flex flex-col justify-between">
-                <div>
-                  <h2 className="text-[26px] sm:text-[30px] font-bold text-black tracking-[-1px] leading-tight m-0">
-                    Instant Setup
-                  </h2>
-                  <p className="mt-3 text-[17px] text-neutral-600 font-normal leading-relaxed m-0">
-                    No hardware, no queues.
-                  </p>
+              {/* Right Column on Desktop: Visual Card with exact product screen */}
+              <div className="lg:col-span-6 order-1 lg:order-2 w-full">
+                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] bg-[#6CFF94] overflow-hidden flex items-start justify-center pt-7 sm:pt-10 lg:pt-12 px-4 sm:px-6 shadow-sm">
+                  {/* Phone Chassis: Top rounded bezel and header fully visible inside card */}
+                  <div className="relative w-[260px] min-[390px]:w-[280px] sm:w-[320px] lg:w-[340px] aspect-[430/932] rounded-[44px] border-[8px] sm:border-[10px] border-black bg-black shadow-2xl overflow-hidden shrink-0">
+                    <div className="relative w-full h-full bg-white">
+                      <Image
+                        src="/screens/discounts.png"
+                        alt="Zazo Activity Discounts and Rewards Tier Screen"
+                        fill
+                        unoptimized
+                        sizes="(max-width: 640px) 280px, 340px"
+                        className="object-cover object-top select-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ROW 3: Instant Setup (Card Left, Text Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
+              {/* Left Column: Visual Card with exact product screen framed from the top */}
+              <div className="lg:col-span-6 w-full">
+                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] bg-[#FEDD42] overflow-hidden flex items-start justify-center pt-7 sm:pt-10 lg:pt-12 px-4 sm:px-6 shadow-sm">
+                  {/* Phone Chassis: Top rounded bezel and header fully visible inside card */}
+                  <div className="relative w-[260px] min-[390px]:w-[280px] sm:w-[320px] lg:w-[340px] aspect-[430/932] rounded-[44px] border-[8px] sm:border-[10px] border-black bg-black shadow-2xl overflow-hidden shrink-0">
+                    <div className="relative w-full h-full bg-white">
+                      <Image
+                        src="/screens/scan_qr.png"
+                        alt="Zazo Scan to Pay QR Code Screen"
+                        fill
+                        unoptimized
+                        sizes="(max-width: 640px) 280px, 340px"
+                        className="object-cover object-top select-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Text & CTA */}
+              <div className="lg:col-span-6 flex flex-col items-start justify-center">
+                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
+                  NO HARDWARE
+                </span>
+                <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
+                  Instant Setup
+                </h2>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  No hardware, no queues.
+                </p>
+                <div className="mt-7 sm:mt-8">
+                  <a
+                    href="#contact-sales"
+                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
+                  >
+                    Get free QR standee
+                  </a>
                 </div>
               </div>
             </div>

@@ -1,11 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
 
 export default function Footer() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isLinkActive = (href: string) => {
+    if (!mounted || !pathname) return false;
+    const baseHref = href.split('#')[0].replace(/\/$/, '') || '/';
+    const currentPath = pathname.replace(/\/$/, '') || '/';
+    return currentPath === baseHref;
+  };
 
   const modalContents: Record<
     string,
@@ -92,9 +107,9 @@ export default function Footer() {
         
         {/* Brand Lockup & App Store Badges */}
         <div className="pb-12 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <a href="#hero" aria-label="Zazo Home" className="flex items-center">
+          <Link href="/" aria-label="Zazo Home" className="flex items-center" suppressHydrationWarning>
             <Logo height={32} className="text-white" />
-          </a>
+          </Link>
 
           {/* App Store & Google Play Badges based on PDF */}
           <div className="flex flex-wrap items-center gap-3">
@@ -136,29 +151,69 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <a href="/freelancers" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/freelancers"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/freelancers')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Freelancers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/remittances" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/remittances"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/remittances')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Remittances
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/business" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/business"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/business')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Business
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/local" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/local"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/local')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Local
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/merchants" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/merchants"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/merchants')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Merchants
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -170,14 +225,25 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <a href="/connect" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/connect"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/connect')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Zazo Connect API
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/connect#contact" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/connect#contact"
+                  className="text-neutral-300 hover:text-white transition-colors font-normal"
+                >
                   Contact Sales
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -189,14 +255,25 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <a href="/pricing" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/pricing"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/pricing')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#rates" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/#rates"
+                  className="text-neutral-300 hover:text-white transition-colors font-normal"
+                >
                   Live Rates
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -208,14 +285,25 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <a href="/#faq" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/#faq"
+                  className="text-neutral-300 hover:text-white transition-colors font-normal"
+                >
                   FAQs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/contact"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/contact')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -227,29 +315,69 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
               <li>
-                <a href="/terms" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/terms"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/terms')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Terms
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/privacy"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/privacy')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Privacy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/rewards-terms" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/rewards-terms"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/rewards-terms')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Rewards
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/security" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/security"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/security')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Security
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/disclosures" className="text-neutral-300 hover:text-white transition-colors font-normal">
+                <Link
+                  href="/disclosures"
+                  suppressHydrationWarning
+                  className={`transition-colors ${
+                    isLinkActive('/disclosures')
+                      ? 'text-[#6CFF94] font-medium'
+                      : 'text-neutral-300 hover:text-white font-normal'
+                  }`}
+                >
                   Disclosures
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
