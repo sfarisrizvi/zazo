@@ -60,38 +60,10 @@ export default function LocalUsersPage() {
                   </div>
                 </div>
 
-                {/* CTAs & Fineprint */}
-                <div className="mt-10 flex flex-wrap items-center gap-3.5">
-                  <a
-                    href="#download"
-                    className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black hover:bg-neutral-800 text-white transition-all duration-200 shadow-md select-none"
-                  >
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white shrink-0">
-                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.63 1.35-.56.65-1.06 1.71-.93 2.73 1 .08 2.02-.48 2.64-1.23z" />
-                    </svg>
-                    <div className="leading-tight text-left">
-                      <div className="text-[10px] text-neutral-400 uppercase font-medium tracking-wide">Download on the</div>
-                      <div className="text-[15px] font-bold text-white tracking-tight">App Store</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href="#download"
-                    className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black hover:bg-neutral-800 text-white transition-all duration-200 shadow-md select-none"
-                  >
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white shrink-0">
-                      <path d="M3.609 1.814L13.793 12 3.61 22.186a1.99 1.99 0 0 1-.61-.926V2.74c.14-.383.359-.705.609-.926zm11.246 11.248l2.09-2.091-11.83-6.83 9.74 8.921zm2.936-2.937l3.655 2.11a1.2 1.2 0 0 1 0 2.08l-3.655 2.11-2.227-2.227 2.227-2.073zm-2.936 2.937l-9.74 8.922 11.83-6.83-2.09-2.092z" />
-                    </svg>
-                    <div className="leading-tight text-left">
-                      <div className="text-[10px] text-neutral-400 uppercase font-medium tracking-wide">GET IT ON</div>
-                      <div className="text-[15px] font-bold text-white tracking-tight">Google Play</div>
-                    </div>
-                  </a>
-
-                  <span className="text-[13px] text-neutral-400 font-normal pl-2">
-                    *Terms and limits apply.
-                  </span>
-                </div>
+                {/* Fineprint */}
+                <p className="mt-8 text-[13px] text-neutral-400 font-normal m-0">
+                  *Terms and limits apply.
+                </p>
               </div>
 
               {/* Right Column: Visual Device / Cafe Counter Photo */}
