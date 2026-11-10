@@ -24,102 +24,94 @@ export default function RemittancesPage() {
       <main className="flex-1 pt-[74px]">
         {/* 
           ======================================================================
-          DOCUMENT 124:
-          2. REMITTANCES
-          Receive from abroad. Spend local.
-          Family sends money. It lands in your Zazo wallet. Convert and spend instantly.
-          The Flow: Family sends abroad → Zazo Wallet → Convert to PKR → Spend / Send
+          HERO SECTION (Matching Home Page Yellow Brand & Document 124 Spec)
+          - Background: #FEDD42
+          - Text: Black
+          - Visual: /local-purchase.png & /local-purchase-mobile.png
           ======================================================================
         */}
-        <section className="relative w-full overflow-hidden pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-24 border-b border-black/[0.06]">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#6CFF94]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
-
+        <section className="relative w-full overflow-hidden bg-[#FEDD42] text-black pt-12 sm:pt-16 lg:pt-20 pb-0">
           <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <div className="max-w-4xl flex flex-col items-start text-left">
               
-              {/* Left Column */}
-              <div className="lg:col-span-7 flex flex-col items-start text-left">
-                <h1 className="whitespace-pre-line text-[46px] sm:text-[64px] lg:text-[76px] xl:text-[84px] leading-[1.02] font-bold tracking-[-2px] sm:tracking-[-3.5px] text-black m-0">
-                  Receive from abroad.{'\n'}Spend local.
-                </h1>
-
-                <p className="mt-5 text-[18px] sm:text-[22px] lg:text-[24px] leading-snug tracking-[-0.5px] text-neutral-600 font-normal m-0 max-w-2xl">
-                  Family sends money. It lands in your Zazo wallet. Convert and spend instantly.
-                </p>
-
-                {/* The Flow */}
-                <div className="mt-10 w-full max-w-2xl">
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[13px] sm:text-[14px] font-semibold text-black">
-                    <span className="px-4 py-2.5 rounded-full bg-black/5 border border-black/10">
-                      Family sends abroad
-                    </span>
-                    <span className="text-black/40 text-[12px]">➔</span>
-                    <span className="px-4 py-2.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/30 text-black">
-                      Zazo Wallet
-                    </span>
-                    <span className="text-black/40 text-[12px]">➔</span>
-                    <span className="px-4 py-2.5 rounded-full bg-black/5 border border-black/10">
-                      Convert to PKR
-                    </span>
-                    <span className="text-black/40 text-[12px]">➔</span>
-                    <span className="px-4 py-2.5 rounded-full bg-black text-white">
-                      Spend / Send
-                    </span>
-                  </div>
-                </div>
-
-                {/* Fineprint */}
-                <p className="mt-8 text-[13px] text-neutral-400 font-normal m-0">
-                  *Terms and limits apply.
-                </p>
+              {/* Category Pill Tag */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/10 border border-black/15 text-black text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
+                <span>Accounts · Remittances</span>
               </div>
 
-              {/* Right Column: Visual Device */}
-              <div className="lg:col-span-5 relative flex items-center justify-center">
-                <div className="absolute w-[340px] sm:w-[420px] h-[340px] sm:h-[420px] rounded-[48px] bg-gradient-to-tr from-[#6CFF94]/20 via-[#ADE3FD]/20 to-transparent -z-10 blur-xl" />
+              {/* Headline */}
+              <h1 className="whitespace-pre-line text-[46px] sm:text-[64px] lg:text-[76px] xl:text-[84px] leading-[1.02] font-bold tracking-[-2px] sm:tracking-[-3.5px] text-black m-0">
+                Receive from abroad.{'\n'}Spend local.
+              </h1>
 
-                <div className="relative w-[280px] sm:w-[320px] aspect-[430/932] rounded-[42px] border-[8px] border-black bg-black overflow-hidden shadow-2xl">
-                  <Image
-                    src="/screens/receive_usd.png"
-                    alt="Zazo Remittances"
-                    fill
-                    priority
-                    unoptimized
-                    sizes="320px"
-                    className="object-cover object-top"
-                  />
-                </div>
+              {/* Subheadline */}
+              <p className="mt-4 sm:mt-5 text-[18px] sm:text-[22px] lg:text-[24px] leading-snug tracking-[-0.5px] text-black/85 font-normal m-0 max-w-2xl">
+                Family sends money. It lands in your Zazo wallet. Convert and spend instantly.
+              </p>
 
-                <div className="absolute bottom-12 -left-6 sm:-left-12 z-20 w-[150px] sm:w-[170px] drop-shadow-xl animate-float">
-                  <Image
-                    src="/badges/badge_usd_received.png"
-                    alt="Received from abroad"
-                    width={420}
-                    height={160}
-                    unoptimized
-                    className="h-auto w-full"
-                  />
-                </div>
-
-                <div className="absolute top-12 -right-4 sm:-right-8 z-20 w-[150px] sm:w-[170px] drop-shadow-xl animate-float" style={{ animationDelay: '1.5s' }}>
-                  <Image
-                    src="/badges/badge_discount.png"
-                    alt="Discount earned"
-                    width={420}
-                    height={160}
-                    unoptimized
-                    className="h-auto w-full"
-                  />
+              {/* The Flow */}
+              <div className="mt-8 sm:mt-10 w-full max-w-2xl">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[13px] sm:text-[14px] font-semibold text-black">
+                  <span className="px-4 py-2.5 rounded-full bg-black/10 border border-black/15">
+                    Family sends abroad
+                  </span>
+                  <span className="text-black/50 text-[12px]">➔</span>
+                  <span className="px-4 py-2.5 rounded-full bg-black text-white">
+                    Zazo Wallet
+                  </span>
+                  <span className="text-black/50 text-[12px]">➔</span>
+                  <span className="px-4 py-2.5 rounded-full bg-black/10 border border-black/15">
+                    Convert to PKR
+                  </span>
+                  <span className="text-black/50 text-[12px]">➔</span>
+                  <span className="px-4 py-2.5 rounded-full bg-white text-black border border-black/15 shadow-sm">
+                    Spend / Send
+                  </span>
                 </div>
               </div>
 
+              {/* Fineprint */}
+              <p className="mt-6 text-[13px] text-black/60 font-normal m-0">
+                *Terms and limits apply.
+              </p>
+            </div>
+          </div>
+
+          {/* Home Page Visual Banner Container */}
+          <div className="relative w-full max-w-[1680px] mx-auto aspect-[4/5] sm:aspect-[1672/941] max-h-[48vh] sm:max-h-[66vh] lg:max-h-[70vh] px-2 sm:px-4 lg:px-6 pb-0 flex items-end justify-center sm:flex-1 mt-6 sm:mt-10">
+            <div className="relative w-full h-full overflow-hidden rounded-t-[20px] sm:rounded-t-[32px] rounded-b-none">
+              {/* Desktop Image */}
+              <div className="hidden sm:block relative w-full h-full">
+                <Image
+                  src="/local-purchase.png"
+                  alt="Zazo for Families receiving remittances and spending at home"
+                  fill
+                  unoptimized
+                  priority
+                  sizes="(max-width: 1720px) 100vw, 1680px"
+                  className="object-contain object-bottom select-none"
+                />
+              </div>
+
+              {/* Mobile Image */}
+              <div className="block sm:hidden relative w-full h-full">
+                <Image
+                  src="/local-purchase-mobile.png"
+                  alt="Zazo for Families receiving remittances and spending at home"
+                  fill
+                  unoptimized
+                  priority
+                  sizes="(max-width: 640px) 100vw, 540px"
+                  className="object-contain object-bottom select-none"
+                />
+              </div>
             </div>
           </div>
         </section>
 
         {/* 
           ======================================================================
-          DOCUMENT 124:
+          SECTION 2: WHY ZAZO (Document 124 Spec)
           Why Zazo:
           • Global to Local: Receive from supported sources.
           • Earn Up To 10%: Back on eligible QR payments.*
@@ -128,7 +120,6 @@ export default function RemittancesPage() {
         */}
         <section className="relative w-full bg-[#f8f9fa] py-20 lg:py-28 overflow-hidden">
           <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-            
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* Card 1 */}
               <div className="rounded-[32px] bg-white border border-black/[0.08] p-8 sm:p-10 shadow-sm flex flex-col justify-between">
@@ -166,7 +157,6 @@ export default function RemittancesPage() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 

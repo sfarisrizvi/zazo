@@ -24,76 +24,91 @@ export default function LocalUsersPage() {
       <main className="flex-1 pt-[74px]">
         {/* 
           ======================================================================
-          DOCUMENT 124:
-          4. LOCAL USERS
-          Open in minutes. Save up to 10%.*
-          Open a PKR account with your CNIC. Scan, pay, and earn.
-          The Flow: Download App → Open Account → Add Funds → Scan & Pay → Earn 10%*
+          HERO SECTION (Matching Home Page Green Brand & Document 124 Spec)
+          - Background: #047857
+          - Text: White
+          - Visual: /pay-QR.png & /pay-QR-mobile.png
           ======================================================================
         */}
-        <section className="relative w-full overflow-hidden pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-24 border-b border-black/[0.06]">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#6CFF94]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
-
+        <section className="relative w-full overflow-hidden bg-[#047857] text-white pt-12 sm:pt-16 lg:pt-20 pb-0">
           <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <div className="max-w-4xl flex flex-col items-start text-left">
               
-              {/* Left Column */}
-              <div className="lg:col-span-7 flex flex-col items-start text-left">
-                <h1 className="whitespace-pre-line text-[46px] sm:text-[64px] lg:text-[76px] xl:text-[84px] leading-[1.02] font-bold tracking-[-2px] sm:tracking-[-3.5px] text-black m-0">
-                  Open in minutes.{'\n'}Save up to 10%.*
-                </h1>
-
-                <p className="mt-5 text-[18px] sm:text-[22px] lg:text-[24px] leading-snug tracking-[-0.5px] text-neutral-600 font-normal m-0 max-w-2xl">
-                  Open a PKR account with your CNIC. Scan, pay, and earn.
-                </p>
-
-                {/* The Flow */}
-                <div className="mt-10 w-full max-w-2xl">
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[13px] sm:text-[14px] font-semibold text-black">
-                    <span className="px-4 py-2.5 rounded-full bg-black/5 border border-black/10">
-                      Download App
-                    </span>
-                    <span className="text-black/40 text-[12px]">➔</span>
-                    <span className="px-4 py-2.5 rounded-full bg-black/5 border border-black/10">
-                      Open Account
-                    </span>
-                    <span className="text-black/40 text-[12px]">➔</span>
-                    <span className="px-4 py-2.5 rounded-full bg-black/5 border border-black/10">
-                      Add Funds
-                    </span>
-                    <span className="text-black/40 text-[12px]">➔</span>
-                    <span className="px-4 py-2.5 rounded-full bg-black/5 border border-black/10">
-                      Scan & Pay
-                    </span>
-                    <span className="text-black/40 text-[12px]">➔</span>
-                    <span className="px-4 py-2.5 rounded-full bg-[#6CFF94] text-black border border-[#047857]/30">
-                      Earn 10%*
-                    </span>
-                  </div>
-                </div>
-
-                {/* Fineprint */}
-                <p className="mt-8 text-[13px] text-neutral-400 font-normal m-0">
-                  *Terms and limits apply.
-                </p>
+              {/* Category Pill Tag */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
+                <span>Accounts · Local Users</span>
               </div>
 
-              {/* Right Column: Visual Device / Cafe Counter Photo */}
-              <div className="lg:col-span-5 relative flex items-center justify-center">
-                <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-black/10">
-                  <div className="relative w-full aspect-[4/3]">
-                    <Image
-                      src="/local-cafe-counter.jpg"
-                      alt="Zazo QR Scan to Pay"
-                      fill
-                      priority
-                      unoptimized
-                      className="object-cover object-center"
-                    />
-                  </div>
+              {/* Headline */}
+              <h1 className="whitespace-pre-line text-[46px] sm:text-[64px] lg:text-[76px] xl:text-[84px] leading-[1.02] font-bold tracking-[-2px] sm:tracking-[-3.5px] text-white m-0">
+                Open in minutes.{'\n'}Save up to 10%.*
+              </h1>
+
+              {/* Subheadline */}
+              <p className="mt-4 sm:mt-5 text-[18px] sm:text-[22px] lg:text-[24px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-2xl">
+                Open a PKR account with your CNIC. Scan, pay, and earn.
+              </p>
+
+              {/* The Flow */}
+              <div className="mt-8 sm:mt-10 w-full max-w-2xl">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[13px] sm:text-[14px] font-semibold text-white">
+                  <span className="px-4 py-2.5 rounded-full bg-white/15 border border-white/20">
+                    Download App
+                  </span>
+                  <span className="text-white/60 text-[12px]">➔</span>
+                  <span className="px-4 py-2.5 rounded-full bg-white/15 border border-white/20">
+                    Open Account
+                  </span>
+                  <span className="text-white/60 text-[12px]">➔</span>
+                  <span className="px-4 py-2.5 rounded-full bg-white/15 border border-white/20">
+                    Add Funds
+                  </span>
+                  <span className="text-white/60 text-[12px]">➔</span>
+                  <span className="px-4 py-2.5 rounded-full bg-white/15 border border-white/20">
+                    Scan & Pay
+                  </span>
+                  <span className="text-white/60 text-[12px]">➔</span>
+                  <span className="px-4 py-2.5 rounded-full bg-[#6CFF94] text-black border border-white/20">
+                    Earn 10%*
+                  </span>
                 </div>
               </div>
 
+              {/* Fineprint */}
+              <p className="mt-6 text-[13px] text-white/70 font-normal m-0">
+                *Terms and limits apply.
+              </p>
+            </div>
+          </div>
+
+          {/* Home Page Visual Banner Container */}
+          <div className="relative w-full max-w-[1680px] mx-auto aspect-[4/5] sm:aspect-[1672/941] max-h-[48vh] sm:max-h-[66vh] lg:max-h-[70vh] px-2 sm:px-4 lg:px-6 pb-0 flex items-end justify-center sm:flex-1 mt-6 sm:mt-10">
+            <div className="relative w-full h-full overflow-hidden rounded-t-[20px] sm:rounded-t-[32px] rounded-b-none">
+              {/* Desktop Image */}
+              <div className="hidden sm:block relative w-full h-full">
+                <Image
+                  src="/pay-QR.png"
+                  alt="Zazo for Local Users scanning to pay and saving up to 10%"
+                  fill
+                  unoptimized
+                  priority
+                  sizes="(max-width: 1720px) 100vw, 1680px"
+                  className="object-contain object-bottom select-none"
+                />
+              </div>
+
+              {/* Mobile Image */}
+              <div className="block sm:hidden relative w-full h-full">
+                <Image
+                  src="/pay-QR-mobile.png"
+                  alt="Zazo for Local Users scanning to pay and saving up to 10%"
+                  fill
+                  unoptimized
+                  priority
+                  sizes="(max-width: 640px) 100vw, 540px"
+                  className="object-contain object-bottom select-none"
+                />
+              </div>
             </div>
           </div>
         </section>
