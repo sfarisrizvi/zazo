@@ -30,12 +30,12 @@ export default function LocalUsersPage() {
           - Visual: /pay-QR.png & /pay-QR-mobile.png
           ======================================================================
         */}
-        <section className="relative w-full overflow-hidden bg-[#047857] text-white pt-6 sm:pt-10 lg:pt-12 pb-0">
+        <section className="relative w-full overflow-hidden bg-[#047857] text-white pt-2 sm:pt-4 lg:pt-6 pb-0">
           <div className="mx-auto max-w-[1560px] px-5 sm:px-8 lg:px-10 xl:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-end">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
               
-              {/* Left Column: Text & Flow */}
-              <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center pb-8 sm:pb-12 lg:pb-16 pt-2 sm:pt-4 z-10">
+              {/* Left Column: Text & Flow - Vertically Balanced */}
+              <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center py-6 sm:py-8 lg:py-10 z-10">
                 {/* Category Pill Tag */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
                   <span>Accounts · Local Users</span>
@@ -82,9 +82,9 @@ export default function LocalUsersPage() {
                 </p>
               </div>
 
-              {/* Right Column: Visual Graphic - Large prominent display */}
+              {/* Right Column: Visual Graphic - Balanced Bottom Alignment */}
               <div className="lg:col-span-7 xl:col-span-7 relative w-full flex items-end justify-center lg:justify-end self-end">
-                <div className="relative w-full h-[360px] sm:h-[480px] lg:h-[560px] xl:h-[640px] 2xl:h-[700px] flex items-end justify-center lg:justify-end">
+                <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[480px] xl:h-[540px] 2xl:h-[580px] flex items-end justify-center lg:justify-end">
                   {/* Desktop Image */}
                   <div className="hidden sm:block relative w-full h-full">
                     <Image
