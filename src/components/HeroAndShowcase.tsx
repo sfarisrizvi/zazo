@@ -287,7 +287,7 @@ export default function HeroAndShowcase() {
                 <motion.div
                   key={currentLogoColor}
                   initial={{ opacity: 0.65, scale: 0.94 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  animate={{ opacity: isIntro ? 0.2 : 1, scale: 1 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   style={{
                     filter:
@@ -441,8 +441,30 @@ export default function HeroAndShowcase() {
             data-snap-point
             data-snap-id="hero"
             data-theme-bg="green"
-            className="snap-section-top relative flex h-[calc(100vh-74px)] items-center px-6 lg:px-10 xl:px-16 2xl:px-24 bg-transparent text-black"
+            className="snap-section-top relative flex h-[calc(100vh-74px)] items-center px-6 lg:px-10 xl:px-16 2xl:px-24 overflow-hidden bg-[#6CFF94] text-black"
           >
+            {/* Background Video & Gradient Overlay */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              >
+                <source src="/hero-bg.mp4" type="video/mp4" />
+              </video>
+              {/* Green Gradient Overlay: 100% opaque on left, fading to 30-40% opacity on right */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'linear-gradient(to right, #6CFF94 0%, #6CFF94 28%, rgba(108, 255, 148, 0.92) 42%, rgba(108, 255, 148, 0.65) 65%, rgba(108, 255, 148, 0.35) 100%)',
+                }}
+              />
+            </div>
+
             {/* Top-Left Logo on Desktop Hero */}
             <div className="absolute top-6 left-6 lg:top-8 lg:left-10 xl:left-16 2xl:left-24 z-30 flex items-center">
               <a href="#hero" aria-label="Zazo Home" className="flex items-center group">
@@ -450,7 +472,7 @@ export default function HeroAndShowcase() {
               </a>
             </div>
 
-            <div className="w-full flex items-center justify-between">
+            <div className="w-full flex items-center justify-between relative z-10">
 
               {/* LEFT ZONE: Exactly centered in the space between left screen edge and phone, matching chapter content alignment */}
               <div className="flex-1 flex items-center justify-center">
@@ -756,15 +778,37 @@ export default function HeroAndShowcase() {
           data-theme-bg="green"
           className="snap-section-top relative z-10 flex min-h-[100dvh] w-full flex-col justify-between bg-[#6CFF94] px-5 py-6 overflow-hidden"
         >
+          {/* Background Video & Gradient Overlay */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            >
+              <source src="/hero-bg.mp4" type="video/mp4" />
+            </video>
+            {/* Green Gradient Overlay: 100% opaque on left, fading to 30-40% on right */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  'linear-gradient(to right, #6CFF94 0%, #6CFF94 25%, rgba(108, 255, 148, 0.9) 45%, rgba(108, 255, 148, 0.55) 75%, rgba(108, 255, 148, 0.35) 100%)',
+              }}
+            />
+          </div>
+
           {/* Top-Left Logo on Mobile */}
-          <div className="w-full flex items-center justify-start z-20">
+          <div className="w-full flex items-center justify-start z-20 relative">
             <a href="#hero" aria-label="Zazo Home" className="flex items-center">
               <Logo height={32} className="text-black" />
             </a>
           </div>
 
           {/* Centered Content Stack: Hero Copy + The Flow Graphic + Center Phone + Badges */}
-          <div className="flex flex-col items-center justify-center w-full my-auto gap-3 sm:gap-4">
+          <div className="flex flex-col items-center justify-center w-full my-auto gap-3 sm:gap-4 relative z-10">
             {/* Mobile Hero Copy & Flow Graphic */}
             <div className="flex flex-col items-center text-center gap-1.5 z-20 px-1 pt-1">
               <h1 className="text-[32px] sm:text-[38px] font-bold leading-tight tracking-[-1.3px] text-black m-0">

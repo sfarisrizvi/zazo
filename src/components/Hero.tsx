@@ -12,7 +12,29 @@ export default function Hero() {
       data-theme-bg="green"
       className="snap-section-top relative flex min-h-screen w-full items-center justify-center bg-[#6CFF94] text-black px-5 lg:px-8 pt-12 pb-16 overflow-hidden"
     >
-      <div className="mx-auto grid max-w-[1440px] w-full grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-8">
+      {/* Background Video & Gradient Overlay */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Green Gradient Overlay: 100% opaque on left, fading to 30-40% on right */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to right, #6CFF94 0%, #6CFF94 28%, rgba(108, 255, 148, 0.92) 42%, rgba(108, 255, 148, 0.65) 65%, rgba(108, 255, 148, 0.35) 100%)',
+          }}
+        />
+      </div>
+
+      <div className="mx-auto grid max-w-[1440px] w-full grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-8 relative z-10">
 
         {/* Left Column: Copy from Document Section 1 */}
         <motion.div
