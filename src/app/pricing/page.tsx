@@ -1,9 +1,21 @@
 'use client';
 
+import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import InternalNavbar from '@/components/InternalNavbar';
 import Footer from '@/components/Footer';
 
 export default function PricingPage() {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleWaitlistSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubmitted(true);
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-black antialiased">
       <InternalNavbar />
@@ -177,6 +189,61 @@ export default function PricingPage() {
               Other fees (like card replacement or physical statements) may apply. See full Fee Schedule in Terms &amp; Conditions. Interbank rates are live and shown before every conversion.
             </div>
 
+          </div>
+        </section>
+
+        {/* 
+          ======================================================================
+          SECTION 3: CTA / WAITLIST ABOVE FOOTER
+          ======================================================================
+        */}
+        <section id="waitlist" className="relative w-full bg-white py-16 sm:py-24">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+            <div className="rounded-[32px] sm:rounded-[40px] bg-black text-white p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl text-center">
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#6CFF94]/15 rounded-full blur-[100px] pointer-events-none" />
+
+              <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+                <span className="inline-flex h-7 items-center rounded-full bg-white/10 px-3.5 text-[11px] sm:text-[12px] font-semibold tracking-wide uppercase text-[#6CFF94] border border-white/10 mb-4">
+                  Zero Hidden Fees
+                </span>
+
+                <h3 className="text-[32px] sm:text-[46px] lg:text-[54px] font-bold tracking-[-1.5px] sm:tracking-[-2px] leading-[1.08] text-white m-0">
+                  Ready to stop overpaying?
+                </h3>
+
+                <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] text-neutral-300 font-normal leading-relaxed max-w-lg">
+                  Join the waitlist to get your free USD account details and start converting to PKR with 0% markup.
+                </p>
+
+                {/* Email Form */}
+                <form
+                  onSubmit={handleWaitlistSubmit}
+                  className="mt-8 flex flex-col sm:flex-row items-center gap-3 w-full max-w-md"
+                >
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    required
+                    className="w-full h-[52px] px-5 rounded-full bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-[15px] outline-none focus:border-[#6CFF94] focus:ring-2 focus:ring-[#6CFF94]/20 transition-all"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto shrink-0 h-[52px] px-7 rounded-full bg-[#6CFF94] hover:bg-[#5be682] text-black font-medium text-[15px] transition-all duration-200 cursor-pointer shadow-md hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                  >
+                    <span>Join Waitlist</span>
+                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                  </button>
+                </form>
+
+                {submitted && (
+                  <div className="mt-3 text-[#6CFF94] text-[13px] font-medium">
+                    ✓ You&apos;re on the priority waitlist! We&apos;ll notify you soon.
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </section>
       </main>
