@@ -31,92 +31,96 @@ export default function MerchantsPage() {
       <main className="flex-1 pt-[74px]">
         {/* 
           ======================================================================
-          HERO SECTION (Matching Home Page Purple Brand & Document 124 Spec)
+          HERO SECTION (2-Column Side-by-Side: Text Left, Visual Right)
           - Background: #6b25b3
           - Text: White
           - Visual: /merchange-usercase.png & /merchange-usercase-mobile.png
           ======================================================================
         */}
-        <section className="relative w-full overflow-hidden bg-[#6b25b3] text-white pt-12 sm:pt-16 lg:pt-20 pb-0">
+        <section className="relative w-full overflow-hidden bg-[#6b25b3] text-white pt-8 sm:pt-12 lg:pt-16 pb-0">
           <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-            <div className="max-w-4xl flex flex-col items-start text-left">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-end">
               
-              {/* Category Pill Tag */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
-                <span>Accounts · Merchants</span>
-              </div>
+              {/* Left Column: Text, Flow & CTA */}
+              <div className="lg:col-span-7 xl:col-span-6 flex flex-col items-start text-left justify-center pb-8 sm:pb-12 lg:pb-16 pt-2 sm:pt-4">
+                {/* Category Pill Tag */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
+                  <span>Accounts · Merchants</span>
+                </div>
 
-              {/* Headline */}
-              <h1 className="text-[46px] sm:text-[64px] lg:text-[76px] xl:text-[84px] leading-[1.02] font-bold tracking-[-2px] sm:tracking-[-3.5px] text-white m-0">
-                Ditch the card machine.
-              </h1>
+                {/* Headline */}
+                <h1 className="text-[42px] sm:text-[56px] lg:text-[62px] xl:text-[72px] leading-[1.04] font-bold tracking-[-2px] sm:tracking-[-3px] text-white m-0">
+                  Ditch the card machine.
+                </h1>
 
-              {/* Subheadline */}
-              <p className="mt-4 sm:mt-5 text-[18px] sm:text-[22px] lg:text-[24px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-2xl">
-                Accept QR payments. Free QR code. No MDR.*
-              </p>
+                {/* Subheadline */}
+                <p className="mt-4 sm:mt-5 text-[17px] sm:text-[20px] lg:text-[22px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-xl">
+                  Accept QR payments. Free QR code. No MDR.*
+                </p>
 
-              {/* The Flow */}
-              <div className="mt-8 sm:mt-10 w-full max-w-2xl">
-                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[13px] sm:text-[14px] font-semibold text-white">
-                  <span className="px-4 py-2.5 rounded-full bg-white/15 border border-white/20">
-                    Open Account
-                  </span>
-                  <span className="text-white/60 text-[12px]">➔</span>
-                  <span className="px-4 py-2.5 rounded-full bg-white/15 border border-white/20">
-                    Get QR Code
-                  </span>
-                  <span className="text-white/60 text-[12px]">➔</span>
-                  <span className="px-4 py-2.5 rounded-full bg-[#6CFF94] text-black border border-white/20">
-                    Start Selling
+                {/* The Flow */}
+                <div className="mt-8 sm:mt-10 w-full max-w-xl">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[12px] sm:text-[13.5px] font-semibold text-white">
+                    <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
+                      Open Account
+                    </span>
+                    <span className="text-white/60 text-[12px]">➔</span>
+                    <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
+                      Get QR Code
+                    </span>
+                    <span className="text-white/60 text-[12px]">➔</span>
+                    <span className="px-3.5 py-2 rounded-full bg-[#6CFF94] text-black border border-white/20">
+                      Start Selling
+                    </span>
+                  </div>
+                </div>
+
+                {/* CTA & Fineprint */}
+                <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
+                  <a
+                    href="#contact-sales"
+                    className="inline-flex items-center justify-center h-[50px] px-8 rounded-full bg-white hover:bg-neutral-100 text-black font-medium text-[15px] transition-all duration-200 shadow-md select-none"
+                  >
+                    Contact Sales
+                  </a>
+
+                  <span className="text-[13px] text-white/70 font-normal">
+                    *Subject to eligibility and agreement.
                   </span>
                 </div>
               </div>
 
-              {/* CTA & Fineprint */}
-              <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="#contact-sales"
-                  className="inline-flex items-center justify-center h-[52px] px-8 rounded-full bg-white hover:bg-neutral-100 text-black font-medium text-[15px] transition-all duration-200 shadow-md select-none"
-                >
-                  Contact Sales
-                </a>
+              {/* Right Column: Visual Graphic Flush to Bottom */}
+              <div className="lg:col-span-5 xl:col-span-6 relative w-full flex items-end justify-center lg:justify-end self-end">
+                <div className="relative w-full max-w-[560px] lg:max-w-none aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/11] xl:aspect-[16/10] flex items-end">
+                  {/* Desktop Image */}
+                  <div className="hidden sm:block relative w-full h-full">
+                    <Image
+                      src="/merchange-usercase.png"
+                      alt="Zazo for Merchants accepting QR payments with zero MDR"
+                      fill
+                      unoptimized
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-contain object-bottom select-none"
+                    />
+                  </div>
 
-                <span className="text-[13px] text-white/70 font-normal">
-                  *Subject to eligibility and agreement.
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Home Page Visual Banner Container */}
-          <div className="relative w-full max-w-[1680px] mx-auto aspect-[4/5] sm:aspect-[1672/941] max-h-[48vh] sm:max-h-[66vh] lg:max-h-[70vh] px-2 sm:px-4 lg:px-6 pb-0 flex items-end justify-center sm:flex-1 mt-6 sm:mt-10">
-            <div className="relative w-full h-full overflow-hidden rounded-t-[20px] sm:rounded-t-[32px] rounded-b-none">
-              {/* Desktop Image */}
-              <div className="hidden sm:block relative w-full h-full">
-                <Image
-                  src="/merchange-usercase.png"
-                  alt="Zazo for Merchants accepting QR payments with zero MDR"
-                  fill
-                  unoptimized
-                  priority
-                  sizes="(max-width: 1720px) 100vw, 1680px"
-                  className="object-contain object-bottom select-none"
-                />
+                  {/* Mobile Image */}
+                  <div className="block sm:hidden relative w-full h-full">
+                    <Image
+                      src="/merchange-usercase-mobile.png"
+                      alt="Zazo for Merchants accepting QR payments with zero MDR"
+                      fill
+                      unoptimized
+                      priority
+                      sizes="(max-width: 640px) 100vw, 540px"
+                      className="object-contain object-bottom select-none"
+                    />
+                  </div>
+                </div>
               </div>
 
-              {/* Mobile Image */}
-              <div className="block sm:hidden relative w-full h-full">
-                <Image
-                  src="/merchange-usercase-mobile.png"
-                  alt="Zazo for Merchants accepting QR payments with zero MDR"
-                  fill
-                  unoptimized
-                  priority
-                  sizes="(max-width: 640px) 100vw, 540px"
-                  className="object-contain object-bottom select-none"
-                />
-              </div>
             </div>
           </div>
         </section>
