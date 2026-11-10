@@ -35,24 +35,24 @@ export default function BusinessPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
               
               {/* Left Column: Text & Flow - Vertically Balanced */}
-              <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center py-6 sm:py-8 lg:py-10 z-10">
+              <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center pt-4 pb-2 sm:py-8 lg:py-10 z-10">
                 {/* Category Pill Tag */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/10 border border-black/15 text-black text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/10 border border-black/15 text-black text-[12px] font-semibold tracking-wider uppercase mb-4 sm:mb-6">
                   <span>Accounts · Business</span>
                 </div>
 
                 {/* Headline */}
-                <h1 className="whitespace-pre-line text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-2px] sm:tracking-[-3px] text-black m-0">
+                <h1 className="whitespace-pre-line text-[36px] min-[380px]:text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-1.5px] sm:tracking-[-3px] text-black m-0">
                   Receive globally.{'\n'}Pay locally.
                 </h1>
 
                 {/* Subheadline */}
-                <p className="mt-4 sm:mt-5 text-[17px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-black/85 font-normal m-0 max-w-xl">
+                <p className="mt-3.5 sm:mt-5 text-[16px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-black/85 font-normal m-0 max-w-xl">
                   Clients pay USD. You pay suppliers, staff, and local bills in PKR.
                 </p>
 
                 {/* The Flow */}
-                <div className="mt-8 sm:mt-10 w-full max-w-xl">
+                <div className="mt-6 sm:mt-10 w-full max-w-xl">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[12px] sm:text-[13px] font-semibold text-black">
                     <span className="px-3.5 py-2 rounded-full bg-black/10 border border-black/15">
                       Client pays USD
@@ -73,14 +73,14 @@ export default function BusinessPage() {
                 </div>
 
                 {/* Fineprint */}
-                <p className="mt-6 text-[13px] text-black/60 font-normal m-0">
+                <p className="mt-4 sm:mt-6 text-[12px] sm:text-[13px] text-black/60 font-normal m-0">
                   Subject to eligibility.
                 </p>
               </div>
 
               {/* Right Column: Visual Graphic - Balanced Bottom Alignment */}
               <div className="lg:col-span-7 xl:col-span-7 relative w-full flex items-end justify-center lg:justify-end self-end">
-                <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[480px] xl:h-[540px] 2xl:h-[580px] flex items-end justify-center lg:justify-end">
+                <div className="relative w-full h-[280px] xs:h-[320px] sm:h-[400px] lg:h-[480px] xl:h-[540px] 2xl:h-[580px] flex items-end justify-center lg:justify-end">
                   {/* Desktop Image */}
                   <div className="hidden sm:block relative w-full h-full">
                     <Image
