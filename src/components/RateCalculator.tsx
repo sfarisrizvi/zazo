@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, ArrowDown, ShieldCheck, Sparkles, QrCode, Percent, ShoppingBag, Check, X, AlertCircle } from 'lucide-react';
+import { ArrowRight, ArrowDown, ShieldCheck, Sparkles, QrCode, Percent, Check, X } from 'lucide-react';
 
 interface Competitor {
   id: string;
@@ -215,7 +215,6 @@ export default function RateCalculator() {
           • Features | Zazo (Featured) | nSave | Elevate | Payoneer
           • QR Payments in Pakistan: ✅ Zazo | ❌ nSave | ❌ Elevate | ❌ Payoneer
           • QR Discounts (Up to 10%): ✅ Zazo | ❌ nSave | ❌ Elevate | ❌ Payoneer
-          • Seller Payouts: ✅ Zazo | ⚠️ Limited (nSave) | ⚠️ Limited (Elevate) | ✅ Payoneer
           ======================================================================
         */}
         <div className="max-w-4xl mx-auto mt-10 sm:mt-14">
@@ -388,56 +387,6 @@ export default function RateCalculator() {
                     <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
                       <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-50 border border-rose-200/70 text-rose-500">
                         <X className="w-3.5 h-3.5 stroke-[2.5]" />
-                      </div>
-                    </td>
-                  </tr>
-
-                  {/* Row 3: Seller Payouts */}
-                  <tr className="hover:bg-neutral-50/50 transition-colors">
-                    <td className="py-4 sm:py-5 px-4 sm:px-6">
-                      <div className="flex items-start sm:items-center gap-3">
-                        <div className="w-8 h-8 rounded-xl bg-black/5 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                          <ShoppingBag className="w-4 h-4 text-neutral-800" />
-                        </div>
-                        <div>
-                          <div className="font-bold text-black text-[14px] sm:text-[15px]">
-                            Seller Payouts
-                          </div>
-                          <div className="text-[12px] text-neutral-500 font-normal">
-                            Receive payouts from Amazon, eBay, Etsy & international clients
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-
-                    {/* Zazo */}
-                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center bg-[#6CFF94]/15 border-x border-emerald-500/20">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#6CFF94]/30 border border-[#047857]/40 text-[#047857] font-semibold text-[13px] shadow-2xs">
-                        <Check className="w-3.5 h-3.5 stroke-[3]" />
-                        <span>Supported</span>
-                      </div>
-                    </td>
-
-                    {/* nSave */}
-                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
-                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-semibold">
-                        <AlertCircle className="w-3 h-3 text-amber-700" />
-                        <span>Limited</span>
-                      </div>
-                    </td>
-
-                    {/* Elevate */}
-                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
-                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-semibold">
-                        <AlertCircle className="w-3 h-3 text-amber-700" />
-                        <span>Limited</span>
-                      </div>
-                    </td>
-
-                    {/* Payoneer */}
-                    <td className="py-4 sm:py-5 px-3 sm:px-4 text-center">
-                      <div className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800">
-                        <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </div>
                     </td>
                   </tr>

@@ -9,11 +9,11 @@ import Footer from '@/components/Footer';
 export default function MerchantsPage() {
   const [formData, setFormData] = useState({
     businessName: '',
-    businessType: 'cafe_restaurant',
-    contactName: '',
+    businessCategory: '',
+    contactPerson: '',
+    city: '',
     email: '',
     phone: '',
-    city: 'karachi',
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -29,75 +29,36 @@ export default function MerchantsPage() {
       <InternalNavbar />
 
       <main className="flex-1 pt-[74px]">
-        {/* 
-          ======================================================================
-          HERO SECTION (2-Column Side-by-Side: Text Left, Large Visual Right)
-          - Background: #6b25b3
-          - Text: White
-          - Visual: /merchange-usercase.png & /merchange-usercase-mobile.png
-          ======================================================================
-        */}
-        <section className="relative w-full overflow-hidden bg-[#6b25b3] text-white pt-2 sm:pt-4 lg:pt-6 pb-0">
-          <div className="mx-auto max-w-[1560px] px-5 sm:px-8 lg:px-10 xl:px-12">
+        {/* Hero Section */}
+        <section className="relative w-full overflow-hidden bg-[#6b25b3] text-white pt-4 sm:pt-6 lg:pt-8 pb-0">
+          <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
-              
-              {/* Left Column: Text, Flow & CTA - Vertically Balanced */}
-              <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center pt-4 pb-2 sm:py-8 lg:py-10 z-10">
-                {/* Category Pill Tag */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-4 sm:mb-6">
+              {/* Left Column */}
+              <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center pt-4 pb-2 sm:py-10 lg:py-14 z-10">
+                <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
                   <span>Accounts · Merchants</span>
                 </div>
 
-                {/* Headline */}
                 <h1 className="text-[36px] min-[380px]:text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-1.5px] sm:tracking-[-3px] text-white m-0">
                   Ditch the card machine.
                 </h1>
 
-                {/* Subheadline */}
-                <p className="mt-3.5 sm:mt-5 text-[16px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-xl">
-                  Accept QR payments. Free QR code. No MDR.*
+                <p className="mt-4 sm:mt-5 text-[16px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-xl">
+                  Open an instant merchant account. Accept QR payments with zero hardware and zero MDR.
                 </p>
 
-                {/* The Flow */}
-                <div className="mt-6 sm:mt-10 w-full max-w-xl">
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[12px] sm:text-[13px] font-semibold text-white">
-                    <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
-                      Open Account
-                    </span>
-                    <span className="text-white/60 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
-                      Get QR Code
-                    </span>
-                    <span className="text-white/60 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-[#6CFF94] text-black border border-white/20">
-                      Start Selling
-                    </span>
-                  </div>
-                </div>
-
-                {/* CTA & Fineprint */}
-                <div className="mt-6 sm:mt-10 flex flex-wrap items-center gap-4">
-                  <a
-                    href="#contact-sales"
-                    className="inline-flex items-center justify-center h-[50px] px-8 rounded-full bg-white hover:bg-neutral-100 text-black font-medium text-[15px] transition-all duration-200 shadow-md select-none"
-                  >
-                    Contact Sales
-                  </a>
-
-                  <span className="text-[13px] text-white/70 font-normal">
-                    *Subject to eligibility and agreement.
-                  </span>
-                </div>
+                <p className="mt-5 sm:mt-6 text-[13px] text-white/75 font-normal m-0">
+                  *Subject to eligibility and agreement.
+                </p>
               </div>
 
-              {/* Right Column: Visual Graphic - Balanced Bottom Alignment */}
+              {/* Right Column: Visual Graphic */}
               <div className="lg:col-span-7 xl:col-span-7 relative w-full flex items-end justify-center lg:justify-end self-end">
                 <div className="relative w-full h-[250px] xs:h-[290px] sm:h-[400px] lg:h-[480px] xl:h-[540px] 2xl:h-[580px] flex items-end justify-center lg:justify-end">
-                  {/* Desktop Image */}
                   <div className="hidden sm:block relative w-full h-full">
                     <Image
                       src="/merchange-usercase.png"
-                      alt="Zazo for Merchants accepting QR payments with zero MDR"
+                      alt="Ditch the card machine."
                       fill
                       unoptimized
                       priority
@@ -106,11 +67,10 @@ export default function MerchantsPage() {
                     />
                   </div>
 
-                  {/* Mobile Image */}
                   <div className="block sm:hidden relative w-full h-full">
                     <Image
                       src="/merchange-usercase-mobile.png"
-                      alt="Zazo for Merchants accepting QR payments with zero MDR"
+                      alt="Ditch the card machine."
                       fill
                       unoptimized
                       priority
@@ -120,30 +80,20 @@ export default function MerchantsPage() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* 
-          ======================================================================
-          WHY ZAZO SECTION (Tabby-style Alternating 2-Column Showcase)
-          • Row 1: Zero MDR (Card Left, Text Right) — Lifestyle Photo (/lifestyle-merchant.png)
-          • Row 2: Sticky Customers (Text Left, Card Right) — Exact Screen (/screens/discounts.png)
-          • Row 3: Instant Setup (Card Left, Text Right) — Exact Screen (/screens/scan_qr.png)
-          ======================================================================
-        */}
+        {/* Core Merchant Features: Alternating Visual Showcase */}
         <section id="why-zazo" className="relative w-full bg-white py-14 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1360px] px-5 sm:px-8 lg:px-12 flex flex-col gap-14 sm:gap-24 lg:gap-36">
-            
-            {/* ROW 1: Zero MDR (Card Left, Text Right) */}
+          <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 flex flex-col gap-14 sm:gap-24 lg:gap-36">
+            {/* ROW 1: Instant Onboarding (Card Left, Text Right) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
-              {/* Left Column: Realistic Lifestyle Photo Card from API */}
               <div className="lg:col-span-6 w-full">
                 <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] overflow-hidden shadow-sm bg-neutral-100">
                   <Image
-                    src="/lifestyle-merchant.png"
-                    alt="Pakistani cafe shopkeeper at checkout counter with Zazo Chai Khana QR standee"
+                    src="/merchant-onboarding.png"
+                    alt="Start selling in minutes."
                     fill
                     unoptimized
                     sizes="(max-width: 1024px) 100vw, 680px"
@@ -152,16 +102,75 @@ export default function MerchantsPage() {
                 </div>
               </div>
 
-              {/* Right Column: Text & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
                 <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  PRICING & COMMISSIONS
+                  INSTANT ONBOARDING
                 </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Zero MDR
+                  Start selling in minutes.
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  On eligible payments.*
+                  No branch visits. Just enter your CNIC and business details for instant digital verification.
+                </p>
+              </div>
+            </div>
+
+            {/* ROW 2: No Hardware (Text Left, Product Screen Card Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
+              <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
+                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
+                  NO HARDWARE
+                </span>
+                <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
+                  Your phone is your terminal.
+                </h2>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  Accept payments right from the Zazo app, or get a free printed QR standee for your counter.
+                </p>
+              </div>
+
+              <div className="lg:col-span-6 order-1 lg:order-2 w-full">
+                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] bg-[#FEDD42] overflow-hidden flex items-start justify-center pt-7 sm:pt-10 lg:pt-12 px-4 sm:px-6 shadow-sm">
+                  <div className="relative w-[260px] min-[390px]:w-[280px] sm:w-[320px] lg:w-[340px] aspect-[430/932] rounded-[44px] border-[8px] sm:border-[10px] border-black bg-black shadow-2xl overflow-hidden shrink-0">
+                    <div className="relative w-full h-full bg-white">
+                      <Image
+                        src="/screens/scan_qr.png"
+                        alt="Your phone is your terminal."
+                        fill
+                        unoptimized
+                        sizes="(max-width: 640px) 280px, 340px"
+                        className="object-cover object-top select-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ROW 3: Zero MDR (Card Left, Text Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
+              <div className="lg:col-span-6 w-full">
+                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] overflow-hidden shadow-sm bg-neutral-100">
+                  <Image
+                    src="/lifestyle-merchant.png"
+                    alt="Keep 100% of your money."
+                    fill
+                    unoptimized
+                    sizes="(max-width: 1024px) 100vw, 680px"
+                    className="object-cover object-center select-none"
+                  />
+                </div>
+              </div>
+
+              <div className="lg:col-span-6 flex flex-col items-start justify-center">
+                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
+                  ZERO MDR
+                </span>
+                <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
+                  Keep 100% of your money.
+                </h2>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  No hidden deductions on eligible QR transactions.
                 </p>
                 <div className="mt-7 sm:mt-8">
                   <a
@@ -174,101 +183,46 @@ export default function MerchantsPage() {
               </div>
             </div>
 
-            {/* ROW 2: Sticky Customers (Text Left, Card Right) */}
+            {/* ROW 4: Merchant Rewards (Text Left, Card Right) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
-              {/* Left Column on Desktop: Text & CTA */}
               <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
                 <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  CUSTOMER LOYALTY
+                  MERCHANT REWARDS
                 </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Sticky Customers
+                  Earn Up To 5% Cashback.
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  They earn cashback when they pay you.
+                  Get rewarded just for accepting payments. Cashback scales up based on your daily Zazo balance.*
                 </p>
                 <div className="mt-7 sm:mt-8">
                   <a
                     href="#contact-sales"
                     className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
                   >
-                    Boost repeat sales
+                    Start earning
                   </a>
                 </div>
               </div>
 
-              {/* Right Column on Desktop: Visual Card with exact product screen */}
               <div className="lg:col-span-6 order-1 lg:order-2 w-full">
-                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] bg-[#6CFF94] overflow-hidden flex items-start justify-center pt-7 sm:pt-10 lg:pt-12 px-4 sm:px-6 shadow-sm">
-                  {/* Phone Chassis: Top rounded bezel and header fully visible inside card */}
-                  <div className="relative w-[260px] min-[390px]:w-[280px] sm:w-[320px] lg:w-[340px] aspect-[430/932] rounded-[44px] border-[8px] sm:border-[10px] border-black bg-black shadow-2xl overflow-hidden shrink-0">
-                    <div className="relative w-full h-full bg-white">
-                      <Image
-                        src="/screens/discounts.png"
-                        alt="Zazo Activity Discounts and Rewards Tier Screen"
-                        fill
-                        unoptimized
-                        sizes="(max-width: 640px) 280px, 340px"
-                        className="object-cover object-top select-none"
-                      />
-                    </div>
-                  </div>
+                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] overflow-hidden shadow-sm bg-neutral-100">
+                  <Image
+                    src="/merchant-rewards.png"
+                    alt="Earn Up To 5% Cashback."
+                    fill
+                    unoptimized
+                    sizes="(max-width: 1024px) 100vw, 680px"
+                    className="object-cover object-center select-none"
+                  />
                 </div>
               </div>
             </div>
-
-            {/* ROW 3: Instant Setup (Card Left, Text Right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
-              {/* Left Column: Visual Card with exact product screen framed from the top */}
-              <div className="lg:col-span-6 w-full">
-                <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] bg-[#FEDD42] overflow-hidden flex items-start justify-center pt-7 sm:pt-10 lg:pt-12 px-4 sm:px-6 shadow-sm">
-                  {/* Phone Chassis: Top rounded bezel and header fully visible inside card */}
-                  <div className="relative w-[260px] min-[390px]:w-[280px] sm:w-[320px] lg:w-[340px] aspect-[430/932] rounded-[44px] border-[8px] sm:border-[10px] border-black bg-black shadow-2xl overflow-hidden shrink-0">
-                    <div className="relative w-full h-full bg-white">
-                      <Image
-                        src="/screens/scan_qr.png"
-                        alt="Zazo Scan to Pay QR Code Screen"
-                        fill
-                        unoptimized
-                        sizes="(max-width: 640px) 280px, 340px"
-                        className="object-cover object-top select-none"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Text & CTA */}
-              <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  NO HARDWARE
-                </span>
-                <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Instant Setup
-                </h2>
-                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  No hardware, no queues.
-                </p>
-                <div className="mt-7 sm:mt-8">
-                  <a
-                    href="#contact-sales"
-                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
-                  >
-                    Get free QR standee
-                  </a>
-                </div>
-              </div>
-            </div>
-
           </div>
         </section>
 
-        {/* 
-          ======================================================================
-          SECTION 3: CONTACT SALES CTA ABOVE FOOTER
-          ======================================================================
-        */}
-        <section id="contact-sales" className="relative w-full bg-white py-16 sm:py-24">
+        {/* Merchant Partnership Form */}
+        <section id="contact-sales" className="relative w-full bg-white py-10 sm:py-16">
           <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
             <div className="rounded-[32px] sm:rounded-[40px] bg-black text-white p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6CFF94]/15 rounded-full blur-[140px] pointer-events-none" />
@@ -279,139 +233,166 @@ export default function MerchantsPage() {
                     Merchant Partnership
                   </span>
 
-                  <h3 className="text-[32px] sm:text-[44px] lg:text-[48px] font-bold tracking-[-1.5px] leading-[1.08] text-white m-0">
-                    Get your free counter standee.
+                  <h3 className="text-[30px] sm:text-[40px] lg:text-[44px] font-bold tracking-[-1.5px] leading-[1.08] text-white m-0">
+                    Get your free counter standee and unlock exclusive merchant rewards.
                   </h3>
 
                   <p className="mt-4 text-[16px] sm:text-[17px] text-neutral-300 font-normal leading-relaxed m-0">
-                    Speak with our merchant team to set up zero MDR payments for your outlets across Pakistan.
-                  </p>
-
-                  <p className="mt-8 text-[12px] text-neutral-500 font-normal m-0">
-                    *Subject to eligibility and agreement.
+                    Speak with our team to set up your outlets.
                   </p>
                 </div>
 
                 <div className="lg:col-span-7 rounded-2xl sm:rounded-3xl bg-white/[0.06] border border-white/15 p-6 sm:p-8 backdrop-blur-sm">
-                  {submitted ? (
-                    <div className="py-12 flex flex-col items-center text-center">
-                      <div className="w-14 h-14 rounded-full bg-[#6CFF94]/20 border border-[#6CFF94]/40 flex items-center justify-center text-[#6CFF94] mb-4">
-                        <CheckCircle2 className="w-8 h-8 stroke-[2]" />
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="business-name"
+                          className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5"
+                        >
+                          Business Name
+                        </label>
+                        <input
+                          id="business-name"
+                          type="text"
+                          required
+                          value={formData.businessName}
+                          onChange={(e) => {
+                            setSubmitted(false);
+                            setFormData({ ...formData, businessName: e.target.value });
+                          }}
+                          className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
+                        />
                       </div>
-                      <h4 className="text-[24px] font-bold text-white mb-2">Request Received!</h4>
-                      <p className="text-[15px] text-neutral-300 font-normal max-w-sm">
-                        Our merchant onboarding team will get in touch within 24 hours to deliver your QR standee.
-                      </p>
+
+                      <div>
+                        <label
+                          htmlFor="business-category"
+                          className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5"
+                        >
+                          Business Category
+                        </label>
+                        <input
+                          id="business-category"
+                          type="text"
+                          value={formData.businessCategory}
+                          onChange={(e) => {
+                            setSubmitted(false);
+                            setFormData({ ...formData, businessCategory: e.target.value });
+                          }}
+                          className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
+                        />
+                      </div>
                     </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
-                            Business Name
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="e.g. Chai Khana"
-                            value={formData.businessName}
-                            onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                            className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-500 text-[14px] outline-none focus:border-[#6CFF94] transition-all"
-                          />
-                        </div>
 
-                        <div>
-                          <label className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
-                            Business Category
-                          </label>
-                          <select
-                            value={formData.businessType}
-                            onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
-                            className="w-full h-[48px] px-4 rounded-xl bg-[#1f2937] border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
-                          >
-                            <option value="cafe_restaurant">Cafe / Restaurant</option>
-                            <option value="retail_fashion">Retail &amp; Fashion</option>
-                            <option value="supermarket">Grocery / Supermarket</option>
-                            <option value="services">Health / Services</option>
-                            <option value="other">Other Business</option>
-                          </select>
-                        </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="contact-person"
+                          className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5"
+                        >
+                          Contact Person
+                        </label>
+                        <input
+                          id="contact-person"
+                          type="text"
+                          required
+                          value={formData.contactPerson}
+                          onChange={(e) => {
+                            setSubmitted(false);
+                            setFormData({ ...formData, contactPerson: e.target.value });
+                          }}
+                          className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
+                        />
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
-                            Contact Person
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="Full name"
-                            value={formData.contactName}
-                            onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
-                            className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-500 text-[14px] outline-none focus:border-[#6CFF94] transition-all"
-                          />
-                        </div>
+                      <div>
+                        <label
+                          htmlFor="merchant-city"
+                          className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5"
+                        >
+                          City
+                        </label>
+                        <input
+                          id="merchant-city"
+                          type="text"
+                          value={formData.city}
+                          onChange={(e) => {
+                            setSubmitted(false);
+                            setFormData({ ...formData, city: e.target.value });
+                          }}
+                          className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
+                        />
+                      </div>
+                    </div>
 
-                        <div>
-                          <label className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
-                            City
-                          </label>
-                          <select
-                            value={formData.city}
-                            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                            className="w-full h-[48px] px-4 rounded-xl bg-[#1f2937] border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
-                          >
-                            <option value="karachi">Karachi</option>
-                            <option value="lahore">Lahore</option>
-                            <option value="islamabad">Islamabad / Rawalpindi</option>
-                            <option value="peshawar">Peshawar</option>
-                            <option value="other">Other City</option>
-                          </select>
-                        </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="merchant-email"
+                          className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5"
+                        >
+                          Email
+                        </label>
+                        <input
+                          id="merchant-email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => {
+                            setSubmitted(false);
+                            setFormData({ ...formData, email: e.target.value });
+                          }}
+                          className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
+                        />
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
-                            Email
-                          </label>
-                          <input
-                            type="email"
-                            required
-                            placeholder="merchant@example.com"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-500 text-[14px] outline-none focus:border-[#6CFF94] transition-all"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5">
-                            Phone / WhatsApp
-                          </label>
-                          <input
-                            type="tel"
-                            placeholder="0300 1234567"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-500 text-[14px] outline-none focus:border-[#6CFF94] transition-all"
-                          />
-                        </div>
+                      <div>
+                        <label
+                          htmlFor="merchant-phone"
+                          className="block text-[12px] font-semibold text-neutral-300 uppercase tracking-wider mb-1.5"
+                        >
+                          Phone / WhatsApp
+                        </label>
+                        <input
+                          id="merchant-phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => {
+                            setSubmitted(false);
+                            setFormData({ ...formData, phone: e.target.value });
+                          }}
+                          className="w-full h-[48px] px-4 rounded-xl bg-white/10 border border-white/20 text-white text-[14px] outline-none focus:border-[#6CFF94] transition-all"
+                        />
                       </div>
+                    </div>
 
-                      <button
-                        type="submit"
-                        className="w-full mt-4 h-[52px] rounded-full bg-[#6CFF94] hover:bg-[#5be682] text-black font-medium text-[15px] transition-all duration-200 cursor-pointer shadow-md hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
-                      >
-                        <span>Contact Sales</span>
-                        <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-                      </button>
-                    </form>
-                  )}
+                    <button
+                      type="submit"
+                      className="w-full mt-4 h-[52px] rounded-full bg-[#6CFF94] hover:bg-[#5be682] text-black font-medium text-[15px] transition-all duration-200 cursor-pointer shadow-md hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
+                    >
+                      {submitted ? (
+                        <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
+                      ) : (
+                        <>
+                          <span>Contact Sales</span>
+                          <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                        </>
+                      )}
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Merchant Footer Disclaimer */}
+        <section className="relative w-full bg-white pb-12 sm:pb-16">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+            <p className="border-t border-black/10 pt-6 text-[12px] sm:text-[13px] leading-relaxed text-neutral-500 m-0">
+              *Zero MDR and Cashback are subject to eligibility, daily wallet balance limits, and commercial agreement. Cashback is a promotional reward, not a financial yield.
+            </p>
           </div>
         </section>
       </main>

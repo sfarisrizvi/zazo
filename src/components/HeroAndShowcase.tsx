@@ -265,7 +265,7 @@ export default function HeroAndShowcase() {
       <div className="hidden lg:block relative w-full">
 
         {/* Sticky Pinned Phone Layer */}
-        <div className="sticky top-[74px] h-[calc(100vh-74px)] w-full pointer-events-none flex items-center justify-between z-20 overflow-hidden px-6 lg:px-10 xl:px-16 2xl:px-24">
+        <div className="sticky top-[74px] h-[calc(100vh-74px)] w-full mx-auto max-w-[1440px] pointer-events-none flex items-center justify-between z-20 overflow-hidden px-5 sm:px-8 lg:px-12">
 
           {/* Left Zone Spacer (Mirrors the exact left zone width) */}
           <div className="flex-1 flex justify-center items-center pointer-events-none" />
@@ -441,7 +441,7 @@ export default function HeroAndShowcase() {
             data-snap-point
             data-snap-id="hero"
             data-theme-bg="green"
-            className="snap-section-top relative flex h-screen items-center pb-[74px] px-6 lg:px-10 xl:px-16 2xl:px-24 overflow-hidden bg-[#6CFF94] text-black"
+            className="snap-section-top relative flex h-screen items-center pb-[74px] overflow-hidden bg-[#6CFF94] text-black"
           >
             {/* Background Video & Gradient Overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -465,17 +465,19 @@ export default function HeroAndShowcase() {
               />
             </div>
 
-            {/* Top-Left Logo on Desktop Hero */}
-            <div className="absolute top-6 left-6 lg:top-8 lg:left-10 xl:left-16 2xl:left-24 z-30 flex items-center">
-              <a href="#hero" aria-label="Zazo Home" className="flex items-center group">
-                <Logo height={34} className="text-black transition-opacity group-hover:opacity-80" />
-              </a>
+            {/* Top-Left Logo on Desktop Hero (aligned with 1440px section container) */}
+            <div className="absolute inset-x-0 top-6 lg:top-[21px] z-30 pointer-events-none">
+              <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 flex items-center">
+                <a href="#hero" aria-label="Zazo Home" className="pointer-events-auto flex items-center group">
+                  <Logo height={34} className="text-black transition-opacity group-hover:opacity-80" />
+                </a>
+              </div>
             </div>
 
-            <div className="w-full flex items-center justify-between relative z-10">
+            <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 flex items-center justify-between relative z-10">
 
-              {/* LEFT ZONE: Exactly centered in the space between left screen edge and phone, matching chapter content alignment */}
-              <div className="flex-1 flex items-center justify-center">
+              {/* LEFT ZONE: Aligned flush with left edge of 1440px content width & navbar logo */}
+              <div className="flex-1 min-w-0 flex items-center justify-start pr-8 xl:pr-12">
                 <div className="w-full max-w-[460px] xl:max-w-[500px] text-left">
                   <div
                     className={`flex flex-col gap-4 transition-all duration-500 ${isIntro ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
@@ -509,12 +511,6 @@ export default function HeroAndShowcase() {
 
                     {/* Action Buttons */}
                     <div className="flex flex-wrap items-center gap-3 pt-2">
-                      <a
-                        href="#waitlist"
-                        className="btn-pill btn-primary inline-flex items-center justify-center text-[13px] font-medium px-6 h-[46px] shadow-lg cursor-pointer"
-                      >
-                        Join Waitlist
-                      </a>
                       <a
                         href="#rates"
                         className="btn-pill btn-secondary-green inline-flex items-center justify-center text-[13px] font-medium px-6 h-[46px] border border-black/25 text-black hover:border-black/50 cursor-pointer"
@@ -565,12 +561,12 @@ export default function HeroAndShowcase() {
                   ref={(el) => {
                     chapterRefs.current[index] = el;
                   }}
-                  className="snap-section relative flex h-[calc(100vh-74px)] items-center px-6 lg:px-10 xl:px-16 2xl:px-24"
+                  className="snap-section relative flex h-[calc(100vh-74px)] items-center"
                 >
-                  <div className="w-full flex items-center justify-between">
+                  <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 flex items-center justify-between">
 
-                    {/* LEFT ZONE: Exactly centered in the space between left screen edge and phone */}
-                    <div className="flex-1 flex items-center justify-center">
+                    {/* LEFT ZONE: Aligned with 1440px content width & navbar logo */}
+                    <div className="flex-1 min-w-0 flex items-center justify-start pr-8 xl:pr-12">
                       <div className="w-full max-w-[440px] text-left">
                         <div
                           className={`flex flex-col gap-4 transition-all duration-500 ${isCurrent ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
@@ -653,8 +649,8 @@ export default function HeroAndShowcase() {
                     {/* CENTER ZONE SPACER: Exact matching width of center phone */}
                     <div className="w-[320px] lg:w-[360px] xl:w-[410px] 2xl:w-[450px] shrink-0 h-full pointer-events-none" />
 
-                    {/* RIGHT ZONE: Exactly centered in the space between phone and right screen edge */}
-                    <div className="flex-1 flex items-center justify-center">
+                    {/* RIGHT ZONE: Aligned symmetrically with right edge of 1440px container */}
+                    <div className="flex-1 min-w-0 flex items-center justify-end pl-8 xl:pl-12">
                       <div className="w-full max-w-[360px]">
                         <div
                           className={`flex flex-col gap-6 transition-all duration-500 ${isCurrent

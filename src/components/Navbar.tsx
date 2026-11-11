@@ -34,7 +34,7 @@ export default function Navbar() {
         borderColor: currentTheme.navBorder,
       }}
     >
-      <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 lg:px-8">
+      <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
         {/* Brand Logo */}
         <a href="#hero" className="flex items-center text-decoration-none group" aria-label="Zazo Home">
           <Logo

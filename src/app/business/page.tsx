@@ -31,7 +31,7 @@ export default function BusinessPage() {
           ======================================================================
         */}
         <section className="relative w-full overflow-hidden bg-[#ADE3FD] text-black pt-2 sm:pt-4 lg:pt-6 pb-0">
-          <div className="mx-auto max-w-[1560px] px-5 sm:px-8 lg:px-10 xl:px-12">
+          <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
               
               {/* Left Column: Text & Flow - Vertically Balanced */}
@@ -123,7 +123,7 @@ export default function BusinessPage() {
           ======================================================================
         */}
         <section id="why-zazo" className="relative w-full bg-white py-14 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-[1360px] px-5 sm:px-8 lg:px-12 flex flex-col gap-14 sm:gap-24 lg:gap-36">
+          <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 flex flex-col gap-14 sm:gap-24 lg:gap-36">
             
             {/* ROW 1: One Wallet (Card Left, Text Right) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
