@@ -287,7 +287,7 @@ export default function HeroAndShowcase() {
                 <motion.div
                   key={currentLogoColor}
                   initial={{ opacity: 0.65, scale: 0.94 }}
-                  animate={{ opacity: isIntro ? 0.2 : 1, scale: 1 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   style={{
                     filter:
@@ -441,7 +441,7 @@ export default function HeroAndShowcase() {
             data-snap-point
             data-snap-id="hero"
             data-theme-bg="green"
-            className="snap-section-top relative flex h-[calc(100vh-74px)] items-center px-6 lg:px-10 xl:px-16 2xl:px-24 overflow-hidden bg-[#6CFF94] text-black"
+            className="snap-section-top relative flex h-screen items-center pb-[74px] px-6 lg:px-10 xl:px-16 2xl:px-24 overflow-hidden bg-[#6CFF94] text-black"
           >
             {/* Background Video & Gradient Overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -542,7 +542,12 @@ export default function HeroAndShowcase() {
           {/* 
             SLIDES 1 TO 6: THE 6 HOW-IT-WORKS CHAPTERS (Minimal Narrative & Metrics)
           */}
-          <div id="how-it-works" className="relative w-full bg-transparent">
+          <div
+            id="how-it-works"
+            className={`relative w-full transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              activeIndex <= 1 ? 'bg-white' : 'bg-transparent'
+            }`}
+          >
             {chapters.map((chapter, index) => {
               const slideIndex = index + 1;
               const isCurrent = activeIndex === slideIndex;
@@ -836,7 +841,7 @@ export default function HeroAndShowcase() {
             {/* Center Phone Mockup & Background Logo */}
             <div className="relative shrink-0 flex items-center justify-center my-1">
               {/* Logo on the back of phone */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none select-none opacity-20">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none select-none">
                 <ZazoLogoMark color="#000000" className="w-[clamp(240px,36vh,360px)] h-[clamp(240px,36vh,360px)]" />
               </div>
 

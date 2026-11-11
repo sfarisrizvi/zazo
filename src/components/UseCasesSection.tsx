@@ -1,11 +1,30 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+
+/**
+ * Diagonal top-right arrow glyph sourced from top-right.svg
+ */
+function TopRightArrowIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="m479 0h-386.9c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1l-389.5 389.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33v-386.8c.1-18.2-14.7-33-32.9-33z" />
+    </svg>
+  );
+}
 
 interface UseCaseItem {
   id: string;
   tabLabel: string;
   headline: string;
+  href: string;
   description: string;
   extendedDetail?: string;
   bgColor: string;
@@ -21,6 +40,7 @@ const useCases: UseCaseItem[] = [
     id: 'freelancers',
     tabLabel: 'Freelancers',
     headline: 'Freelancers',
+    href: '/freelancers',
     description: 'Get paid globally. Spend locally.',
     bgColor: '#DB1584',
     themeAttr: 'magenta',
@@ -33,6 +53,7 @@ const useCases: UseCaseItem[] = [
     id: 'sellers',
     tabLabel: 'Sellers',
     headline: 'Amazon, eBay & Etsy sellers',
+    href: '/business',
     description: 'Receive marketplace payouts. Spend locally.',
     bgColor: '#4929dd',
     themeAttr: 'indigo',
@@ -45,6 +66,7 @@ const useCases: UseCaseItem[] = [
     id: 'agencies',
     tabLabel: 'Agencies',
     headline: 'Agencies & software houses',
+    href: '/business',
     description: 'Receive client payments. Pay locally.',
     bgColor: '#ADE3FD',
     themeAttr: 'blue',
@@ -57,6 +79,7 @@ const useCases: UseCaseItem[] = [
     id: 'families',
     tabLabel: 'Families',
     headline: 'Families',
+    href: '/remittances',
     description: 'Receive remittances. Spend at home.',
     bgColor: '#FEDD42',
     themeAttr: 'yellow',
@@ -69,6 +92,7 @@ const useCases: UseCaseItem[] = [
     id: 'local-users',
     tabLabel: 'Local Users',
     headline: 'Local users',
+    href: '/local',
     description: 'Add funds. Pay by QR. Save on eligible purchases.',
     extendedDetail: 'Open a PKR account in minutes with your CNIC. Send, receive, and get up to 10% discount every time you scan to pay.',
     bgColor: '#047857',
@@ -82,6 +106,7 @@ const useCases: UseCaseItem[] = [
     id: 'merchants',
     tabLabel: 'Merchants',
     headline: 'Merchants',
+    href: '/merchants',
     description: 'Ditch the card machine. Accept QR payments, no MDR on eligible payments.* Free QR code. Cashback for your customers.**',
     bgColor: '#6b25b3',
     themeAttr: 'purple',
@@ -123,6 +148,9 @@ export default function UseCasesSection() {
       <div className="relative w-full flex flex-col">
         {useCases.map((uc, index) => {
           const isWhiteText = uc.textColor === 'white';
+          const headlineWords = uc.headline.split(' ');
+          const lastWord = headlineWords.pop() || '';
+          const leadingHeadline = headlineWords.length > 0 ? `${headlineWords.join(' ')} ` : '';
 
           return (
             <div
@@ -156,7 +184,21 @@ export default function UseCasesSection() {
                           isWhiteText ? 'text-white' : 'text-black'
                         }`}
                       >
-                        {uc.headline}
+                        {leadingHeadline}
+                        <span className="inline-flex items-center gap-3 sm:gap-4 lg:gap-5 whitespace-nowrap">
+                          <span>{lastWord}</span>
+                          <Link
+                            href={uc.href}
+                            aria-label={`Explore Zazo for ${uc.headline}`}
+                            className={`group inline-flex shrink-0 items-center justify-center translate-y-[0.02em] w-[46px] h-[46px] sm:w-[62px] sm:h-[62px] lg:w-[74px] lg:h-[74px] xl:w-[86px] xl:h-[86px] rounded-full tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 shadow-md ${
+                              isWhiteText
+                                ? 'bg-white text-black hover:bg-[#6CFF94]'
+                                : 'bg-black text-white hover:bg-neutral-800'
+                            }`}
+                          >
+                            <TopRightArrowIcon className="w-[40%] h-[40%] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
+                          </Link>
+                        </span>
                       </h3>
                     </div>
 

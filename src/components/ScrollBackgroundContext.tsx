@@ -34,7 +34,7 @@ export const themeConfigs: Record<ThemeType, ThemeState> = {
     theme: 'white',
     bg: '#FFFFFF',
     textColor: 'black',
-    navBg: 'rgba(255, 255, 255, 0.9)',
+    navBg: 'rgba(255, 255, 255, 0.97)',
     navBorder: 'rgba(0, 0, 0, 0.08)',
     navText: 'black',
   },
