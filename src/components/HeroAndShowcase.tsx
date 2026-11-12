@@ -581,24 +581,6 @@ export default function HeroAndShowcase() {
                             From global client to local checkout
                           </span>
 
-                          {/* Chapter Badge */}
-                          <div className="flex items-center">
-                            <span
-                              className="inline-flex h-7 items-center rounded-full px-3 text-[12px] tracking-[-0.24px] font-semibold border transition-colors duration-500"
-                              style={{
-                                backgroundColor: isGreen
-                                  ? 'rgba(0, 0, 0, 0.08)'
-                                  : `${chapter.logoColor}18`,
-                                borderColor: isGreen
-                                  ? 'rgba(0, 0, 0, 0.2)'
-                                  : `${chapter.logoColor}40`,
-                                color: isGreen ? '#000000' : chapter.logoColor,
-                              }}
-                            >
-                              {chapter.badge}
-                            </span>
-                          </div>
-
                           {/* Main Heading */}
                           <h2
                             className={`whitespace-pre-line text-[38px] xl:text-[44px] leading-[42px] xl:leading-[48px] tracking-[-1.3px] font-bold m-0 ${isDark ? 'text-white' : 'text-black'
@@ -922,13 +904,6 @@ export default function HeroAndShowcase() {
               <div className="flex flex-col gap-2 shrink-0">
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-400 block">
                   From global client to local checkout
-                </span>
-
-                <span
-                  className="text-[12px] font-semibold uppercase tracking-wider block"
-                  style={{ color: isGreen ? '#000000' : chapter.logoColor }}
-                >
-                  {chapter.badge}
                 </span>
 
                 <h2 className="text-[28px] sm:text-[34px] leading-[32px] sm:leading-[38px] font-bold tracking-[-1.2px] m-0">

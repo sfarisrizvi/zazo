@@ -4,44 +4,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Landmark, ShieldCheck, Lock, Activity, UserCheck } from 'lucide-react';
 
-const trustPoints = [
-  {
-    id: 'segregated-funds',
-    title: 'Segregated funds.',
-    description: 'Held in your name at a licensed bank.',
-    icon: Landmark,
-    positionClass: 'top-3 sm:top-6 left-2 lg:left-6 xl:left-10 max-w-[340px]',
-  },
-  {
-    id: 'licensed-rails',
-    title: 'Licensed rails.',
-    description: 'Regulated Pakistani banking.',
-    icon: ShieldCheck,
-    positionClass: 'top-3 sm:top-6 right-2 lg:right-6 xl:right-10 max-w-[340px]',
-  },
-  {
-    id: 'encrypted',
-    title: 'Encrypted.',
-    description: 'AES-256 security.',
-    icon: Lock,
-    positionClass: 'top-[48%] -translate-y-1/2 left-0 lg:left-2 xl:left-6 max-w-[320px]',
-  },
-  {
-    id: 'fraud-protection',
-    title: 'Fraud protection.',
-    description: 'Real-time monitoring.',
-    icon: Activity,
-    positionClass: 'top-[48%] -translate-y-1/2 right-0 lg:right-2 xl:right-6 max-w-[320px]',
-  },
-  {
-    id: 'data-privacy',
-    title: 'Your data.',
-    description: 'Never sold.',
-    icon: UserCheck,
-    positionClass: 'bottom-3 left-1/2 -translate-x-1/2 max-w-[320px]',
-  },
-];
-
 export default function SecurityTrust() {
   return (
     <section
@@ -59,134 +21,446 @@ export default function SecurityTrust() {
           </h2>
         </div>
 
-        {/* 
-          ======================================================================
-          DESKTOP ORBIT CONSTELLATION (lg: and above)
-          Concentric rings with pulsing center app icon and 5 balanced satellite pills
-          ======================================================================
-        */}
-        <div className="hidden lg:flex relative w-full max-w-[1240px] mx-auto min-h-[640px] xl:min-h-[680px] items-center justify-center">
-          
-          {/* Orbital Rings Background */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            {/* Inner Ring */}
-            <div className="w-[280px] h-[280px] rounded-full border border-black/10" />
-
-            {/* Middle Dashed Orbit */}
-            <div className="absolute w-[500px] h-[500px] rounded-full border border-dashed border-neutral-300">
-              <span className="absolute top-[15%] right-[18%] h-2.5 w-2.5 rounded-full bg-[#6CFF94] shadow-[0_0_12px_#6CFF94]" />
-              <span className="absolute bottom-[16%] left-[17%] h-2.5 w-2.5 rounded-full bg-[#6CFF94] shadow-[0_0_12px_#6CFF94]" />
-            </div>
-
-            {/* Outer Dotted Orbit */}
-            <div className="absolute w-[740px] h-[740px] rounded-full border border-dotted border-neutral-300/80">
-              <span className="absolute top-[28%] left-[7%] h-2.5 w-2.5 rounded-full bg-[#6CFF94] shadow-[0_0_12px_#6CFF94]" />
-              <span className="absolute bottom-[28%] right-[8%] h-2.5 w-2.5 rounded-full bg-[#6CFF94] shadow-[0_0_12px_#6CFF94]" />
-            </div>
-          </div>
-
-          {/* Central Zazo Squircle App Icon */}
-          <div className="relative z-20 flex items-center justify-center select-none">
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-24 h-24 rounded-[26px] bg-[#6CFF94] shadow-[0_10px_25px_rgba(0,0,0,0.06)] flex items-center justify-center p-3.5 border border-black/5"
+        {/* Visual-First Asymmetric Bento Vault Grid */}
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {/* TOP ROW (7 / 5 Split) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+            {/* 1. Segregated funds (Featured Dark Custody Vault Visual) */}
+            <div
+              className="group relative lg:col-span-7 rounded-[28px] sm:rounded-[36px] bg-[#0A0D0B] text-white p-6 sm:p-8 lg:p-10 overflow-hidden border border-black/10 flex flex-col justify-between min-h-[360px] sm:min-h-[410px]"
             >
-              <Image
-                src="/favicon.svg"
-                alt="Zazo App Icon"
-                width={76}
-                height={76}
-                priority
-                className="w-full h-full object-contain pointer-events-none"
+              {/* Ambient Mint Glow & Subtle Grid */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-[#6CFF94]/15 blur-[110px] transition-opacity duration-500 group-hover:opacity-90"
               />
-            </motion.div>
-          </div>
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-[0.07]"
+                style={{
+                  backgroundImage:
+                    'radial-gradient(circle at 1px 1px, #6CFF94 1px, transparent 0)',
+                  backgroundSize: '24px 24px',
+                }}
+              />
 
-          {/* 5 Orbiting Feature Cards (Desktop Positioned) */}
-          {trustPoints.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.92, y: 10 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className={`absolute z-30 ${item.positionClass}`}
+              {/* Interactive Visual Stage: Ring-Fenced Custody Chamber */}
+              <div
+                aria-hidden="true"
+                className="relative z-10 flex-1 flex items-center justify-center py-4 sm:py-6"
               >
-                <div className="flex items-center gap-3.5 rounded-full bg-white/95 backdrop-blur-md border border-black/10 py-3.5 px-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] hover:border-black/25 hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-black/5 text-black">
-                    <Icon className="h-5 w-5 stroke-[1.8]" />
+                <div className="relative w-full max-w-[520px] flex items-center justify-between gap-3 sm:gap-5">
+                  {/* Outer Platform Layer (Left Node) */}
+                  <div className="relative z-10 flex flex-col items-center gap-2.5 shrink-0">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[22px] bg-[#6CFF94] p-3.5 shadow-[0_0_35px_rgba(108,255,148,0.28)] flex items-center justify-center">
+                      <Image
+                        src="/favicon.svg"
+                        alt=""
+                        width={52}
+                        height={52}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="flex flex-col text-left pr-2">
-                    <span className="text-[15px] font-bold text-black leading-snug">
-                      {item.title}
-                    </span>
-                    <span className="text-[13px] text-neutral-500 font-normal leading-snug mt-0.5">
-                      {item.description}
-                    </span>
+
+                  {/* Animated Custody Flow Line */}
+                  <div className="relative flex-1 h-10 flex items-center">
+                    <svg
+                      viewBox="0 0 180 24"
+                      fill="none"
+                      className="w-full h-6 overflow-visible"
+                    >
+                      <line
+                        x1="0"
+                        y1="12"
+                        x2="180"
+                        y2="12"
+                        stroke="rgba(255,255,255,0.16)"
+                        strokeWidth="2"
+                        strokeDasharray="5 5"
+                      />
+                      <motion.circle
+                        r="4"
+                        cy="12"
+                        fill="#6CFF94"
+                        initial={{ cx: 8 }}
+                        animate={{ cx: [8, 172, 8] }}
+                        transition={{
+                          duration: 3.6,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                        style={{
+                          filter: 'drop-shadow(0 0 8px #6CFF94)',
+                        }}
+                      />
+                    </svg>
+                  </div>
+
+                  {/* Ring-Fenced Bank Custody Core (Right Vault Card) */}
+                  <div className="relative shrink-0 flex items-center justify-center">
+                    {/* Concentric Ring-Fence Halo */}
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 36, repeat: Infinity, ease: 'linear' }}
+                      className="absolute -inset-4 sm:-inset-5 rounded-[34px] border border-dashed border-[#6CFF94]/35 pointer-events-none"
+                    />
+                    <div className="relative rounded-[24px] bg-white/[0.06] backdrop-blur-md border border-[#6CFF94]/30 p-4 sm:p-5 w-[170px] sm:w-[230px] shadow-[0_20px_50px_rgba(0,0,0,0.45)]">
+                      {/* Vault Header Bar */}
+                      <div className="flex items-center justify-between mb-3.5">
+                        <div className="w-9 h-9 rounded-xl bg-[#6CFF94]/15 border border-[#6CFF94]/30 flex items-center justify-center text-[#6CFF94]">
+                          <Landmark className="w-4 h-4 stroke-[2]" />
+                        </div>
+                        <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[#6CFF94] shadow-[0_0_10px_#6CFF94]" />
+                      </div>
+                      {/* Abstract Segregated Ledger Bars */}
+                      <div className="space-y-2.5">
+                        <div className="h-2.5 w-3/4 rounded-full bg-white/80" />
+                        <div className="h-2 w-1/2 rounded-full bg-white/30" />
+                        <div className="pt-2 flex items-center gap-1.5">
+                          <div className="h-6 flex-1 rounded-lg bg-[#6CFF94]/25 border border-[#6CFF94]/40" />
+                          <div className="h-6 w-10 rounded-lg bg-white/10" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
+              </div>
 
-        {/* 
-          ======================================================================
-          MOBILE EXPERIENCE (Below lg)
-          Clean centered anchor icon with vertical flow of responsive pill cards
-          ======================================================================
-        */}
-        <div className="lg:hidden flex flex-col items-center gap-3.5 w-full max-w-md mx-auto">
-          {/* Centered App Icon with mini orbit rings */}
-          <div className="relative flex items-center justify-center my-6 select-none">
-            <div className="absolute w-44 h-44 rounded-full border border-dashed border-neutral-300 pointer-events-none" />
-            <div className="absolute w-32 h-32 rounded-full border border-neutral-200 pointer-events-none" />
-            <div className="relative w-16 h-16 rounded-[18px] bg-[#6CFF94] shadow-[0_8px_20px_rgba(0,0,0,0.06)] flex items-center justify-center p-2.5 z-10 border border-black/5">
-              <Image
-                src="/favicon.svg"
-                alt="Zazo App Icon"
-                width={48}
-                height={48}
-                className="w-full h-full object-contain pointer-events-none"
+              {/* Copy Footer */}
+              <div className="relative z-10 pt-4 border-t border-white/10 flex items-end justify-between gap-4">
+                <div>
+                  <h3 className="text-[22px] sm:text-[26px] font-bold tracking-[-0.6px] text-white m-0 leading-tight">
+                    Segregated funds.
+                  </h3>
+                  <p className="mt-1.5 text-[15px] sm:text-[16px] text-neutral-300 font-normal m-0">
+                    Held in your name at a licensed bank.
+                  </p>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-[#6CFF94] shrink-0">
+                  <Landmark className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Licensed rails (Architectural Settlement Topology) */}
+            <div
+              className="group relative lg:col-span-5 rounded-[28px] sm:rounded-[36px] bg-[#F2F5F3] border border-black/[0.08] p-6 sm:p-8 lg:p-10 overflow-hidden flex flex-col justify-between min-h-[360px] sm:min-h-[410px]"
+            >
+              {/* Soft Emerald Wash */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full bg-[#6CFF94]/30 blur-[90px]"
               />
+
+              {/* Visual Stage: Multi-Node Banking Rail Diagram */}
+              <div
+                aria-hidden="true"
+                className="relative z-10 flex-1 flex items-center justify-center py-4"
+              >
+                <div className="relative w-full max-w-[340px] h-[200px] flex items-center justify-center">
+                  {/* Connecting Curved SVG Rails */}
+                  <svg
+                    viewBox="0 0 340 190"
+                    fill="none"
+                    className="w-full h-full"
+                  >
+                    {/* Rail Grid Lines */}
+                    <path
+                      d="M42 95 C 105 95, 115 42, 170 42 C 225 42, 235 95, 298 95"
+                      stroke="rgba(4,120,87,0.22)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M42 95 C 105 95, 115 148, 170 148 C 225 148, 235 95, 298 95"
+                      stroke="rgba(4,120,87,0.22)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="42"
+                      y1="95"
+                      x2="298"
+                      y2="95"
+                      stroke="#047857"
+                      strokeWidth="3"
+                      strokeDasharray="6 6"
+                    />
+
+                    {/* Traveling Signal Dot along Center Rail */}
+                    <motion.circle
+                      r="5"
+                      cy="95"
+                      fill="#047857"
+                      initial={{ cx: 48 }}
+                      animate={{ cx: [48, 292] }}
+                      transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                    <motion.circle
+                      r="9"
+                      cy="95"
+                      fill="rgba(108,255,148,0.5)"
+                      initial={{ cx: 48 }}
+                      animate={{ cx: [48, 292] }}
+                      transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                  </svg>
+
+                  {/* Left Endpoint Pillar */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white border border-black/10 shadow-md flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-lg bg-black flex items-center justify-center">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#6CFF94]" />
+                    </div>
+                  </div>
+
+                  {/* Center Regulated Bank Shield Pillar */}
+                  <div className="relative z-10 w-20 h-20 rounded-[24px] bg-white border-2 border-[#047857]/30 shadow-[0_14px_35px_rgba(4,120,87,0.16)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#6CFF94]/35 flex items-center justify-center text-[#047857]">
+                      <ShieldCheck className="w-6 h-6 stroke-[2]" />
+                    </div>
+                  </div>
+
+                  {/* Right Endpoint Settlement Node */}
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white border border-black/10 shadow-md flex items-center justify-center">
+                    <Landmark className="w-5 h-5 text-[#047857]" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Copy Footer */}
+              <div className="relative z-10 pt-4 border-t border-black/10 flex items-end justify-between gap-4">
+                <div>
+                  <h3 className="text-[22px] sm:text-[26px] font-bold tracking-[-0.6px] text-black m-0 leading-tight">
+                    Licensed rails.
+                  </h3>
+                  <p className="mt-1.5 text-[15px] sm:text-[16px] text-neutral-600 font-normal m-0">
+                    Regulated Pakistani banking.
+                  </p>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center text-black shrink-0 shadow-2xs">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Cards List */}
-          {trustPoints.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={`mobile-${item.id}`}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.06 }}
-                className="w-full flex items-center gap-3.5 rounded-full bg-white border border-black/10 py-3.5 px-4.5 shadow-sm"
+          {/* BOTTOM ROW (3 Equal Visual Cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {/* 3. Encrypted (Cipher Ring & Hardware Lock Visual) */}
+            <div
+              className="group relative rounded-[28px] sm:rounded-[34px] bg-[#121514] text-white p-6 sm:p-8 overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[340px]"
+            >
+              {/* Subtle Matrix Pattern */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-[0.12] font-mono text-[10px] leading-5 tracking-widest text-[#6CFF94] select-none overflow-hidden p-4 mask-b-from-60%"
+                style={{
+                  maskImage: 'radial-gradient(circle at 50% 42%, black 20%, transparent 78%)',
+                  WebkitMaskImage:
+                    'radial-gradient(circle at 50% 42%, black 20%, transparent 78%)',
+                }}
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/5 text-black">
-                  <Icon className="h-5 w-5 stroke-[1.8]" />
+                <div>7F 4A 9C 2E 11 B8 D4 06 8E 31 5A C0 92 F7</div>
+                <div>A4 19 6D 88 F1 3C 02 7B 5E D9 40 1A 63 8B</div>
+                <div>2C E5 09 4F 73 A1 84 6C B0 29 5D 9E 37 14</div>
+                <div>D8 61 B2 3A 0F 94 C7 52 E6 18 4B 7D A3 60</div>
+                <div>59 0C 7E 85 D2 47 1B 9A 6F 34 8C E1 25 B3</div>
+                <div>13 F6 48 A0 6B 2D 54 E9 07 C3 7A 15 98 4E</div>
+                <div>8D 24 67 1E 9B 50 3F A8 D1 76 04 C9 52 8F</div>
+              </div>
+
+              {/* Rotating Concentric Lock Dial */}
+              <div
+                aria-hidden="true"
+                className="relative z-10 flex-1 flex items-center justify-center py-4"
+              >
+                <div className="relative w-36 h-36 flex items-center justify-center">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+                    className="absolute inset-0 rounded-full border border-dashed border-[#6CFF94]/40"
+                  />
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+                    className="absolute inset-3.5 rounded-full border border-white/15 border-t-[#6CFF94]"
+                  />
+                  <div className="relative w-16 h-16 rounded-2xl bg-[#6CFF94] text-black flex items-center justify-center shadow-[0_0_30px_rgba(108,255,148,0.35)] group-hover:scale-105 transition-transform duration-300">
+                    <Lock className="w-7 h-7 stroke-[2.2]" />
+                  </div>
                 </div>
-                <div className="flex flex-col text-left pr-2">
-                  <span className="text-[14px] font-bold text-black leading-tight">
-                    {item.title}
-                  </span>
-                  <span className="text-[12px] text-neutral-500 font-normal leading-tight mt-0.5">
-                    {item.description}
-                  </span>
+              </div>
+
+              <div className="relative z-10 pt-4 border-t border-white/10">
+                <h3 className="text-[22px] sm:text-[24px] font-bold tracking-[-0.5px] text-white m-0">
+                  Encrypted.
+                </h3>
+                <p className="mt-1 text-[15px] text-neutral-300 font-normal m-0">
+                  AES-256 security.
+                </p>
+              </div>
+            </div>
+
+            {/* 4. Fraud protection (Live Radar & Waveform Visual) */}
+            <div
+              className="group relative rounded-[28px] sm:rounded-[34px] bg-gradient-to-br from-[#EEFFF4] via-[#DCFFE7] to-[#6CFF94]/45 border border-[#047857]/20 p-6 sm:p-8 overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[340px]"
+            >
+              {/* Telemetry Waveform & Sonar Pulse Visual */}
+              <div
+                aria-hidden="true"
+                className="relative z-10 flex-1 flex items-center justify-center py-4"
+              >
+                <div className="relative w-full h-36 rounded-2xl bg-white/75 backdrop-blur-sm border border-[#047857]/15 shadow-inner flex items-center justify-center overflow-hidden px-4">
+                  {/* Subtle Horizontal Monitoring Grid */}
+                  <div
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(to right, rgba(4,120,87,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(4,120,87,0.12) 1px, transparent 1px)',
+                      backgroundSize: '20px 20px',
+                    }}
+                  />
+
+                  {/* Crisp Real-Time Pulse Wave SVG */}
+                  <svg
+                    viewBox="0 0 280 90"
+                    fill="none"
+                    className="relative z-10 w-full h-24 overflow-visible"
+                  >
+                    <path
+                      d="M0 52 L55 52 L72 52 L84 28 L98 72 L112 16 L126 62 L138 46 L152 52 L210 52 L224 38 L234 58 L244 52 L280 52"
+                      stroke="rgba(4,120,87,0.22)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <motion.path
+                      d="M0 52 L55 52 L72 52 L84 28 L98 72 L112 16 L126 62 L138 46 L152 52 L210 52 L224 38 L234 58 L244 52 L280 52"
+                      stroke="#047857"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ pathLength: 0.25, pathOffset: 0 }}
+                      animate={{ pathLength: [0.35, 0.7, 0.35], pathOffset: [0, 0.65, 0] }}
+                      transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                    <circle cx="112" cy="16" r="4.5" fill="#047857" />
+                    <circle cx="112" cy="16" r="9" fill="rgba(108,255,148,0.55)" />
+                  </svg>
+
+                  {/* Active Sensor Badge */}
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#047857] text-white flex items-center justify-center shadow-sm">
+                    <Activity className="w-4 h-4" />
+                  </div>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+
+              <div className="relative z-10 pt-4 border-t border-[#047857]/15">
+                <h3 className="text-[22px] sm:text-[24px] font-bold tracking-[-0.5px] text-black m-0">
+                  Fraud protection.
+                </h3>
+                <p className="mt-1 text-[15px] text-neutral-700 font-normal m-0">
+                  Real-time monitoring.
+                </p>
+              </div>
+            </div>
+
+            {/* 5. Your data (Zero-Sharing Privacy Shield Visual) */}
+            <div
+              className="group relative rounded-[28px] sm:rounded-[34px] bg-[#F5F6F5] border border-black/[0.08] p-6 sm:p-8 overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[340px]"
+            >
+              {/* Privacy Isolation Chamber Visual */}
+              <div
+                aria-hidden="true"
+                className="relative z-10 flex-1 flex items-center justify-center py-4"
+              >
+                <div className="relative w-full max-w-[260px] h-36 flex items-center justify-center">
+                  {/* Blocked Outbound Signal Rays */}
+                  <svg
+                    viewBox="0 0 260 140"
+                    fill="none"
+                    className="w-full h-full"
+                  >
+                    <line
+                      x1="20"
+                      y1="36"
+                      x2="78"
+                      y2="58"
+                      stroke="rgba(0,0,0,0.14)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                    <line
+                      x1="20"
+                      y1="104"
+                      x2="78"
+                      y2="82"
+                      stroke="rgba(0,0,0,0.14)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                    <line
+                      x1="240"
+                      y1="36"
+                      x2="182"
+                      y2="58"
+                      stroke="rgba(0,0,0,0.14)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                    <line
+                      x1="240"
+                      y1="104"
+                      x2="182"
+                      y2="82"
+                      stroke="rgba(0,0,0,0.14)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                    {/* Stop Caps */}
+                    <circle cx="78" cy="58" r="3.5" fill="#000000" fillOpacity="0.25" />
+                    <circle cx="78" cy="82" r="3.5" fill="#000000" fillOpacity="0.25" />
+                    <circle cx="182" cy="58" r="3.5" fill="#000000" fillOpacity="0.25" />
+                    <circle cx="182" cy="82" r="3.5" fill="#000000" fillOpacity="0.25" />
+                  </svg>
+
+                  {/* Outer Muted Nodes */}
+                  <span className="absolute left-2 top-7 w-4 h-4 rounded-full bg-black/10" />
+                  <span className="absolute left-2 bottom-7 w-4 h-4 rounded-full bg-black/10" />
+                  <span className="absolute right-2 top-7 w-4 h-4 rounded-full bg-black/10" />
+                  <span className="absolute right-2 bottom-7 w-4 h-4 rounded-full bg-black/10" />
+
+                  {/* Sealed Privacy Vault Core */}
+                  <div className="relative z-10 flex items-center justify-center">
+                    <div className="absolute -inset-3 rounded-[28px] border border-black/10 bg-white/50 backdrop-blur-xs" />
+                    <div className="relative w-20 h-20 rounded-[22px] bg-white border border-black/10 shadow-[0_12px_30px_rgba(0,0,0,0.08)] flex flex-col items-center justify-center gap-1.5 group-hover:scale-105 transition-transform duration-300">
+                      <div className="w-9 h-9 rounded-full bg-[#6CFF94]/40 flex items-center justify-center text-[#047857]">
+                        <UserCheck className="w-4.5 h-4.5 stroke-[2.2]" />
+                      </div>
+                      <div className="flex gap-1">
+                        <span className="w-3 h-1 rounded-full bg-black/80" />
+                        <span className="w-1.5 h-1 rounded-full bg-[#047857]" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative z-10 pt-4 border-t border-black/10">
+                <h3 className="text-[22px] sm:text-[24px] font-bold tracking-[-0.5px] text-black m-0">
+                  Your data.
+                </h3>
+                <p className="mt-1 text-[15px] text-neutral-600 font-normal m-0">
+                  Never sold.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Regulatory Partner Footnote */}
-        <div className="mt-14 sm:mt-20 pt-8 border-t border-black/10 text-center max-w-2xl mx-auto">
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-black/10 text-center max-w-2xl mx-auto">
           <p className="text-[13px] sm:text-[14px] leading-relaxed text-neutral-500 font-normal m-0">
             Zazo is a tech company, not a bank.
           </p>

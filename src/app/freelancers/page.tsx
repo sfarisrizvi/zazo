@@ -217,8 +217,8 @@ export default function FreelancersPage() {
               <div className="lg:col-span-6 w-full">
                 <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[540px] rounded-[32px] sm:rounded-[44px] overflow-hidden shadow-sm bg-neutral-100">
                   <Image
-                    src="/lifestyle-qr-pay.png"
-                    alt="Customer making contactless phone payment at checkout"
+                    src="/lifestyle-freelancer-cafe-qr.png"
+                    alt="Pakistani freelancer working on a laptop at a coffee shop table with a Zazo QR standee"
                     fill
                     unoptimized
                     sizes="(max-width: 1024px) 100vw, 680px"
