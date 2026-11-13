@@ -382,68 +382,139 @@ export default function SecurityTrust() {
                     fill="none"
                     className="w-full h-full"
                   >
-                    <line
+                    <motion.line
                       x1="20"
                       y1="36"
                       x2="78"
                       y2="58"
-                      stroke="rgba(0,0,0,0.14)"
+                      stroke="rgba(0,0,0,0.18)"
                       strokeWidth="2"
                       strokeDasharray="4 4"
+                      animate={{ strokeDashoffset: [0, -16] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                     />
-                    <line
+                    <motion.line
                       x1="20"
                       y1="104"
                       x2="78"
                       y2="82"
-                      stroke="rgba(0,0,0,0.14)"
+                      stroke="rgba(0,0,0,0.18)"
                       strokeWidth="2"
                       strokeDasharray="4 4"
+                      animate={{ strokeDashoffset: [0, -16] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                     />
-                    <line
+                    <motion.line
                       x1="240"
                       y1="36"
                       x2="182"
                       y2="58"
-                      stroke="rgba(0,0,0,0.14)"
+                      stroke="rgba(0,0,0,0.18)"
                       strokeWidth="2"
                       strokeDasharray="4 4"
+                      animate={{ strokeDashoffset: [0, 16] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                     />
-                    <line
+                    <motion.line
                       x1="240"
                       y1="104"
                       x2="182"
                       y2="82"
-                      stroke="rgba(0,0,0,0.14)"
+                      stroke="rgba(0,0,0,0.18)"
                       strokeWidth="2"
                       strokeDasharray="4 4"
+                      animate={{ strokeDashoffset: [0, 16] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                     />
-                    {/* Stop Caps */}
-                    <circle cx="78" cy="58" r="3.5" fill="#000000" fillOpacity="0.25" />
-                    <circle cx="78" cy="82" r="3.5" fill="#000000" fillOpacity="0.25" />
-                    <circle cx="182" cy="58" r="3.5" fill="#000000" fillOpacity="0.25" />
-                    <circle cx="182" cy="82" r="3.5" fill="#000000" fillOpacity="0.25" />
+                    {/* Stop Caps with pulse */}
+                    <motion.circle
+                      cx="78"
+                      cy="58"
+                      r="3.5"
+                      fill="#047857"
+                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                    <motion.circle
+                      cx="78"
+                      cy="82"
+                      r="3.5"
+                      fill="#047857"
+                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+                    />
+                    <motion.circle
+                      cx="182"
+                      cy="58"
+                      r="3.5"
+                      fill="#047857"
+                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
+                    />
+                    <motion.circle
+                      cx="182"
+                      cy="82"
+                      r="3.5"
+                      fill="#047857"
+                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.45 }}
+                    />
                   </svg>
 
                   {/* Outer Muted Nodes */}
-                  <span className="absolute left-2 top-7 w-4 h-4 rounded-full bg-black/10" />
-                  <span className="absolute left-2 bottom-7 w-4 h-4 rounded-full bg-black/10" />
-                  <span className="absolute right-2 top-7 w-4 h-4 rounded-full bg-black/10" />
-                  <span className="absolute right-2 bottom-7 w-4 h-4 rounded-full bg-black/10" />
+                  <motion.span
+                    className="absolute left-2 top-7 w-4 h-4 rounded-full bg-black/10"
+                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                  <motion.span
+                    className="absolute left-2 bottom-7 w-4 h-4 rounded-full bg-black/10"
+                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+                  />
+                  <motion.span
+                    className="absolute right-2 top-7 w-4 h-4 rounded-full bg-black/10"
+                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
+                  />
+                  <motion.span
+                    className="absolute right-2 bottom-7 w-4 h-4 rounded-full bg-black/10"
+                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
+                  />
 
                   {/* Sealed Privacy Vault Core */}
-                  <div className="relative z-10 flex items-center justify-center">
-                    <div className="absolute -inset-3 rounded-[28px] border border-black/10 bg-white/50 backdrop-blur-xs" />
+                  <motion.div
+                    className="relative z-10 flex items-center justify-center"
+                    animate={{ y: [-2, 2, -2] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    {/* Breathing Outer Shield Aura */}
+                    <motion.div
+                      className="absolute -inset-3.5 rounded-[30px] border border-[#047857]/20 bg-gradient-to-br from-[#6CFF94]/15 to-transparent backdrop-blur-xs"
+                      animate={{ scale: [1, 1.08, 1], opacity: [0.4, 0.85, 0.4] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                    <div className="absolute -inset-2 rounded-[26px] border border-black/10 bg-white/70" />
+
                     <div className="relative w-20 h-20 rounded-[22px] bg-white border border-black/10 shadow-[0_12px_30px_rgba(0,0,0,0.08)] flex flex-col items-center justify-center gap-1.5 group-hover:scale-105 transition-transform duration-300">
-                      <div className="w-9 h-9 rounded-full bg-[#6CFF94]/40 flex items-center justify-center text-[#047857]">
+                      <motion.div
+                        className="w-9 h-9 rounded-full bg-[#6CFF94]/40 flex items-center justify-center text-[#047857]"
+                        animate={{ scale: [1, 1.06, 1] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                      >
                         <UserCheck className="w-4.5 h-4.5 stroke-[2.2]" />
-                      </div>
-                      <div className="flex gap-1">
+                      </motion.div>
+                      <div className="flex gap-1 items-center">
                         <span className="w-3 h-1 rounded-full bg-black/80" />
-                        <span className="w-1.5 h-1 rounded-full bg-[#047857]" />
+                        <motion.span
+                          className="w-1.5 h-1 rounded-full bg-[#047857]"
+                          animate={{ opacity: [0.35, 1, 0.35] }}
+                          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                        />
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
