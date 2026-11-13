@@ -89,14 +89,11 @@ export default function RateCalculator() {
       <div className="mx-auto max-w-[1200px] px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <span className="inline-flex h-6 sm:h-7 items-center rounded-full bg-black/5 px-3 sm:px-3.5 text-[11px] sm:text-[12px] font-semibold tracking-wide uppercase text-neutral-800 border border-black/10">
-            Live Rates
-          </span>
-          <h2 className="mt-3 sm:mt-4 text-[32px] sm:text-[46px] lg:text-[58px] font-bold leading-[1.1] sm:leading-tight tracking-[-1.4px] sm:tracking-[-2px] text-black m-0">
+          <h2 className="text-[32px] sm:text-[46px] lg:text-[58px] font-bold leading-[1.1] sm:leading-tight tracking-[-1.4px] sm:tracking-[-2px] text-black m-0">
             Only Zazo pays you back.
           </h2>
           <p className="mt-2.5 sm:mt-3 text-[15px] sm:text-[18px] lg:text-[19px] leading-relaxed text-neutral-600 font-normal m-0 max-w-2xl mx-auto px-1">
-            The only wallet in Pakistan built for global receiving and everyday local spend with rewards.
+            Send USD, get PKR. Earn cashback on every local scan.
           </p>
         </div>
 

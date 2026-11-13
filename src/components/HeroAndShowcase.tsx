@@ -69,17 +69,17 @@ const chapters: StoryChapter[] = [
   {
     id: 'receive-usd',
     stepNumber: '01',
-    shortName: 'Global Receiving',
-    badge: '01 · Global Receiving',
-    headline: 'Global Receiving',
-    description: 'Get paid in USD. Zero wire fees.',
+    shortName: 'Get paid in USD',
+    badge: '01 · Get paid in USD',
+    headline: 'Get paid in USD',
+    description: 'Get your own US ACH & Wire details to receive payments from clients and platforms.',
     screenSrc: '/screens/receive_usd.png',
     screenAlt: 'Zazo USD Receiving Account Details Screen',
     logoColor: '#0066FF', // Vibrant Royal Blue on White BG
     theme: 'white',
-    metricLabel: 'Standard Wire Fee',
+    metricLabel: 'ACH RECEIVING',
     metricValue: '$0.00',
-    metricDetail: 'Zero Intermediary Deductions',
+    metricDetail: 'Zero Zazo fees. No hidden deductions.',
   },
   {
     id: 'convert-clarity',
@@ -104,14 +104,14 @@ const chapters: StoryChapter[] = [
     badge: '03 · Spend Like a Local',
     headline: 'Spend Like a Local',
     description: 'Scan any merchant QR to pay from your PKR wallet.',
-    featureHighlight: 'Earn up to 10% back on every eligible scan',
+    featureHighlight: 'Save up to 10% on every scan.',
     screenSrc: '/screens/scan_qr.png',
     screenAlt: 'Zazo Scan to Pay QR Code Detected Screen',
     logoColor: '#FF1493', // Deep Hot Magenta on White BG
     theme: 'white',
-    metricLabel: 'Merchant QR Settlement',
-    metricValue: 'Up to 10%',
-    metricDetail: 'Instant Cash Back On Every Scan',
+    metricLabel: 'Checkout time',
+    metricValue: '3 Seconds',
+    metricDetail: 'Scan, pay, and get cashback instantly.',
   },
   {
     id: 'send-locally',
@@ -466,10 +466,10 @@ export default function HeroAndShowcase() {
             </div>
 
             {/* Top-Left Logo on Desktop Hero (aligned with 1440px section container) */}
-            <div className="absolute inset-x-0 top-6 lg:top-[21px] z-30 pointer-events-none">
+            <div className="absolute inset-x-0 top-6 lg:top-6 z-30 pointer-events-none">
               <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 flex items-center">
                 <a href="#hero" aria-label="Zazo Home" className="pointer-events-auto flex items-center group">
-                  <Logo height={34} className="text-black transition-opacity group-hover:opacity-80" />
+                  <Logo height={46} className="text-black transition-opacity group-hover:opacity-80" />
                 </a>
               </div>
             </div>
@@ -497,7 +497,7 @@ export default function HeroAndShowcase() {
                     {/* The Flow Graphic: Horizontal 3-step visual row */}
                     <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 py-1 select-none">
                       <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
-                        Receive in any currency
+                        Receive USD
                       </span>
                       <span className="text-black/50 text-[12px] font-medium">➔</span>
                       <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-black/[0.08] border border-black/10 text-[12px] xl:text-[13px] font-semibold text-black tracking-tight shadow-sm">
@@ -572,15 +572,6 @@ export default function HeroAndShowcase() {
                           className={`flex flex-col gap-4 transition-all duration-500 ${isCurrent ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-2'
                             }`}
                         >
-                          {/* Section Title Eyebrow from Document 122 */}
-                          <span
-                            className={`text-[12px] font-semibold uppercase tracking-wider block -mb-1 ${
-                              isDark ? 'text-neutral-400' : isGreen ? 'text-black/60' : 'text-neutral-500'
-                            }`}
-                          >
-                            From global client to local checkout
-                          </span>
-
                           {/* Main Heading */}
                           <h2
                             className={`whitespace-pre-line text-[38px] xl:text-[44px] leading-[42px] xl:leading-[48px] tracking-[-1.3px] font-bold m-0 ${isDark ? 'text-white' : 'text-black'
@@ -611,7 +602,7 @@ export default function HeroAndShowcase() {
                             </div>
                           )}
 
-                          {/* Step 03 Visual Highlight (Earn up to 10% back on every eligible scan) */}
+                          {/* Step 03 Visual Highlight */}
                           {chapter.featureHighlight && (
                             <div className="pt-2">
                               <div className="rounded-[22px] bg-gradient-to-r from-[#6CFF94]/25 via-[#6CFF94]/35 to-[#6CFF94]/15 border-2 border-[#047857]/40 p-4 sm:p-5 shadow-sm">
@@ -619,7 +610,7 @@ export default function HeroAndShowcase() {
                                   Cashback Highlight
                                 </div>
                                 <div className="text-[20px] sm:text-[23px] font-bold text-black leading-tight tracking-tight">
-                                  Earn up to <span className="text-[#047857] underline decoration-wavy decoration-[#6CFF94]">10% back</span> on every eligible scan
+                                  <strong>{chapter.featureHighlight}</strong>
                                 </div>
                               </div>
                             </div>
@@ -786,7 +777,7 @@ export default function HeroAndShowcase() {
           {/* Top-Left Logo on Mobile */}
           <div className="w-full flex items-center justify-start z-20 relative">
             <a href="#hero" aria-label="Zazo Home" className="flex items-center">
-              <Logo height={32} className="text-black" />
+              <Logo height={38} className="text-black" />
             </a>
           </div>
 
@@ -803,7 +794,7 @@ export default function HeroAndShowcase() {
               {/* Flow Graphic: 3-step visual row */}
               <div className="flex flex-wrap items-center justify-center gap-1.5 py-1 text-[11px] font-semibold text-black select-none">
                 <span className="px-2.5 py-1 rounded-full bg-black/[0.08] border border-black/10 shadow-xs">
-                  Receive in any currency
+                  Receive USD
                 </span>
                 <span className="text-black/40 text-[11px]">➔</span>
                 <span className="px-2.5 py-1 rounded-full bg-black/[0.08] border border-black/10 shadow-xs">
@@ -902,10 +893,6 @@ export default function HeroAndShowcase() {
             >
               {/* Header Text */}
               <div className="flex flex-col gap-2 shrink-0">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-400 block">
-                  From global client to local checkout
-                </span>
-
                 <h2 className="text-[28px] sm:text-[34px] leading-[32px] sm:leading-[38px] font-bold tracking-[-1.2px] m-0">
                   {chapter.headline}
                 </h2>
@@ -932,7 +919,7 @@ export default function HeroAndShowcase() {
                   <div className="pt-1">
                     <div className="rounded-[18px] bg-gradient-to-r from-[#6CFF94]/25 via-[#6CFF94]/35 to-[#6CFF94]/15 border border-[#047857]/40 p-3.5 shadow-sm">
                       <div className="text-[15px] sm:text-[17px] font-bold text-black leading-tight tracking-tight">
-                        Earn up to <span className="text-[#047857]">10% back</span> on every eligible scan
+                        <strong>{chapter.featureHighlight}</strong>
                       </div>
                     </div>
                   </div>

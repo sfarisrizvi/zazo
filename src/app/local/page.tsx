@@ -36,19 +36,16 @@ export default function LocalUsersPage() {
               
               {/* Left Column: Text & Flow - Vertically Balanced */}
               <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center pt-4 pb-2 sm:py-8 lg:py-10 z-10">
-                {/* Category Pill Tag */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-4 sm:mb-6">
-                  <span>Accounts · Local Users</span>
-                </div>
-
                 {/* Headline */}
                 <h1 className="whitespace-pre-line text-[36px] min-[380px]:text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-1.5px] sm:tracking-[-3px] text-white m-0">
-                  Open in minutes.{'\n'}Save up to 10%.*
+                  Get your PKR account instantly.
                 </h1>
 
                 {/* Subheadline */}
                 <p className="mt-3.5 sm:mt-5 text-[16px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-xl">
-                  Open a PKR account with your CNIC. Scan, pay, and earn.
+                  <span>Save up to 10% on everyday purchases.</span>
+                  <br />
+                  <span>Just Enter CINC, add funds, and start scanning to pay.</span>
                 </p>
 
                 {/* The Flow */}
@@ -70,8 +67,8 @@ export default function LocalUsersPage() {
                       Scan & Pay
                     </span>
                     <span className="text-white/60 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-[#6CFF94] text-black border border-white/20">
-                      Earn 10%*
+                    <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
+                      Save 10%*
                     </span>
                   </div>
                 </div>
@@ -147,23 +144,14 @@ export default function LocalUsersPage() {
 
               {/* Right Column: Text & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  ONBOARDING
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Instant Onboarding
+                  Your money, in your pocket
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  PKR account in minutes with CNIC.
+                  <span>Pay, send, and track everything from one app.</span>
+                  <br />
+                  <span>Whether you&apos;re buying coffee or sending money to family, your Zazo wallet makes it instant and easy.</span>
                 </p>
-                <div className="mt-7 sm:mt-8">
-                  <a
-                    href="#waitlist"
-                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
-                  >
-                    Open an account
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -171,23 +159,14 @@ export default function LocalUsersPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
               {/* Left Column on Desktop: Text & CTA */}
               <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  DYNAMIC DISCOUNTS
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Earn Up To 10%
+                  Every scan pays you back.
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  Dynamic discounts on every eligible scan.
+                  <span>Save up to 10% on eligible QR payments.</span>
+                  <br />
+                  <span>Just scan to pay at any local merchant with your Zazo wallet.</span>
                 </p>
-                <div className="mt-7 sm:mt-8">
-                  <a
-                    href="#waitlist"
-                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
-                  >
-                    Explore discounts
-                  </a>
-                </div>
               </div>
 
               {/* Right Column on Desktop: Visual Card with exact product screen */}
@@ -233,23 +212,14 @@ export default function LocalUsersPage() {
 
               {/* Right Column: Text & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  QR CHECKOUT
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  No Hardware
+                  Pay with scan.
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  Pay any merchant with a QR scan.
+                  <span>No cards. No cash. Just your phone.</span>
+                  <br />
+                  <span>Use your Zazo app to scan any merchant&apos;s QR code and pay instantly.</span>
                 </p>
-                <div className="mt-7 sm:mt-8">
-                  <a
-                    href="#waitlist"
-                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
-                  >
-                    Scan to pay
-                  </a>
-                </div>
               </div>
             </div>
 

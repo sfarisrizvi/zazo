@@ -20,27 +20,27 @@ export default function FaqAccordion() {
   const faqs = [
     {
       q: 'Which currencies?',
-      a: 'USD today. EUR, GBP, AED soon.',
+      a: 'USD & PKR today. EUR, GBP, and AED are coming soon.',
     },
     {
       q: 'How fast?',
-      a: 'Convert same-day. Raast transfers are instant.',
+      a: 'USD to PKR conversion is instant. PKR transfers to any local bank via Raast arrive in seconds, 24/7.',
     },
     {
       q: 'How do I get 10%?',
-      a: 'Scan merchant QR. Higher balance = higher discount.*',
+      a: 'Get up to 10% cashback automatically applied when you scan to pay at any Zazo merchant. The exact reward depends on your PKR wallet balance.',
     },
     {
       q: 'What fees?',
-      a: 'No hidden fees. Rate shown before confirm.',
+      a: '$0.00 to receive USD via local ACH transfers. Transparent interbank rates on conversion with zero hidden spreads.',
     },
     {
       q: 'Is my money safe?',
-      a: 'Licensed bank, segregated funds, encrypted.',
+      a: 'Yes. Your USD is held in your own named account with a licensed offshore partner, while your PKR is held at a licensed Pakistani bank. All funds are secured with AES-256 encryption and real-time fraud monitoring.',
     },
     {
       q: 'Real bank details?',
-      a: 'Yes. USD ACH details in your name.',
+      a: 'Yes. You get your own named US ACH/Wire details to receive payments, plus a local PKR account for spending.',
     },
   ];
 
@@ -103,7 +103,7 @@ export default function FaqAccordion() {
 
                 {/* Support Response Bubble */}
                 <div className="self-start bg-[#F3F4F6] text-neutral-800 text-[13px] sm:text-[14px] px-4 py-3 rounded-[18px] rounded-bl-[4px] max-w-[280px] leading-relaxed shadow-sm">
-                  USD today — EUR, GBP and AED are coming soon.
+                  USD & PKR today — EUR, GBP and AED are coming soon.
                 </div>
               </div>
             </div>
@@ -205,7 +205,7 @@ export default function FaqAccordion() {
               </h3>
 
               <p className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] text-neutral-300 font-normal leading-relaxed max-w-lg mx-auto">
-                Join the waitlist to receive priority access to real USD & PKR accounts and up to 10% cash back on QR payments.
+                Join the waitlist to receive priority access to real USD & PKR accounts and up to 10% cashback on QR payments.
               </p>
 
               {/* Email Waitlist Input Form */}

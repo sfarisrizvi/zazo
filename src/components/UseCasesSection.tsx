@@ -80,7 +80,7 @@ const useCases: UseCaseItem[] = [
     tabLabel: 'Families',
     headline: 'Families',
     href: '/remittances',
-    description: 'Receive remittances. Spend at home.',
+    description: 'Receive remittances. Spend locally.',
     bgColor: '#FEDD42',
     themeAttr: 'yellow',
     textColor: 'black',
@@ -94,7 +94,6 @@ const useCases: UseCaseItem[] = [
     headline: 'Local users',
     href: '/local',
     description: 'Add funds. Pay by QR. Save on eligible purchases.',
-    extendedDetail: 'Open a PKR account in minutes with your CNIC. Send, receive, and get up to 10% discount every time you scan to pay.',
     bgColor: '#047857',
     themeAttr: 'green',
     textColor: 'white',
@@ -107,7 +106,7 @@ const useCases: UseCaseItem[] = [
     tabLabel: 'Merchants',
     headline: 'Merchants',
     href: '/merchants',
-    description: 'Ditch the card machine. Accept QR payments, no MDR on eligible payments.* Free QR code. Cashback for your customers.**',
+    description: 'Accept QR. 0% MDR. Earn up to 3-5% cashback',
     bgColor: '#6b25b3',
     themeAttr: 'purple',
     textColor: 'white',
@@ -128,10 +127,7 @@ export default function UseCasesSection() {
         ========================================================================
       */}
       <div className="mx-auto max-w-[1440px] px-6 lg:px-12 py-12 sm:py-16 text-center">
-        <span className="inline-flex h-7 items-center rounded-full bg-black/5 px-3.5 text-[11px] sm:text-[12px] font-semibold tracking-widest uppercase text-neutral-800 border border-black/10">
-          2. Made For Everyday Pakistan
-        </span>
-        <h2 className="mt-3 text-[36px] sm:text-[50px] lg:text-[64px] font-bold tracking-[-1.8px] sm:tracking-[-2.6px] leading-[1.08] text-black m-0">
+        <h2 className="text-[36px] sm:text-[50px] lg:text-[64px] font-bold tracking-[-1.8px] sm:tracking-[-2.6px] leading-[1.08] text-black m-0">
           Your money. Your life.
         </h2>
         <p className="mt-2.5 text-[16px] sm:text-[19px] text-neutral-600 font-normal max-w-xl mx-auto">
@@ -213,21 +209,6 @@ export default function UseCasesSection() {
                         </a>
                       </div>
                     )}
-
-                    {/* Local Users text box right in front of heading on right side */}
-                    {uc.extendedDetail && (
-                      <div className="shrink-0 pb-1 sm:pb-2 max-w-lg lg:max-w-xl">
-                        <div className="inline-flex items-center gap-2 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 px-4 sm:px-5 py-2.5 sm:py-3 text-[13px] sm:text-[15px] text-white shadow-sm leading-snug">
-                          <span>
-                            Open a PKR account in minutes with your CNIC. Send, receive, and get up to{' '}
-                            <strong className="inline-block bg-[#6CFF94] text-black font-bold px-2 py-0.5 rounded-md shadow-xs mx-0.5">
-                              10% discount
-                            </strong>{' '}
-                            every time you scan to pay.
-                          </span>
-                        </div>
-                      </div>
-                    )}
                   </div>
 
                   {/* Extended description text width so it flows more to the right */}
@@ -239,10 +220,10 @@ export default function UseCasesSection() {
                     {uc.description}
                   </p>
 
-                  {/* Merchants Footnote from PDF */}
+                  {/* Merchants Footnote */}
                   {uc.id === 'merchants' && (
                     <p className="mt-2 text-[11px] sm:text-[12px] text-white/70 italic m-0 max-w-4xl">
-                      *Subject to merchant eligibility and terms. Confirm charges in the merchant agreement before publishing. **Cashback subject to terms and eligibility.
+                      Subject to merchant eligibility and terms., Cashback subject to terms and eligibility.
                     </p>
                   )}
                 </div>

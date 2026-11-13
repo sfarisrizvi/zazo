@@ -36,11 +36,6 @@ export default function FreelancersPage() {
               
               {/* Left Column: Text & Flow - Vertically Balanced */}
               <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center pt-4 pb-2 sm:py-8 lg:py-10 z-10">
-                {/* Category Pill Tag */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-4 sm:mb-6">
-                  <span>Accounts · Freelancers</span>
-                </div>
-
                 {/* Headline */}
                 <h1 className="whitespace-pre-line text-[36px] min-[380px]:text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-1.5px] sm:tracking-[-3px] text-white m-0">
                   Get paid globally.{'\n'}Spend locally.
@@ -48,7 +43,7 @@ export default function FreelancersPage() {
 
                 {/* Subheadline */}
                 <p className="mt-3.5 sm:mt-5 text-[16px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-white/90 font-normal m-0 max-w-xl">
-                  Receive USD, convert to PKR, and spend by QR. Zero wire fees.
+                  Receive USD, convert to PKR, and spend by QR. with zero receiving fees.
                 </p>
 
                 {/* The Flow */}
@@ -58,7 +53,7 @@ export default function FreelancersPage() {
                       Client sends USD
                     </span>
                     <span className="text-white/60 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-[#6CFF94] text-black border border-white/20">
+                    <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
                       Zazo USD Account
                     </span>
                     <span className="text-white/60 text-[12px]">➔</span>
@@ -66,7 +61,7 @@ export default function FreelancersPage() {
                       Convert to PKR
                     </span>
                     <span className="text-white/60 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-black text-white">
+                    <span className="px-3.5 py-2 rounded-full bg-white/15 border border-white/20">
                       Spend / Send
                     </span>
                   </div>
@@ -148,14 +143,21 @@ export default function FreelancersPage() {
 
               {/* Right Column: Text & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  GLOBAL ACCOUNTS
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
                   Your Own Accounts
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  Named USD &amp; PKR details.
+                  <strong>The only wallet in Pakistan that gives you a global USD account and a local PKR account side-by-side.</strong>
+                </p>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  <strong>🇺🇸 USD Account</strong>
+                  <br />
+                  <span>Receive payments from global clients and platforms.</span>
+                </p>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  <strong>🇵🇰 PKR Account</strong>
+                  <br />
+                  <span>Convert instantly and spend locally via QR or Raast</span>
                 </p>
                 <div className="mt-7 sm:mt-8">
                   <a
@@ -172,9 +174,6 @@ export default function FreelancersPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
               {/* Left Column on Desktop: Text & CTA */}
               <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  CONVERSION
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
                   Total Clarity
                 </h2>
@@ -229,14 +228,11 @@ export default function FreelancersPage() {
 
               {/* Right Column: Text & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  LOCAL REWARDS
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Earn Up To 10%
+                  Save Up To 10%
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  Back on eligible QR payments.*
+                  Instant cashback on every eligible QR scan.
                 </p>
                 <div className="mt-7 sm:mt-8">
                   <a

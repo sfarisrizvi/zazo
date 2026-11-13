@@ -235,7 +235,7 @@ export default function SecurityTrust() {
                     Licensed rails.
                   </h3>
                   <p className="mt-1.5 text-[15px] sm:text-[16px] text-neutral-600 font-normal m-0">
-                    Regulated Pakistani banking.
+                    Regulated Pakistani banking and offshore partners.
                   </p>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center text-black shrink-0 shadow-2xs">

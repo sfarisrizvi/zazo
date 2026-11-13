@@ -35,10 +35,6 @@ export default function MerchantsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
               {/* Left Column */}
               <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center pt-4 pb-2 sm:py-10 lg:py-14 z-10">
-                <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-[12px] font-semibold tracking-wider uppercase mb-5 sm:mb-6">
-                  <span>Accounts · Merchants</span>
-                </div>
-
                 <h1 className="text-[36px] min-[380px]:text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-1.5px] sm:tracking-[-3px] text-white m-0">
                   Ditch the card machine.
                 </h1>
@@ -103,9 +99,6 @@ export default function MerchantsPage() {
               </div>
 
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  INSTANT ONBOARDING
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
                   Start selling in minutes.
                 </h2>
@@ -118,9 +111,6 @@ export default function MerchantsPage() {
             {/* ROW 2: No Hardware (Text Left, Product Screen Card Right) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
               <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  NO HARDWARE
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
                   Your phone is your terminal.
                 </h2>
@@ -163,46 +153,24 @@ export default function MerchantsPage() {
               </div>
 
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  ZERO MDR
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
                   Keep 100% of your money.
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
                   No hidden deductions on eligible QR transactions.
                 </p>
-                <div className="mt-7 sm:mt-8">
-                  <a
-                    href="#contact-sales"
-                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
-                  >
-                    Talk to sales
-                  </a>
-                </div>
               </div>
             </div>
 
             {/* ROW 4: Merchant Rewards (Text Left, Card Right) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
               <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  MERCHANT REWARDS
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Earn Up To 5% Cashback.
+                  Get Up to 5% cashback.
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  Get rewarded just for accepting payments. Cashback scales up based on your daily Zazo balance.*
+                  Get rewarded just for accepting payments. Cashback scales up based on your daily Zazo balance.
                 </p>
-                <div className="mt-7 sm:mt-8">
-                  <a
-                    href="#contact-sales"
-                    className="inline-flex items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-[15px] px-7 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm"
-                  >
-                    Start earning
-                  </a>
-                </div>
               </div>
 
               <div className="lg:col-span-6 order-1 lg:order-2 w-full">

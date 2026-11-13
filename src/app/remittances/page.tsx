@@ -36,11 +36,6 @@ export default function RemittancesPage() {
               
               {/* Left Column: Text & Flow - Vertically Balanced */}
               <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start text-left justify-center self-center pt-4 pb-2 sm:py-8 lg:py-10 z-10">
-                {/* Category Pill Tag */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/10 border border-black/15 text-black text-[12px] font-semibold tracking-wider uppercase mb-4 sm:mb-6">
-                  <span>Accounts · Remittances</span>
-                </div>
-
                 {/* Headline */}
                 <h1 className="whitespace-pre-line text-[36px] min-[380px]:text-[40px] sm:text-[52px] lg:text-[58px] xl:text-[68px] leading-[1.04] font-bold tracking-[-1.5px] sm:tracking-[-3px] text-black m-0">
                   Receive from abroad.{'\n'}Spend local.
@@ -48,29 +43,8 @@ export default function RemittancesPage() {
 
                 {/* Subheadline */}
                 <p className="mt-3.5 sm:mt-5 text-[16px] sm:text-[19px] lg:text-[21px] leading-snug tracking-[-0.5px] text-black/85 font-normal m-0 max-w-xl">
-                  Family sends money. It lands in your Zazo wallet. Convert and spend instantly.
+                  Get a local PKR account to receive remittances instantly, or hold USD in your own global account.
                 </p>
-
-                {/* The Flow */}
-                <div className="mt-6 sm:mt-10 w-full max-w-xl">
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 select-none text-[12px] sm:text-[13px] font-semibold text-black">
-                    <span className="px-3.5 py-2 rounded-full bg-black/10 border border-black/15">
-                      Family sends abroad
-                    </span>
-                    <span className="text-black/50 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-black text-white">
-                      Zazo Wallet
-                    </span>
-                    <span className="text-black/50 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-black/10 border border-black/15">
-                      Convert to PKR
-                    </span>
-                    <span className="text-black/50 text-[12px]">➔</span>
-                    <span className="px-3.5 py-2 rounded-full bg-white text-black border border-black/15 shadow-sm">
-                      Spend / Send
-                    </span>
-                  </div>
-                </div>
 
                 {/* Fineprint */}
                 <p className="mt-4 sm:mt-6 text-[12px] sm:text-[13px] text-black/60 font-normal m-0">
@@ -148,14 +122,14 @@ export default function RemittancesPage() {
 
               {/* Right Column: Text & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  REMITTANCES
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Global to Local
+                  Two accounts. One app.
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  Receive from supported sources.
+                  <strong>Receive remittances directly into PKR, or hold them in USD.</strong>
+                </p>
+                <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
+                  Share your local Raast ID for instant PKR, or your US account details to save in dollars.
                 </p>
                 <div className="mt-7 sm:mt-8">
                   <a
@@ -168,18 +142,15 @@ export default function RemittancesPage() {
               </div>
             </div>
 
-            {/* ROW 2: Earn Up To 10% (Text Left, Card Right) */}
+            {/* ROW 2: Save Up To 10% (Text Left, Card Right) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-20 items-center">
               {/* Left Column on Desktop: Text & CTA */}
               <div className="lg:col-span-6 order-2 lg:order-1 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  LOCAL CASHBACK
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
-                  Earn Up To 10%
+                  Save Up To 10%
                 </h2>
                 <p className="mt-3.5 sm:mt-4 text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed font-normal m-0 max-w-lg">
-                  Back on eligible QR payments.*
+                  Instant cashback on every local scan.
                 </p>
                 <div className="mt-7 sm:mt-8">
                   <a
@@ -229,9 +200,6 @@ export default function RemittancesPage() {
 
               {/* Right Column: Text & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-black/60 uppercase mb-3 sm:mb-4">
-                  DOMESTIC TRANSFERS
-                </span>
                 <h2 className="text-[32px] min-[380px]:text-[36px] sm:text-[46px] lg:text-[52px] font-bold text-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.06] m-0">
                   Instant Transfers
                 </h2>

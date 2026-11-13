@@ -13,7 +13,7 @@ export default function InternalNavbar({ activeTab }: InternalNavbarProps) {
       <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center group select-none" aria-label="Zazo Home">
-          <Logo height={32} className="text-black transition-opacity group-hover:opacity-85" />
+          <Logo height={36} className="text-black transition-opacity group-hover:opacity-85" />
         </Link>
 
         {/* Right CTA */}

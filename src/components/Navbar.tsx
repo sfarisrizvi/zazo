@@ -38,7 +38,7 @@ export default function Navbar() {
         {/* Brand Logo */}
         <a href="#hero" className="flex items-center text-decoration-none group" aria-label="Zazo Home">
           <Logo
-            height={32}
+            height={36}
             className={`transition-colors duration-500 group-hover:opacity-85 ${
               isDark ? 'text-white' : 'text-black'
             }`}
