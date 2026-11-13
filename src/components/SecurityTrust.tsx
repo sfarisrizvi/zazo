@@ -370,149 +370,84 @@ export default function SecurityTrust() {
             <div
               className="group relative rounded-[28px] sm:rounded-[34px] bg-[#F5F6F5] border border-black/[0.08] p-6 sm:p-8 overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[340px]"
             >
-              {/* Privacy Isolation Chamber Visual */}
+              {/* Soft Ambient Privacy Glow */}
               <div
                 aria-hidden="true"
-                className="relative z-10 flex-1 flex items-center justify-center py-4"
+                className="pointer-events-none absolute inset-0 flex items-center justify-center"
               >
-                <div className="relative w-full max-w-[260px] h-36 flex items-center justify-center">
-                  {/* Blocked Outbound Signal Rays */}
-                  <svg
-                    viewBox="0 0 260 140"
-                    fill="none"
-                    className="w-full h-full"
-                  >
-                    <motion.line
-                      x1="20"
-                      y1="36"
-                      x2="78"
-                      y2="58"
-                      stroke="rgba(0,0,0,0.18)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                      animate={{ strokeDashoffset: [0, -16] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                    />
-                    <motion.line
-                      x1="20"
-                      y1="104"
-                      x2="78"
-                      y2="82"
-                      stroke="rgba(0,0,0,0.18)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                      animate={{ strokeDashoffset: [0, -16] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                    />
-                    <motion.line
-                      x1="240"
-                      y1="36"
-                      x2="182"
-                      y2="58"
-                      stroke="rgba(0,0,0,0.18)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                      animate={{ strokeDashoffset: [0, 16] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                    />
-                    <motion.line
-                      x1="240"
-                      y1="104"
-                      x2="182"
-                      y2="82"
-                      stroke="rgba(0,0,0,0.18)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                      animate={{ strokeDashoffset: [0, 16] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                    />
-                    {/* Stop Caps with pulse */}
-                    <motion.circle
-                      cx="78"
-                      cy="58"
-                      r="3.5"
-                      fill="#047857"
-                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                    />
-                    <motion.circle
-                      cx="78"
-                      cy="82"
-                      r="3.5"
-                      fill="#047857"
-                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-                    />
-                    <motion.circle
-                      cx="182"
-                      cy="58"
-                      r="3.5"
-                      fill="#047857"
-                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
-                    />
-                    <motion.circle
-                      cx="182"
-                      cy="82"
-                      r="3.5"
-                      fill="#047857"
-                      animate={{ r: [3.5, 4.5, 3.5], fillOpacity: [0.35, 0.85, 0.35] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.45 }}
-                    />
-                  </svg>
+                <div className="w-48 h-48 rounded-full bg-[#6CFF94]/25 blur-[50px]" />
+              </div>
 
-                  {/* Outer Muted Nodes */}
-                  <motion.span
-                    className="absolute left-2 top-7 w-4 h-4 rounded-full bg-black/10"
-                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-                  />
-                  <motion.span
-                    className="absolute left-2 bottom-7 w-4 h-4 rounded-full bg-black/10"
-                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-                  />
-                  <motion.span
-                    className="absolute right-2 top-7 w-4 h-4 rounded-full bg-black/10"
-                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
-                  />
-                  <motion.span
-                    className="absolute right-2 bottom-7 w-4 h-4 rounded-full bg-black/10"
-                    animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-                  />
-
-                  {/* Sealed Privacy Vault Core */}
+              {/* Privacy Shield Stage */}
+              <div
+                aria-hidden="true"
+                className="relative z-10 flex-1 flex items-center justify-center py-2"
+              >
+                {/* Concentric Defense Rings & Centered Identity Vault */}
+                <div className="relative w-full max-w-[260px] h-[170px] flex items-center justify-center">
+                  {/* Outer Dashed Rotating Barrier */}
                   <motion.div
-                    className="relative z-10 flex items-center justify-center"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
+                    className="absolute w-[185px] h-[185px] rounded-full border border-dashed border-[#047857]/25 pointer-events-none"
+                  />
+
+                  {/* Inner Protective Pulse Aura */}
+                  <motion.div
+                    animate={{ scale: [1, 1.08, 1], opacity: [0.4, 0.75, 0.4] }}
+                    transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+                    className="absolute w-[145px] h-[145px] rounded-full bg-[#6CFF94]/20 border border-[#047857]/20 pointer-events-none"
+                  />
+
+                  {/* Central Identity Vault Card */}
+                  <motion.div
                     animate={{ y: [-2, 2, -2] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    className="relative z-10 w-[210px] rounded-[20px] bg-white border border-black/10 shadow-[0_14px_30px_rgba(0,0,0,0.07)] p-3.5 flex flex-col gap-2.5 group-hover:scale-[1.03] transition-transform duration-300"
                   >
-                    {/* Breathing Outer Shield Aura */}
-                    <motion.div
-                      className="absolute -inset-3.5 rounded-[30px] border border-[#047857]/20 bg-gradient-to-br from-[#6CFF94]/15 to-transparent backdrop-blur-xs"
-                      animate={{ scale: [1, 1.08, 1], opacity: [0.4, 0.85, 0.4] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                    />
-                    <div className="absolute -inset-2 rounded-[26px] border border-black/10 bg-white/70" />
-
-                    <div className="relative w-20 h-20 rounded-[22px] bg-white border border-black/10 shadow-[0_12px_30px_rgba(0,0,0,0.08)] flex flex-col items-center justify-center gap-1.5 group-hover:scale-105 transition-transform duration-300">
-                      <motion.div
-                        className="w-9 h-9 rounded-full bg-[#6CFF94]/40 flex items-center justify-center text-[#047857]"
-                        animate={{ scale: [1, 1.06, 1] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                      >
-                        <UserCheck className="w-4.5 h-4.5 stroke-[2.2]" />
-                      </motion.div>
-                      <div className="flex gap-1 items-center">
-                        <span className="w-3 h-1 rounded-full bg-black/80" />
-                        <motion.span
-                          className="w-1.5 h-1 rounded-full bg-[#047857]"
-                          animate={{ opacity: [0.35, 1, 0.35] }}
-                          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                        />
+                    {/* Top Row: User Avatar + Verified Status */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-[#6CFF94]/40 flex items-center justify-center text-[#047857]">
+                          <UserCheck className="w-4 h-4 stroke-[2.2]" />
+                        </div>
+                        <div className="flex flex-col text-left">
+                          <span className="text-[12px] font-bold text-black leading-tight">
+                            Identity Vault
+                          </span>
+                          <span className="text-[10px] text-neutral-500 font-medium">
+                            Zero-Knowledge
+                          </span>
+                        </div>
                       </div>
+
+                      {/* Lock Pill */}
+                      <div className="w-6 h-6 rounded-full bg-black/[0.05] border border-black/10 flex items-center justify-center text-neutral-700">
+                        <Lock className="w-3 h-3 stroke-[2.2]" />
+                      </div>
+                    </div>
+
+                    {/* Middle: Masked / Encrypted Data Rows */}
+                    <div className="rounded-xl bg-[#F7F8F7] border border-black/[0.06] p-2 flex flex-col gap-1.5">
+                      <div className="flex items-center justify-between text-[10px] font-mono text-neutral-500">
+                        <span>CNIC / ID</span>
+                        <span className="font-semibold text-neutral-800 tracking-wider">••••-••••••</span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] font-mono text-neutral-500">
+                        <span>Activity</span>
+                        <span className="font-semibold text-neutral-800 tracking-wider">••••-••••••</span>
+                      </div>
+                    </div>
+
+                    {/* Bottom Status Pill */}
+                    <div className="flex items-center justify-between pt-0.5">
+                      <span className="text-[10px] font-medium text-neutral-500">
+                        Third-Party Sharing
+                      </span>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#6CFF94]/35 text-[#047857] text-[10px] font-bold tracking-tight">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#047857] animate-pulse" />
+                        0% Shared
+                      </span>
                     </div>
                   </motion.div>
                 </div>
