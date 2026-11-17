@@ -947,7 +947,7 @@ export default function HeroAndShowcase() {
                 </div>
               </div>
 
-              {/* Minimal Metric Card (Compact Horizontal Bar for Mobile) */}
+              {/* Minimal Metric Card (Wrapped cleanly on mobile to prevent awkward text breaking) */}
               <div
                 className={`rounded-[20px] p-4 border shrink-0 ${isDark
                   ? 'border-white/15 bg-white/[0.06]'
@@ -956,23 +956,27 @@ export default function HeroAndShowcase() {
                     : 'border-black/10 bg-black/[0.03] shadow-sm'
                   }`}
               >
-                <div className="flex items-center justify-between gap-3">
-                  <div>
+                <div className="flex flex-col min-[520px]:flex-row min-[520px]:items-center min-[520px]:justify-between gap-2 min-[520px]:gap-4">
+                  <div className="shrink-0">
                     <span
-                      className={`text-[11px] uppercase tracking-wider block ${isDark ? 'text-[#A3A3A3]' : isGreen ? 'text-black/70' : 'text-[#555555]'
+                      className={`text-[11px] uppercase tracking-wider block font-medium ${isDark ? 'text-[#A3A3A3]' : isGreen ? 'text-black/70' : 'text-[#555555]'
                         }`}
                     >
                       {chapter.metricLabel}
                     </span>
                     <div
-                      className="text-[24px] sm:text-[28px] font-bold leading-tight tracking-tight"
+                      className="text-[24px] sm:text-[28px] font-bold leading-tight tracking-tight whitespace-nowrap"
                       style={{ color: isGreen ? '#000000' : chapter.logoColor }}
                     >
                       {chapter.metricValue}
                     </div>
                   </div>
                   <div
-                    className={`text-[12px] text-right max-w-[170px] ${isDark ? 'text-[#D4D4D4]' : isGreen ? 'text-black/80' : 'text-[#444444]'
+                    className={`text-[12px] sm:text-[13px] leading-relaxed pt-2 min-[520px]:pt-0 border-t min-[520px]:border-t-0 min-[520px]:text-right min-[520px]:max-w-[200px] ${isDark
+                      ? 'border-white/10 text-[#D4D4D4]'
+                      : isGreen
+                        ? 'border-black/15 text-black/80'
+                        : 'border-black/10 text-[#555555]'
                       }`}
                   >
                     {chapter.metricDetail}
