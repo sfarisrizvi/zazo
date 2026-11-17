@@ -145,14 +145,8 @@ export default function SecurityTrust() {
 
             {/* 2. Licensed rails (Architectural Settlement Topology) */}
             <div
-              className="group relative lg:col-span-5 rounded-[28px] sm:rounded-[36px] bg-[#F2F5F3] border border-black/[0.08] p-6 sm:p-8 lg:p-10 overflow-hidden flex flex-col justify-between min-h-[360px] sm:min-h-[410px]"
+              className="group relative lg:col-span-5 rounded-[28px] sm:rounded-[36px] bg-[#F5F6F5] border border-black/[0.08] p-6 sm:p-8 lg:p-10 overflow-hidden flex flex-col justify-between min-h-[360px] sm:min-h-[410px]"
             >
-              {/* Soft Emerald Wash */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full bg-[#6CFF94]/30 blur-[90px]"
-              />
-
               {/* Visual Stage: Multi-Node Banking Rail Diagram */}
               <div
                 aria-hidden="true"
@@ -168,13 +162,13 @@ export default function SecurityTrust() {
                     {/* Rail Grid Lines */}
                     <path
                       d="M42 95 C 105 95, 115 42, 170 42 C 225 42, 235 95, 298 95"
-                      stroke="rgba(4,120,87,0.22)"
+                      stroke="rgba(0,0,0,0.12)"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                     />
                     <path
                       d="M42 95 C 105 95, 115 148, 170 148 C 225 148, 235 95, 298 95"
-                      stroke="rgba(4,120,87,0.22)"
+                      stroke="rgba(0,0,0,0.12)"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                     />
@@ -200,7 +194,7 @@ export default function SecurityTrust() {
                     <motion.circle
                       r="9"
                       cy="95"
-                      fill="rgba(108,255,148,0.5)"
+                      fill="rgba(4,120,87,0.2)"
                       initial={{ cx: 48 }}
                       animate={{ cx: [48, 292] }}
                       transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
@@ -208,21 +202,21 @@ export default function SecurityTrust() {
                   </svg>
 
                   {/* Left Endpoint Pillar */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white border border-black/10 shadow-md flex items-center justify-center">
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white border border-black/10 shadow-xs flex items-center justify-center">
                     <div className="w-7 h-7 rounded-lg bg-black flex items-center justify-center">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#6CFF94]" />
                     </div>
                   </div>
 
                   {/* Center Regulated Bank Shield Pillar */}
-                  <div className="relative z-10 w-20 h-20 rounded-[24px] bg-white border-2 border-[#047857]/30 shadow-[0_14px_35px_rgba(4,120,87,0.16)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                    <div className="w-12 h-12 rounded-2xl bg-[#6CFF94]/35 flex items-center justify-center text-[#047857]">
+                  <div className="relative z-10 w-20 h-20 rounded-[24px] bg-white border border-black/10 shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#6CFF94]/25 flex items-center justify-center text-[#047857]">
                       <ShieldCheck className="w-6 h-6 stroke-[2]" />
                     </div>
                   </div>
 
                   {/* Right Endpoint Settlement Node */}
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white border border-black/10 shadow-md flex items-center justify-center">
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white border border-black/10 shadow-xs flex items-center justify-center">
                     <Landmark className="w-5 h-5 text-[#047857]" />
                   </div>
                 </div>
@@ -360,20 +354,20 @@ export default function SecurityTrust() {
 
             {/* 4. Fraud protection (Live Radar & Waveform Visual) */}
             <div
-              className="group relative rounded-[28px] sm:rounded-[34px] bg-gradient-to-br from-[#EEFFF4] via-[#DCFFE7] to-[#6CFF94]/45 border border-[#047857]/20 p-6 sm:p-8 overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[340px]"
+              className="group relative rounded-[28px] sm:rounded-[34px] bg-[#F5F6F5] border border-black/[0.08] p-6 sm:p-8 overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[340px]"
             >
               {/* Telemetry Waveform & Sonar Pulse Visual */}
               <div
                 aria-hidden="true"
                 className="relative z-10 flex-1 flex items-center justify-center py-4"
               >
-                <div className="relative w-full h-36 rounded-2xl bg-white/75 backdrop-blur-sm border border-[#047857]/15 shadow-inner flex items-center justify-center overflow-hidden px-4">
+                <div className="relative w-full h-36 rounded-2xl bg-white border border-black/10 shadow-xs flex items-center justify-center overflow-hidden px-4">
                   {/* Subtle Horizontal Monitoring Grid */}
                   <div
                     className="absolute inset-0 opacity-30"
                     style={{
                       backgroundImage:
-                        'linear-gradient(to right, rgba(4,120,87,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(4,120,87,0.12) 1px, transparent 1px)',
+                        'linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px)',
                       backgroundSize: '20px 20px',
                     }}
                   />
@@ -386,7 +380,7 @@ export default function SecurityTrust() {
                   >
                     <path
                       d="M0 52 L55 52 L72 52 L84 28 L98 72 L112 16 L126 62 L138 46 L152 52 L210 52 L224 38 L234 58 L244 52 L280 52"
-                      stroke="rgba(4,120,87,0.22)"
+                      stroke="rgba(0,0,0,0.14)"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -406,25 +400,25 @@ export default function SecurityTrust() {
                       cx="112"
                       cy="16"
                       r="9"
-                      fill="rgba(239,68,68,0.35)"
-                      animate={{ r: [8, 12, 8], fillOpacity: [0.25, 0.55, 0.25] }}
+                      fill="rgba(239,68,68,0.3)"
+                      animate={{ r: [8, 12, 8], fillOpacity: [0.2, 0.45, 0.2] }}
                       transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
                     />
                     <circle cx="112" cy="16" r="4.5" fill="#EF4444" />
                   </svg>
 
                   {/* Active Sensor Badge */}
-                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#047857] text-white flex items-center justify-center shadow-sm">
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#047857] text-white flex items-center justify-center shadow-xs">
                     <Activity className="w-4 h-4" />
                   </div>
                 </div>
               </div>
 
-              <div className="relative z-10 pt-4 border-t border-[#047857]/15">
+              <div className="relative z-10 pt-4 border-t border-black/10">
                 <h3 className="text-[22px] sm:text-[24px] font-bold tracking-[-0.5px] text-black m-0">
                   Fraud protection.
                 </h3>
-                <p className="mt-1 text-[15px] text-neutral-700 font-normal m-0">
+                <p className="mt-1 text-[15px] text-neutral-600 font-normal m-0">
                   Real-time monitoring.
                 </p>
               </div>
@@ -434,14 +428,6 @@ export default function SecurityTrust() {
             <div
               className="group relative rounded-[28px] sm:rounded-[34px] bg-[#F5F6F5] border border-black/[0.08] p-6 sm:p-8 overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[340px]"
             >
-              {/* Soft Ambient Privacy Glow */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 flex items-center justify-center"
-              >
-                <div className="w-48 h-48 rounded-full bg-[#6CFF94]/25 blur-[50px]" />
-              </div>
-
               {/* Privacy Shield Stage */}
               <div
                 aria-hidden="true"
@@ -451,15 +437,15 @@ export default function SecurityTrust() {
                 <div className="relative w-full max-w-[260px] h-[170px] flex items-center justify-center">
                   {/* Expanding Sonar Forcefield Waves */}
                   <motion.div
-                    className="absolute rounded-full border border-[#047857]/30 pointer-events-none"
-                    initial={{ width: 130, height: 130, opacity: 0.8 }}
-                    animate={{ width: [130, 220], height: [130, 220], opacity: [0.7, 0] }}
+                    className="absolute rounded-full border border-black/10 pointer-events-none"
+                    initial={{ width: 130, height: 130, opacity: 0.6 }}
+                    animate={{ width: [130, 220], height: [130, 220], opacity: [0.5, 0] }}
                     transition={{ duration: 2.8, repeat: Infinity, ease: 'easeOut' }}
                   />
                   <motion.div
-                    className="absolute rounded-full border border-[#047857]/20 pointer-events-none"
-                    initial={{ width: 130, height: 130, opacity: 0.8 }}
-                    animate={{ width: [130, 220], height: [130, 220], opacity: [0.7, 0] }}
+                    className="absolute rounded-full border border-black/10 pointer-events-none"
+                    initial={{ width: 130, height: 130, opacity: 0.6 }}
+                    animate={{ width: [130, 220], height: [130, 220], opacity: [0.5, 0] }}
                     transition={{ duration: 2.8, repeat: Infinity, ease: 'easeOut', delay: 1.4 }}
                   />
 
@@ -467,28 +453,28 @@ export default function SecurityTrust() {
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
-                    className="absolute w-[185px] h-[185px] rounded-full border border-dashed border-[#047857]/30 pointer-events-none"
+                    className="absolute w-[185px] h-[185px] rounded-full border border-dashed border-black/15 pointer-events-none"
                   >
                     {/* Orbiting Defense Satellite Dot */}
-                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#047857] shadow-[0_0_8px_#6CFF94]" />
+                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#047857]" />
                   </motion.div>
 
-                  {/* Inner Protective Pulse Aura */}
+                  {/* Inner Protective Ring */}
                   <motion.div
-                    animate={{ scale: [1, 1.08, 1], opacity: [0.4, 0.75, 0.4] }}
+                    animate={{ scale: [1, 1.05, 1], opacity: [0.4, 0.7, 0.4] }}
                     transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute w-[145px] h-[145px] rounded-full bg-[#6CFF94]/20 border border-[#047857]/20 pointer-events-none"
+                    className="absolute w-[145px] h-[145px] rounded-full border border-black/10 pointer-events-none"
                   />
 
                   {/* Central Identity Vault Card with Scanner & Shield Animations */}
                   <motion.div
                     animate={{ y: [-3, 3, -3] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                    className="relative z-10 w-[210px] rounded-[20px] bg-white border border-black/10 shadow-[0_14px_30px_rgba(0,0,0,0.07)] p-3.5 flex flex-col gap-2.5 group-hover:scale-[1.03] transition-transform duration-300 overflow-hidden"
+                    className="relative z-10 w-[210px] rounded-[20px] bg-white border border-black/10 shadow-[0_12px_28px_rgba(0,0,0,0.06)] p-3.5 flex flex-col gap-2.5 group-hover:scale-[1.03] transition-transform duration-300 overflow-hidden"
                   >
                     {/* Live Laser Scanner Beam */}
                     <motion.div
-                      className="pointer-events-none absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#047857]/65 to-transparent shadow-[0_0_8px_rgba(108,255,148,0.8)] z-30"
+                      className="pointer-events-none absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#047857]/50 to-transparent z-30"
                       animate={{ top: ['4%', '94%', '4%'] }}
                       transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
                     />

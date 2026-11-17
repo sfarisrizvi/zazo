@@ -59,7 +59,7 @@ interface StoryChapter {
 export const allThemes: ThemeType[] = [
   'green', // 0: Hero
   'white', // 1: Global Receiving
-  'black', // 2: Conversion Clarity
+  'black', // 2: USD to PKR, instantly
   'white', // 3: Spend Like a Local
   'green', // 4: Instant Transfers
   'white', // 5: Activity Rewards
@@ -84,10 +84,10 @@ const chapters: StoryChapter[] = [
   {
     id: 'convert-clarity',
     stepNumber: '02',
-    shortName: 'Conversion Clarity',
-    badge: '02 · Conversion Clarity',
-    headline: 'Conversion Clarity',
-    description: 'Know your exact rate before you confirm.',
+    shortName: 'USD to PKR, instantly',
+    badge: '02 · USD to PKR, instantly',
+    headline: 'USD to PKR, instantly',
+    description: 'Switch your USD to PKR instantly. Lock in your rate and get local currency in seconds',
     featureBadge: 'NO FX FEE • NO SPREAD • NO HIDDEN FEES',
     screenSrc: '/screens/convert.png',
     screenAlt: 'Zazo Currency Conversion Review Screen',
@@ -750,7 +750,7 @@ export default function HeroAndShowcase() {
           data-snap-point
           data-snap-id="mobile-hero"
           data-theme-bg="green"
-          className="snap-section-top relative z-10 flex min-h-[100dvh] w-full flex-col justify-between bg-[#6CFF94] px-5 py-6 overflow-hidden"
+          className="snap-section-top relative z-10 flex min-h-[100dvh] w-full flex-col justify-between bg-[#6CFF94] px-5 py-6 overflow-hidden mobile-hero-container"
         >
           {/* Background Video & Gradient Overlay */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -775,14 +775,14 @@ export default function HeroAndShowcase() {
           </div>
 
           {/* Top-Left Logo on Mobile */}
-          <div className="w-full flex items-center justify-start z-20 relative">
+          <div className="w-full flex items-center justify-start z-20 relative shrink-0 mobile-hero-logo">
             <a href="#hero" aria-label="Zazo Home" className="flex items-center">
               <Logo height={38} className="text-black" />
             </a>
           </div>
 
           {/* Centered Content Stack: Hero Copy + The Flow Graphic + Center Phone + Badges */}
-          <div className="flex flex-col items-center justify-center w-full my-auto gap-3 sm:gap-4 relative z-10">
+          <div className="flex flex-col items-center justify-center w-full my-auto gap-3 sm:gap-4 relative z-10 mobile-hero-stack">
             {/* Mobile Hero Copy & Flow Graphic */}
             <div className="flex flex-col items-center text-center gap-1.5 z-20 px-1 pt-1">
               <h1 className="text-[32px] sm:text-[38px] font-bold leading-tight tracking-[-1.3px] text-black m-0">

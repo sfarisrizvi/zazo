@@ -134,3 +134,26 @@ body {
     border-radius: 32px !important;
   }
 }
+
+/* Small-screen phone hero layout fix:
+   When screen height is <= 760px (e.g. iPhone SE, iPhone 8, or compact mobile viewports),
+   enforce generous breathing room below the logo so the hero headline never jams against it.
+   Normal phones (height > 760px) remain completely untouched with natural vertical centering.
+*/
+@media (max-height: 760px) and (max-width: 639px) {
+  .mobile-hero-container {
+    justify-content: flex-start !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  .mobile-hero-logo {
+    margin-bottom: 2rem !important; /* 32px guaranteed breathing room below logo */
+  }
+  .mobile-hero-stack {
+    margin-top: 0 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .mobile-hero-cta {
+    padding-bottom: 1.5rem !important;
+  }
+}
